@@ -11,11 +11,13 @@ import clsx from "clsx";
 export function NavBar() {
   return (
     <aside className={`
-    h-full w-[300px] pt-[4em] pb-[40px]
-    overflow-y-scroll float-left z-[1001] bg-[#f2f3f7]
+    sm:h-full sm:w-[300px] sm:pt-[4em] sm:pb-[40px] p-1
+    sm:overflow-y-scroll sm:float-left z-[1001] bg-[#f2f3f7]
     text-black dark:text-white dark:bg-black
+    flex sm:flex-col
     `}>
-      <div className="text-center flex flex-col place-items-center">
+      <div className="text-center h-max w-full
+      items-center justify-center flex sm:flex-col">
         <NavProfileImg />
         <NavProfileTitle />
       </div>
@@ -23,10 +25,9 @@ export function NavBar() {
       <NavFooter />
     </aside>
   )
-
 }
 
-export function NavProfileImg() {
+function NavProfileImg() {
   return (
     <Image
       src={"/images/nav_pimg.jpg"}
@@ -34,21 +35,31 @@ export function NavProfileImg() {
       width={636}
       alt="my navbar profile image"
       className={`
-      w-[150px] h-[150px] mx-auto my-0 mb-[30px]
-      rounded-full bg-cover bg-center bg-no-repeat relative
+      sm:w-[150px] sm:h-[150px] mx-auto my-0 mb-[30px]
+      w-[80px] h-[80px]
+      rounded-full bg-cover bg-center bg-no-repeat
+
       `} />
   )
 }
-export function NavProfileTitle() {
+
+function NavTitle() {
   return (
-    <>
+    <p>CrusaderGoT</p>
+  )
+}
+
+function NavProfileTitle() {
+  return (
+    <div className="hidden sm:block">
       <h1 className="font-bold text-[22px] mb-[.5em] w-full">Enemchukwu Emeka</h1>
       <span className="mb-[2em] text-[12px] text-center">Python | Web  Developer in Nigeria</span>
-    </>
+    </div>
 
   )
 }
-export function NavLinks() {
+
+function NavLinks() {
   const pathname = usePathname();
 
   return (
@@ -56,12 +67,13 @@ export function NavLinks() {
     ${quickSand.className} antialiased
     w-full h-full relative min-h-[55px] mb-[20px]
     border border-solid border-transparent
-    md:text-[16px] table box-border
+    md:text-[16px] box-border
+    sm:table self-center
     `}>
       <ul className={`
-      m-0 text-center p-0 list-disc
-      flex flex-col place-items-center
-      space-y-[7px] 
+      m-1 text-center p-0 sm:pt-4 list-disc
+      flex sm:flex-col items-center h-full
+      justify-between flex-wrap
       `}>
         {links.map((link) => {
             return (
@@ -96,7 +108,8 @@ function NavFooter() {
     <footer className={`
     ${quickSand.className}
     text-[15px] text-center font-normal
-    tejxt-[rgba(0,0,0,0.5)] py-0 px-[20px] w-full
+    text-[rgba(0,0,0,0.5)] py-0 px-[20px] w-full
+    hidden sm:block dark:text-white
     `}>
       <p>
         <small>

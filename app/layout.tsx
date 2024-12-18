@@ -27,13 +27,15 @@ export default function RootLayout({
       >
         <div className="
         max-w-[1170px] my-0 mx-auto
-        h-screen max-h-max flex
+        h-screen max-h-max flex flex-col sm:flex-row
+        relative
         ">
           <NavBar />
           
           <div className="flex-1 relative">
             {children}
           </div>
+          
         </div>
         
       </body>
