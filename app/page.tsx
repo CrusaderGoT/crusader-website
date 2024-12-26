@@ -3,7 +3,6 @@ import Image from "next/image";
 
 
 export default function Home() {
-  const bgImg = ""
   return (
   <div className={`
   bg-white h-full w-full flex-grow relative
