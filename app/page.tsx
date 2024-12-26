@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 
 
@@ -17,8 +16,3 @@ export default function Home() {
   </div>
   )
 }
-
-export const metadata: Metadata = {
-  title: "CrusaderGoT",
-  description: "My portfolio website",
-};

@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image";
-import { quickSand } from "../layout";
+import { quickSand } from "../fonts/google";
 import Link from "next/link"
 import { links } from "./links";
 import { usePathname } from "next/navigation";

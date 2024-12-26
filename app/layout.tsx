@@ -1,19 +1,12 @@
 import "./globals.css";
-import {Space_Mono, Quicksand} from "next/font/google";
 import { NavBar } from "./ui/nav";
+import { spaceMono } from "./fonts/google";
+import { Metadata } from "next";
 
-
-const spaceMono = Space_Mono({
-  weight: ["400", "700"],
-  subsets: ["latin"],
-  style: ["italic", "normal"],
-});
-
-export const quickSand = Quicksand({
-  weight: ['300', "400", '500', '600', "700"],
-  subsets: ["latin"],
-  style: "normal",
-});
+export const metadata: Metadata = {
+  title: "CrusaderGoT",
+  description: "My portfolio website",
+};
 
 export default function RootLayout({
   children,
