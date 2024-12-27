@@ -5,7 +5,7 @@ import { useDisclosure } from '@mantine/hooks';
 import Image from 'next/image';
 
 
-export function Shell() {
+export function Shell({ children, }: { children: React.ReactNode; } ) {
 	const [mobileOpened, { toggle: toggleMobile }] = useDisclosure();
 	const [desktopOpened, { toggle: toggleDesktop }] = useDisclosure(true)
 
@@ -26,6 +26,7 @@ export function Shell() {
 					< NavProfileImg />
 				</Group>
 			</AppShell.Header>
+			<AppShell.Main>{ children }</AppShell.Main>
 		</AppShell>
 	)
 }
