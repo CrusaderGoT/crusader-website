@@ -11,10 +11,10 @@ export function NavBar() {
     text-black dark:text-white dark:bg-black
     `}>
       <div className="text-center flex flex-col place-items-center">
-        <NavProfileImg />
+        {/*<NavProfileImg />*/}
         <NavProfileTitle />
       </div>
-      <NavLinks />
+      {/*<NavLinks />*/}
       <NavFooter />
     </aside>
   )
