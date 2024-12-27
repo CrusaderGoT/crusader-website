@@ -1,3 +1,9 @@
+// Import styles of packages that you've installed.
+// All packages except `@mantine/hooks` require styles imports
+import '@mantine/core/styles.css';
+
+import { ColorSchemeScript, MantineProvider, mantineHtmlProps } from '@mantine/core';
+
 import "./globals.css";
 import { NavBar } from "./ui/nav";
 import { spaceMono } from "./fonts/google";
@@ -14,20 +20,26 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" {...mantineHtmlProps}>
+      <head>
+        <ColorSchemeScript />
+      </head>
       <body
         className={`${spaceMono.className} antialiased`}
       >
-        <div className="
-        max-w-[1170px] my-0 mx-auto
-        h-screen max-h-max flex
-        ">
-          <NavBar />
-          
-          <div className="flex-1 relative">
-            {children}
+        <MantineProvider>
+          <div className="
+          max-w-[1170px] my-0 mx-auto
+          h-screen max-h-max flex
+          ">
+            <NavBar />
+            
+            <div className="flex-1 relative">
+              {children}
+            </div>
           </div>
-        </div>
+        </MantineProvider>
+        
         
       </body>
     </html>
