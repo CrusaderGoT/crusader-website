@@ -50,7 +50,7 @@ function NavProfileImg() {
       width={636}
       alt="my navbar profile image"
       className={`
-      w-[150px] h-[150px] mx-auto my-0 mb-[30px]
+      w-[30px] h-full my-2
       rounded-full bg-cover bg-center bg-no-repeat relative
       `} />
   );
