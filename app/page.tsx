@@ -4,7 +4,7 @@ import { Shell } from "./ui/shell";
 
 export default function Home() {
   return (
-    <Shell main={Main} />
+    <Shell></Shell>
   )
 }
 
