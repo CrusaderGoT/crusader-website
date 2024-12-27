@@ -1,11 +1,11 @@
 "use client"
 
-import Image from "next/image";
 import { quickSand } from "../fonts/google";
 import Link from "next/link"
 import { links } from "./links";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
+import { NavProfileImg } from "./shell";
 
 
 export function NavBar() {
@@ -26,19 +26,6 @@ export function NavBar() {
 
 }
 
-export function NavProfileImg() {
-  return (
-    <Image
-      src={"/images/nav_pimg.jpg"}
-      height={480}
-      width={636}
-      alt="my navbar profile image"
-      className={`
-      w-[150px] h-[150px] mx-auto my-0 mb-[30px]
-      rounded-full bg-cover bg-center bg-no-repeat relative
-      `} />
-  )
-}
 export function NavProfileTitle() {
   return (
     <>
