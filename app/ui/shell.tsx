@@ -10,7 +10,7 @@ import { usePathname } from 'next/navigation';
 import { quickSand } from '../fonts/google';
 
 
-export function Shell({ main }: { main: React.ReactNode }) {
+export function Shell({ main }: { main: React.ComponentType }) {
 	const [mobileOpened, { toggle: toggleMobile }] = useDisclosure();
 	const [desktopOpened, { toggle: toggleDesktop }] = useDisclosure(true)
 
