@@ -5,9 +5,11 @@ import '@mantine/core/styles.css';
 import { ColorSchemeScript, MantineProvider, mantineHtmlProps } from '@mantine/core';
 
 import "./globals.css";
-import { NavBar } from "./ui/nav";
+//import { NavBar } from "./ui/nav";
+import { Shell } from './ui/shell';
 import { spaceMono } from "./fonts/google";
 import { Metadata } from "next";
+
 
 export const metadata: Metadata = {
   title: "CrusaderGoT",
@@ -28,7 +30,7 @@ export default function RootLayout({
         className={`${spaceMono.className} antialiased`}
       >
         <MantineProvider>
-          <div className="
+          {/**<div className="
           max-w-[1170px] my-0 mx-auto
           h-screen max-h-max flex
           ">
@@ -37,7 +39,8 @@ export default function RootLayout({
             <div className="flex-1 relative">
               {children}
             </div>
-          </div>
+          </div>*/}
+          <Shell />
         </MantineProvider>
         
         
