@@ -6,7 +6,6 @@ import { ColorSchemeScript, MantineProvider, mantineHtmlProps } from '@mantine/c
 
 import "./globals.css";
 //import { NavBar } from "./ui/nav";
-import { Shell } from './ui/shell';
 import { spaceMono } from "./fonts/google";
 import { Metadata } from "next";
 
@@ -40,7 +39,7 @@ export default function RootLayout({
               {children}
             </div>
           </div>*/}
-          <Shell>{children}</Shell>
+          {children}
         </MantineProvider>
         
         

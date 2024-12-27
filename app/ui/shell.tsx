@@ -10,7 +10,7 @@ import { usePathname } from 'next/navigation';
 import { quickSand } from '../fonts/google';
 
 
-export function Shell() {
+export function Shell({ main }: { main: React.ReactNode }) {
 	const [mobileOpened, { toggle: toggleMobile }] = useDisclosure();
 	const [desktopOpened, { toggle: toggleDesktop }] = useDisclosure(true)
 
@@ -36,7 +36,7 @@ export function Shell() {
 				<NavLinks />
 			</AppShell.Navbar>
 
-			<AppShell.Main>Main</AppShell.Main>
+			<AppShell.Main>Main{ main }</AppShell.Main>
 		</AppShell>
 	)
 }
