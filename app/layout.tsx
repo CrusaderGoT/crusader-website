@@ -40,7 +40,7 @@ export default function RootLayout({
               {children}
             </div>
           </div>*/}
-          <Shell children={children} />
+          <Shell>{children}</Shell>
         </MantineProvider>
         
         

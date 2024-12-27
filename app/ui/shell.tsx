@@ -1,8 +1,13 @@
 "use client"
 
-import { AppShell, Burger, Group, Skeleton } from '@mantine/core';
+import { AppShell, Burger, Group } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import Image from 'next/image';
+import { links } from "./links";
+import Link from 'next/link';
+import clsx from 'clsx';
+import { usePathname } from 'next/navigation';
+import { quickSand } from '../fonts/google';
 
 
 export function Shell({ children, }: { children: React.ReactNode; } ) {
@@ -26,6 +31,12 @@ export function Shell({ children, }: { children: React.ReactNode; } ) {
 					< NavProfileImg />
 				</Group>
 			</AppShell.Header>
+
+			<AppShell.Navbar p={"md"}>
+				<NavLinks />
+			</AppShell.Navbar>
+
+
 			<AppShell.Main>{ children }</AppShell.Main>
 		</AppShell>
 	)
@@ -42,5 +53,48 @@ function NavProfileImg() {
       w-[150px] h-[150px] mx-auto my-0 mb-[30px]
       rounded-full bg-cover bg-center bg-no-repeat relative
       `} />
+  );
+}
+
+function NavLinks() {
+  const pathname = usePathname();
+
+  return (
+    <nav className={`
+    ${quickSand.className} antialiased
+    w-full h-full relative min-h-[55px] mb-[20px]
+    border border-solid border-transparent
+    md:text-[16px] table box-border
+    `}>
+      <ul className={`
+      m-0 text-center p-0 list-disc
+      flex flex-col place-items-center
+      space-y-[7px] 
+      `}>
+        {links.map((link) => {
+            return (
+              <li className="
+              p-0 m-0 ml-[10px] list-none w-fit
+              text-[500] tracking-[1px]
+              "
+              key={link.name}>
+                <Link
+                key={link.name}
+                href={link.href}
+                className={`
+                py-[10px] px-0 relative
+                text-[rgba(0,0,0,0.7)] dark:text-[rgba(248,247,247,0.7)]
+                hover:text-black dark:hover:text-white
+                underline-offset-4 ${clsx({'underline text-black dark:text-white': pathname === link.href})}
+                uppercase text-[12px] ease-in duration-300
+                
+                `}>{link.name}</Link>
+              </li>
+              
+            );
+        })}
+      </ul>
+
+    </nav>
   );
 }

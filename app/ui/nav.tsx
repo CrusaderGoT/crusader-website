@@ -1,11 +1,6 @@
 "use client"
 
 import { quickSand } from "../fonts/google";
-import Link from "next/link"
-import { links } from "./links";
-import { usePathname } from "next/navigation";
-import clsx from "clsx";
-import { NavProfileImg } from "./shell";
 
 
 export function NavBar() {
@@ -35,48 +30,8 @@ export function NavProfileTitle() {
 
   )
 }
-export function NavLinks() {
-  const pathname = usePathname();
 
-  return (
-    <nav className={`
-    ${quickSand.className} antialiased
-    w-full h-full relative min-h-[55px] mb-[20px]
-    border border-solid border-transparent
-    md:text-[16px] table box-border
-    `}>
-      <ul className={`
-      m-0 text-center p-0 list-disc
-      flex flex-col place-items-center
-      space-y-[7px] 
-      `}>
-        {links.map((link) => {
-            return (
-              <li className="
-              p-0 m-0 ml-[10px] list-none w-fit
-              text-[500] tracking-[1px]
-              "
-              key={link.name}>
-                <Link
-                key={link.name}
-                href={link.href}
-                className={`
-                py-[10px] px-0 relative
-                text-[rgba(0,0,0,0.7)] dark:text-[rgba(248,247,247,0.7)]
-                hover:text-black dark:hover:text-white
-                underline-offset-4 ${clsx({'underline text-black dark:text-white': pathname === link.href})}
-                uppercase text-[12px] ease-in duration-300
-                
-                `}>{link.name}</Link>
-              </li>
-              
-            );
-        })}
-      </ul>
 
-    </nav>
-  );
-}
 
 function NavFooter() {
   return (
