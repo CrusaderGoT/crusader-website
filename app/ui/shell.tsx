@@ -10,7 +10,7 @@ import { usePathname } from 'next/navigation';
 import { quickSand } from '../fonts/google';
 
 
-export function Shell({ children, }: { children: React.ReactNode; } ) {
+export function Shell() {
 	const [mobileOpened, { toggle: toggleMobile }] = useDisclosure();
 	const [desktopOpened, { toggle: toggleDesktop }] = useDisclosure(true)
 
@@ -36,8 +36,7 @@ export function Shell({ children, }: { children: React.ReactNode; } ) {
 				<NavLinks />
 			</AppShell.Navbar>
 
-
-			<AppShell.Main>{ children }</AppShell.Main>
+			<AppShell.Main>Main</AppShell.Main>
 		</AppShell>
 	)
 }
@@ -50,8 +49,8 @@ function NavProfileImg() {
       width={636}
       alt="my navbar profile image"
       className={`
-      w-[30px] h-full my-2
-      rounded-full bg-cover bg-center bg-no-repeat relative
+      w-[40px] h-[40px] float-right
+      rounded-full relative
       `} />
   );
 }
