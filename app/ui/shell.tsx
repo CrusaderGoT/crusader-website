@@ -51,7 +51,7 @@ export function Shell({ children }: ShellProps) {
 	)
 }
 
-function NavProfileImg({height, width}: {height: String, width: String}) {
+function NavProfileImg({height, width}: {height: string, width: string}) {
   return (
     <Image
       src={"/images/nav_pimg.jpg"}
