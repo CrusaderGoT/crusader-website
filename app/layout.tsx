@@ -5,9 +5,9 @@ import '@mantine/core/styles.css';
 import { ColorSchemeScript, MantineProvider, mantineHtmlProps } from '@mantine/core';
 
 import "./globals.css";
-//import { NavBar } from "./ui/nav";
 import { spaceMono } from "./fonts/google";
 import { Metadata } from "next";
+import { Shell } from './ui/shell';
 
 
 export const metadata: Metadata = {
@@ -29,19 +29,10 @@ export default function RootLayout({
         className={`${spaceMono.className} antialiased`}
       >
         <MantineProvider>
-          {/**<div className="
-          max-w-[1170px] my-0 mx-auto
-          h-screen max-h-max flex
-          ">
-            <NavBar />
-            
-            <div className="flex-1 relative">
-              {children}
-            </div>
-          </div>*/}
-          {children}
+          
+        <Shell>{children}</Shell>
+          
         </MantineProvider>
-        
         
       </body>
     </html>

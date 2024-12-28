@@ -10,7 +10,11 @@ import { usePathname } from 'next/navigation';
 import { quickSand } from '../fonts/google';
 
 
-export function Shell() {
+interface ShellProps {
+  children: React.ReactNode;
+}
+
+export function Shell({ children }: ShellProps) {
 	const [mobileOpened, { toggle: toggleMobile }] = useDisclosure();
 	const [desktopOpened, { toggle: toggleDesktop }] = useDisclosure(true)
 
@@ -18,7 +22,7 @@ export function Shell() {
 		<AppShell
 			header={{ height: { base: 60, md: 70, lg: 80 } }}
 			navbar={{
-			width: { base: 200, md: 300, lg: 400 },
+        width: { base: 200, md: 300, lg: 400 },
 			breakpoint: 'sm',
 			collapsed: { mobile: !mobileOpened, desktop: !desktopOpened },
 			}}
@@ -26,22 +30,28 @@ export function Shell() {
 		>
 			<AppShell.Header>
 				<Group h={"100%"} px={"md"}>
-					<Burger opened={mobileOpened} onClick={toggleMobile} hiddenFrom="sm" size={"sm"} />
+        <Burger opened={mobileOpened} onClick={toggleMobile} hiddenFrom="sm" size={"sm"} />
 					<Burger opened={desktopOpened} onClick={toggleDesktop} visibleFrom="sm" size={"sm"} />
-					< NavProfileImg />
+					<NavProfileImg height={"h-full"} width={"w-auto"} />
 				</Group>
 			</AppShell.Header>
 
-			<AppShell.Navbar p={"md"}>
+			<AppShell.Navbar p={"md"} className="text-center flex flex-col place-items-center overflow-y-auto">
+        <NavProfileImg height={"h-[150px]"} width={"w-[150px]"} />
+        <NavProfileTitle />
 				<NavLinks />
 			</AppShell.Navbar>
 
-			<AppShell.Main>Main</AppShell.Main>
+			<AppShell.Main>
+        {children}
+      </AppShell.Main>
+
+      <AppShell.Footer p="md"> <NavFooter /> </AppShell.Footer>
 		</AppShell>
 	)
 }
 
-function NavProfileImg() {
+function NavProfileImg({height, width}: {height: String, width: String}) {
   return (
     <Image
       src={"/images/nav_pimg.jpg"}
@@ -49,8 +59,8 @@ function NavProfileImg() {
       width={636}
       alt="my navbar profile image"
       className={`
-      w-[40px] h-[40px] float-right
-      rounded-full relative
+      ${width} ${height} py-2 px-2
+      rounded-full relative self-center
       `} />
   );
 }
@@ -82,9 +92,9 @@ function NavLinks() {
                 href={link.href}
                 className={`
                 py-[10px] px-0 relative
-                text-[rgba(0,0,0,0.7)] dark:text-[rgba(248,247,247,0.7)]
-                hover:text-black dark:hover:text-white
-                underline-offset-4 ${clsx({'underline text-black dark:text-white': pathname === link.href})}
+                text-[rgba(0,0,0,0.7)]
+                hover:text-black
+                underline-offset-4 ${clsx({'underline text-black': pathname === link.href})}
                 uppercase text-[12px] ease-in duration-300
                 
                 `}>{link.name}</Link>
@@ -97,3 +107,28 @@ function NavLinks() {
     </nav>
   );
 }
+export function NavProfileTitle() {
+  return (
+    <div className='text-black mb-3'>
+      <h1 className="font-bold text-[22px] mb-[.5em] w-full ">Enemchukwu Emeka</h1>
+      <span className="text-[12px] text-center">Python | Web  Developer in Nigeria</span>
+    </div>
+
+  );
+}export function NavFooter() {
+  return (
+    <footer className={`
+    ${quickSand.className}
+    text-[15px] text-center font-normal
+    text-[rgba(0,0,0,0.5)] 
+    `}>
+      <p>
+        <small>
+          © Copyright ©2024 All rights reserved | This template is made with  by Colorlib
+          Demo Images: Unsplash.com
+        </small>
+      </p>
+    </footer>
+  );
+}
+
