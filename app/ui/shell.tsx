@@ -8,8 +8,6 @@ import Link from 'next/link';
 import clsx from 'clsx';
 import { usePathname } from 'next/navigation';
 import { quickSand } from '../fonts/google';
-import { useViewportSize } from '@mantine/hooks';
-import { writeFile } from 'fs';
 
 
 
@@ -20,7 +18,6 @@ interface ShellProps {
 export function Shell({ children }: ShellProps) {
 	const [mobileOpened, { toggle: toggleMobile }] = useDisclosure();
 	const [desktopOpened, { toggle: toggleDesktop }] = useDisclosure(true)
-  const { height, width } = useViewportSize();
 
 	return (
 		<AppShell
@@ -134,7 +131,7 @@ function NavProfileTitle() {
   );
 }
 
-function NavFooter() {
+export function NavFooter() {
   return (
     <footer className={`
     ${quickSand.className}

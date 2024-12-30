@@ -2,7 +2,6 @@
 
 import { useRef } from 'react';
 import Autoplay from 'embla-carousel-autoplay';
-import Image from 'next/image';
 import { Carousel } from '@mantine/carousel';
 import styles from "./home.module.css"
 import { Paper, Text, Title } from '@mantine/core';
