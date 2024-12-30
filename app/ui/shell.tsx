@@ -8,6 +8,9 @@ import Link from 'next/link';
 import clsx from 'clsx';
 import { usePathname } from 'next/navigation';
 import { quickSand } from '../fonts/google';
+import { useViewportSize } from '@mantine/hooks';
+import { writeFile } from 'fs';
+
 
 
 interface ShellProps {
@@ -17,6 +20,7 @@ interface ShellProps {
 export function Shell({ children }: ShellProps) {
 	const [mobileOpened, { toggle: toggleMobile }] = useDisclosure();
 	const [desktopOpened, { toggle: toggleDesktop }] = useDisclosure(true)
+  const { height, width } = useViewportSize();
 
 	return (
 		<AppShell
@@ -26,32 +30,44 @@ export function Shell({ children }: ShellProps) {
 			breakpoint: 'sm',
 			collapsed: { mobile: !mobileOpened, desktop: !desktopOpened },
 			}}
-			padding={"md"}
 		>
 			<AppShell.Header>
-				<Group h={"100%"} px={"md"}>
+				<Group h={"100%"} px={"md"} className='flex'>
         <Burger opened={mobileOpened} onClick={toggleMobile} hiddenFrom="sm" size={"sm"} />
-					<Burger opened={desktopOpened} onClick={toggleDesktop} visibleFrom="sm" size={"sm"} />
-					<NavProfileImg height={"h-full"} width={"w-auto"} />
+				<Burger opened={desktopOpened} onClick={toggleDesktop} visibleFrom="sm" size={"sm"} />
+        <div className='flex flex-row-reverse text-black w-full flex-1'>
+        <NavProfileImg />
+        <HeaderTitle />
+        </div>
+        
 				</Group>
 			</AppShell.Header>
 
 			<AppShell.Navbar p={"md"} className="text-center flex flex-col place-items-center overflow-y-auto">
-        <NavProfileImg height={"h-[150px]"} width={"w-[150px]"} />
+        <NavProfileImg />
         <NavProfileTitle />
 				<NavLinks />
+
+        {/*<AppShell.Footer p="md"> <NavFooter /> </AppShell.Footer>*/}
 			</AppShell.Navbar>
 
-			<AppShell.Main>
+			<AppShell.Main className='flex h-[100vh]'>
         {children}
       </AppShell.Main>
 
-      <AppShell.Footer p="md"> <NavFooter /> </AppShell.Footer>
 		</AppShell>
 	)
 }
 
-function NavProfileImg({height, width}: {height: string, width: string}) {
+function HeaderTitle() {
+  return (
+    <div className='place-self-center'>
+      <span><p className='font-bold text-[18px]'>CrusaderGoT</p></span>
+    </div>
+  )
+}
+
+function NavProfileImg() {
   return (
     <Image
       src={"/images/nav_pimg.jpg"}
@@ -59,8 +75,8 @@ function NavProfileImg({height, width}: {height: string, width: string}) {
       width={636}
       alt="my navbar profile image"
       className={`
-      ${width} ${height} py-2 px-2
-      rounded-full relative self-center
+      h-[50px] w-[50px] py-2 px-2
+      rounded-full
       `} />
   );
 }
@@ -107,7 +123,8 @@ function NavLinks() {
     </nav>
   );
 }
-export function NavProfileTitle() {
+
+function NavProfileTitle() {
   return (
     <div className='text-black mb-3'>
       <h1 className="font-bold text-[22px] mb-[.5em] w-full ">Enemchukwu Emeka</h1>
@@ -115,7 +132,9 @@ export function NavProfileTitle() {
     </div>
 
   );
-}export function NavFooter() {
+}
+
+function NavFooter() {
   return (
     <footer className={`
     ${quickSand.className}
