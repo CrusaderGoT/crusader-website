@@ -7,11 +7,6 @@ import styles from "./home.module.css"
 import { Paper, Text, Title } from '@mantine/core';
 
 
-const images = [
-  "/images/nav_pimg.jpg",
-  "/images/nav_pimg.jpg",
-  "/images/nav_pimg.jpg"
-];
 const homeCards = [
   {
     image: "/images/nav_pimg.jpg",
