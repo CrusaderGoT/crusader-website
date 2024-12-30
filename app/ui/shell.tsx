@@ -27,6 +27,7 @@ export function Shell({ children }: ShellProps) {
 			breakpoint: 'sm',
 			collapsed: { mobile: !mobileOpened, desktop: !desktopOpened },
 			}}
+className='h-[100vh] w-[100vh]'
 		>
 			<AppShell.Header>
 				<Group h={"100%"} px={"md"} className='flex'>
