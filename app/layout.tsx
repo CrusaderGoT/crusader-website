@@ -3,13 +3,17 @@
 import '@mantine/core/styles.css';
 import '@mantine/carousel/styles.css';
 
-import { ColorSchemeScript, MantineProvider, mantineHtmlProps } from '@mantine/core';
+import { ColorSchemeScript, MantineProvider, createTheme, mantineHtmlProps } from '@mantine/core';
 
 import "./globals.css";
 import { spaceMono } from "./fonts/google";
 import { Metadata } from "next";
 import { Shell } from './ui/shell';
 
+const theme = createTheme({
+  fontFamily: 'Open Sans, sans-serif, mono',
+  primaryColor: 'cyan',
+});
 
 export const metadata: Metadata = {
   title: "CrusaderGoT",
@@ -29,7 +33,7 @@ export default function RootLayout({
       <body
         className={`${spaceMono.className} antialiased`}
       >
-        <MantineProvider>
+        <MantineProvider theme={theme} defaultColorScheme="dark">
           
         <Shell>{children}</Shell>
           

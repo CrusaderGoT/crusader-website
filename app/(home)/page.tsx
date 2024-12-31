@@ -44,7 +44,7 @@ function Main() {
       align="center"
       slideSize="100%"
       height="100%"
-      className={`flex-1`}
+      className={`flex-1 overflow-hidden`}
       classNames={styles}
     >
       {homeCards.map((data, index) => (

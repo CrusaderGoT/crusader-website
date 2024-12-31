@@ -12,10 +12,10 @@
     opacity: 0;
   }
   
-  .root {
-    &:hover {
-      .controls {
-        opacity: 1;
-      }
+.root {
+  &:hover {
+    .controls {
+      opacity: 1;
     }
+  }
 }

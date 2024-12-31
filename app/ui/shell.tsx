@@ -27,10 +27,9 @@ export function Shell({ children }: ShellProps) {
 			breakpoint: 'sm',
 			collapsed: { mobile: !mobileOpened, desktop: !desktopOpened },
 			}}
-className='h-[100vh] w-[100vh]'
 		>
 			<AppShell.Header>
-				<Group h={"100%"} px={"md"} className='flex'>
+				<Group h={"100%"} px={"md"} className='flex flex-nowrap'>
         <Burger opened={mobileOpened} onClick={toggleMobile} hiddenFrom="sm" size={"sm"} />
 				<Burger opened={desktopOpened} onClick={toggleDesktop} visibleFrom="sm" size={"sm"} />
         <div className='flex flex-row-reverse text-black w-full flex-1'>
@@ -41,15 +40,15 @@ className='h-[100vh] w-[100vh]'
 				</Group>
 			</AppShell.Header>
 
-			<AppShell.Navbar p={"md"} className="text-center flex flex-col place-items-center overflow-y-auto">
+			<AppShell.Navbar p={"md"} className="text-center flex flex-col items-center justify-start overflow-x-hidden overflow-y-auto">
         <NavProfileImg />
         <NavProfileTitle />
 				<NavLinks />
 
-        {/*<AppShell.Footer p="md"> <NavFooter /> </AppShell.Footer>*/}
+        <AppShell.Footer p="md" className='relative'> <NavFooter /> </AppShell.Footer>
 			</AppShell.Navbar>
 
-			<AppShell.Main className='flex h-[100vh]'>
+			<AppShell.Main className='flex h-screen w-screen'>
         {children}
       </AppShell.Main>
 
