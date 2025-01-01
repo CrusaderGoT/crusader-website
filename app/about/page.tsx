@@ -16,9 +16,9 @@ export default function About() {
 📊 Matplotlib for data visualization,
 💻 HTML and CSS for frontend development,
 🅱️ Bootstrap5 for responsive design.
-🌱 Currently, I'm expanding my skills into JavaScript and diving deeper into Django REST framework for building RESTful APIs. I've also been experimenting with Tailwind CSS for modern and utility-first styling, and Geopy for geocoding and location-based services.
+🌱 Currently, I&#39;m expanding my skills into JavaScript and diving deeper into Django REST framework for building RESTful APIs. I&#39;ve also been experimenting with Tailwind CSS for modern and utility-first styling, and Geopy for geocoding and location-based services.
 
-💡 In my recent ventures, I've explored database management with PostgreSQL using Psycopg2, deploying applications on platforms like Render, and API Integration.
+💡 In my recent ventures, I&#39;ve explored database management with PostgreSQL using Psycopg2, deploying applications on platforms like Render, and API Integration.
 
 🔭 Additionally, some of my personal projects not on GitHub, include an e-commerce website available on sale on Upwork; utilizing APIs from platforms like Reddit, Spotify, Twitter, and Meta for personal use.
 
@@ -26,7 +26,7 @@ export default function About() {
 
 📫 You can reach me at enememeka44@gmail.com.
 
-Let's connect and collaborate on exciting projects!
+Let&#39;s connect and collaborate on exciting projects!
             </Text>
         </div>
     )
