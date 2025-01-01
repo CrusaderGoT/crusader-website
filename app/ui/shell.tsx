@@ -45,7 +45,7 @@ export function Shell({ children }: ShellProps) {
         <NavProfileTitle />
 				<NavLinks />
 
-        <AppShell.Footer p="md" className='fixed'> <NavFooter /> </AppShell.Footer>
+        <AppShell.Footer p="md" className='relative'> <NavFooter /> </AppShell.Footer>
 			</AppShell.Navbar>
 
 			<AppShell.Main className='flex h-screen w-screen'>
@@ -105,8 +105,7 @@ function NavLinks() {
                 href={link.href}
                 className={`
                 py-[10px] px-0 relative
-                text-[rgba(0,0,0,0.7)]
-                hover:text-black
+                hover:invert
                 underline-offset-4 ${clsx({'underline text-black': pathname === link.href})}
                 uppercase text-[12px] ease-in duration-300
                 
@@ -123,7 +122,7 @@ function NavLinks() {
 
 function NavProfileTitle() {
   return (
-    <div className='text-black mb-3'>
+    <div className='mb-3'>
       <h1 className="font-bold text-[22px] mb-[.5em] w-full ">Enemchukwu Emeka</h1>
       <span className="text-[12px] text-center">Python | Web  Developer in Nigeria</span>
     </div>
@@ -135,8 +134,7 @@ export function NavFooter() {
   return (
     <footer className={`
     ${quickSand.className}
-    text-[15px] text-center font-normal
-    text-[rgba(0,0,0,0.5)] 
+    text-[15px] text-center font-normal relative
     `}>
       <p>
         <small>
