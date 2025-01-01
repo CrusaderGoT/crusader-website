@@ -71,8 +71,14 @@ function Card({ image, title, category }: CardProps) {
     shadow='md'
     p={"xl"}
     radius={"md"}
-    style={{ backgroundImage: `url(${image})` }}
-    className='w-[98%] h-[98%] flex flex-col justify-between bg-cover bg-center'
+    style={{ 
+      backgroundImage: `url(${image})`,
+      display: "flex",
+      backgroundSize: "cover",
+      justifyContent: "space-between",
+      backgroundPosition: "center"
+    }}
+    className='w-[98%] h-[98%] flex-col'
     >
       <div>
         <Text 
