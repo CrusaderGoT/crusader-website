@@ -105,7 +105,7 @@ function NavLinks() {
                 href={link.href}
                 className={`
                 py-[10px] px-0 relative
-                hover:invert
+                hover:opacity-70
                 underline-offset-4 ${clsx({'underline': pathname === link.href})}
                 uppercase text-[12px] ease-in duration-300
                 
