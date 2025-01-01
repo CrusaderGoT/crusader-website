@@ -32,7 +32,7 @@ export function Shell({ children }: ShellProps) {
 				<Group h={"100%"} px={"md"} className='flex flex-nowrap'>
         <Burger opened={mobileOpened} onClick={toggleMobile} hiddenFrom="sm" size={"sm"} />
 				<Burger opened={desktopOpened} onClick={toggleDesktop} visibleFrom="sm" size={"sm"} />
-        <div className='flex flex-row-reverse text-black w-full flex-1'>
+        <div className='flex flex-row-reverse w-full flex-1'>
         <NavProfileImg />
         <HeaderTitle />
         </div>
@@ -106,7 +106,7 @@ function NavLinks() {
                 className={`
                 py-[10px] px-0 relative
                 hover:invert
-                underline-offset-4 ${clsx({'underline text-black': pathname === link.href})}
+                underline-offset-4 ${clsx({'underline': pathname === link.href})}
                 uppercase text-[12px] ease-in duration-300
                 
                 `}>{link.name}</Link>
