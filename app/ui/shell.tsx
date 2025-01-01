@@ -45,7 +45,7 @@ export function Shell({ children }: ShellProps) {
         <NavProfileTitle />
 				<NavLinks />
 
-        <AppShell.Footer p="md" className='relative'> <NavFooter /> </AppShell.Footer>
+        <AppShell.Footer p="md" className='fixed'> <NavFooter /> </AppShell.Footer>
 			</AppShell.Navbar>
 
 			<AppShell.Main className='flex h-screen w-screen'>
