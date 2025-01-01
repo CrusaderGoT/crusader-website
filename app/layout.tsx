@@ -33,7 +33,7 @@ export default function RootLayout({
       <body
         className={`${spaceMono.className} antialiased`}
       >
-        <MantineProvider theme={theme} defaultColorScheme="dark">
+        <MantineProvider theme={theme}>
           
         <Shell>{children}</Shell>
           
