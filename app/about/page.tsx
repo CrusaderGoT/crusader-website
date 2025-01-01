@@ -4,10 +4,10 @@ export default function About() {
     return (
         <div>
             <Text>
-            👋 Hi, I&n2019;m @CrusaderGoT
+            👋 Hi, I&#39;`m @CrusaderGoT
 
 👤 Real Name: Emeka ~ a-may-car
-👀 I’m passionate about Python, especially with Django for web development, and I enjoy working with various libraries and technologies including:
+👀 I&#39;`m passionate about Python, especially with Django for web development, and I enjoy working with various libraries and technologies including:
 
 🎶 Librosa for audio and music analysis,
 🎥 Moviepy for video editing and manipulation,
