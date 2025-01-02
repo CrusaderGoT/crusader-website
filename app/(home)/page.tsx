@@ -26,10 +26,6 @@ const homeCards = [
 ]
 
 export default function Home() {
-  return <Main />;
-}
-
-function Main() {
   const autoplay = useRef(Autoplay(
     { delay: 5000 , stopOnInteraction: false,
     stopOnMouseEnter: true}
@@ -44,7 +40,7 @@ function Main() {
       align="center"
       slideSize="100%"
       height="100%"
-      className={`flex-1 overflow-hidden`}
+      className={`flex-1 self-stretch w-full h-full`}
       classNames={styles}
     >
       {homeCards.map((data, index) => (
