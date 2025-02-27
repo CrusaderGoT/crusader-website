@@ -42,8 +42,8 @@ const theme = createTheme({
         gold: goldThemeColor,
         goldVirtual: virtualColor({
             name: "gold",
-            dark: "gold.9",
-            light: "gold.2",
+            dark: "gold.4",
+            light: "gold.8",
         }),
     },
     primaryColor: "gold",
