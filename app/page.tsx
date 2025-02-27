@@ -11,7 +11,7 @@ export default function Home() {
             </Box>
             <ModeToggleButton />{" "}
             <Title order={1} fw={400} fs={"italic"}>
-                h4pp
+                CrusaderGoT
             </Title>{" "}
             <Text>kkkk</Text>
         </>
