@@ -12,6 +12,7 @@ import {
     MantineProvider,
     createTheme,
     mantineHtmlProps,
+    virtualColor,
 } from "@mantine/core";
 
 import { Metadata } from "next";
@@ -19,7 +20,7 @@ import { Metadata } from "next";
 import GreatVictorian from "@/fonts/GreatVictorianFont";
 import MorrisRoman from "@/fonts/MorrisRomanFont";
 
-const myColor: MantineColorsTuple = [
+const goldThemeColor: MantineColorsTuple = [
     "#fffce1",
     "#fff8cb",
     "#ffef9a",
@@ -37,7 +38,16 @@ const theme = createTheme({
     luminanceThreshold: 0.4,
     defaultRadius: "md",
     primaryShade: { dark: 7, light: 9 },
-    colors: { myColor },
+    colors: {
+        gold: goldThemeColor,
+        goldVirtual: virtualColor({
+            name: "gold",
+            dark: "gold.9",
+            light: "gold.2",
+        }),
+    },
+    primaryColor: "gold",
+    defaultGradient: { from: "gold.5", to: "gold.8", deg: 90 },
     fontFamily: `${MorrisRoman.style.fontFamily}`,
     headings: { fontFamily: `${GreatVictorian.style.fontFamily}` },
 });
