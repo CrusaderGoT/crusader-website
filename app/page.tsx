@@ -10,7 +10,7 @@ export default function Home() {
                 and cyan in light mode
             </Box>
             <ModeToggleButton />{" "}
-            <Title order={1} fw={400} fs={"italic"}>
+            <Title order={1} fw={400}>
                 CrusaderGoT
             </Title>{" "}
             <Text>kkkk</Text>
