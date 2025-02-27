@@ -5,11 +5,6 @@ import "@mantine/core/styles.css";
 import "@mantine/code-highlight/styles.css";
 import "@mantine/dates/styles.css";
 import "@mantine/dropzone/styles.css";
-import "@mantine/form/styles.css";
-import "@mantine/modals/styles.css";
-import "@mantine/notifications/styles.css";
-import "@mantine/nprogress/styles.css";
-import "@mantine/tiptap/styles.css";
 
 import {
     ColorSchemeScript,
@@ -20,6 +15,9 @@ import {
 } from "@mantine/core";
 
 import { Metadata } from "next";
+
+import GreatVictorian from "@/fonts/GreatVictorianFont";
+import MorrisRoman from "@/fonts/MorrisRomanFont";
 
 const myColor: MantineColorsTuple = [
     "#fffce1",
@@ -40,8 +38,8 @@ const theme = createTheme({
     defaultRadius: "md",
     primaryShade: { dark: 7, light: 9 },
     colors: { myColor },
-    fontFamily: "var(----font-morrisRoman)",
-    headings: { fontFamily: "var(--font-greatVictorian)" },
+    fontFamily: `${MorrisRoman.style.fontFamily}`,
+    headings: { fontFamily: `${GreatVictorian.style.fontFamily}` },
 });
 
 export const metadata: Metadata = {
@@ -55,12 +53,12 @@ export default async function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en" {...mantineHtmlProps} data-mantime-color-scheme="auto">
+        <html lang="en" {...mantineHtmlProps}>
             <head>
-                <ColorSchemeScript defaultColorScheme="auto" />
+                <ColorSchemeScript defaultColorScheme="dark" />
             </head>
             <body className={`antialiased`}>
-                <MantineProvider theme={theme} defaultColorScheme="auto">
+                <MantineProvider defaultColorScheme="dark" theme={theme}>
                     {children}
                 </MantineProvider>
             </body>
