@@ -1,3 +1,4 @@
+// landing page.
 import { ModeToggleButton } from "@/ui/ModeToggle";
 import { Text, Title, Button, Box } from "@mantine/core";
 
