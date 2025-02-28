@@ -8,7 +8,7 @@ export default function Home() {
 
     return (
         <>
-            {Array(40)
+            {Array(1)
           .fill(0)
           .map((_, index) => (
             <Text size="lg" key={index} my="md" maw={600} mx="auto">

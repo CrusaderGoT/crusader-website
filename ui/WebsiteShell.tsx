@@ -1,9 +1,8 @@
 "use client";
 
 import { AppShell, Burger, Group, Title } from "@mantine/core";
-import { useDisclosure } from "@mantine/hooks";
+import { useDisclosure, useElementSize, useHeadroom } from "@mantine/hooks";
 import { ModeToggleButton } from "./ModeToggleButton";
-import { useHeadroom } from "@mantine/hooks"
 
 export function WebsiteShell({
     children,
@@ -13,6 +12,8 @@ export function WebsiteShell({
     const [mobileOpened, { toggle: toggleMobile }] = useDisclosure();
     const [desktopOpened, { toggle: toggleDesktop }] = useDisclosure(true);
 
+    const { ref, height } = useElementSize();
+    const pinned = useHeadroom({ fixedAt: height - 1000 });
 
     return (
         <AppShell
@@ -29,11 +30,11 @@ export function WebsiteShell({
             }}
             footer={{
                 height: 40,
-                offset: false
+                collapsed: pinned,
             }}
         >
             <AppShell.Header zIndex={210}>
-                <Group justify="space-between" p={5}>
+                <Group justify="space-between" p={5} gap={"lg"}>
                     <Burger
                         opened={mobileOpened}
                         onClick={toggleMobile}
@@ -46,14 +47,14 @@ export function WebsiteShell({
                         visibleFrom="xs"
                         size="sm"
                     />
-                    <Title c={"gold"}>CrusaderGoT</Title>
+                    <Title c={"gold"} textWrap="nowrap">CrusaderGoT</Title>
                     <ModeToggleButton />
                 </Group>
             </AppShell.Header>
 
             <AppShell.Navbar></AppShell.Navbar>
 
-            <AppShell.Main>{children}</AppShell.Main>
+            <AppShell.Main ref={ref}>{children}</AppShell.Main>
 
             <AppShell.Footer>
                 <p>footer</p>
