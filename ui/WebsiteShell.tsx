@@ -1,8 +1,11 @@
 "use client";
 
-import { AppShell, Burger, Group, Title } from "@mantine/core";
+import { AppShell, Burger, Group, ScrollArea, Title } from "@mantine/core";
+
 import { useDisclosure, useElementSize, useHeadroom } from "@mantine/hooks";
-import { ModeToggleButton } from "./ModeToggleButton";
+
+import { ModeToggleButton } from "@/ui/ModeToggleButton";
+import { ShellNavLinks } from "@/ui/ShellNavLinks";
 
 export function WebsiteShell({
     children,
@@ -54,7 +57,13 @@ export function WebsiteShell({
                 </Group>
             </AppShell.Header>
 
-            <AppShell.Navbar></AppShell.Navbar>
+            <AppShell.Navbar>
+                <AppShell.Section>Avater</AppShell.Section>
+
+                <AppShell.Section grow component={ScrollArea}>
+                    <ShellNavLinks />
+                </AppShell.Section>
+            </AppShell.Navbar>
 
             <AppShell.Main ref={ref}>{children}</AppShell.Main>
 
