@@ -1,8 +1,8 @@
 // Import styles of packages that you've installed.
 // All packages except `@mantine/hooks` require styles imports
 import "@mantine/carousel/styles.css";
-import "@mantine/core/styles.css";
 import "@mantine/code-highlight/styles.css";
+import "@mantine/core/styles.css";
 import "@mantine/dates/styles.css";
 import "@mantine/dropzone/styles.css";
 
@@ -14,6 +14,8 @@ import {
     mantineHtmlProps,
     virtualColor,
 } from "@mantine/core";
+
+import { Analytics } from "@vercel/analytics/next";
 
 import { Metadata } from "next";
 
@@ -70,6 +72,7 @@ export default async function RootLayout({
             <body className={`antialiased`}>
                 <MantineProvider defaultColorScheme="dark" theme={theme}>
                     {children}
+                    <Analytics />
                 </MantineProvider>
             </body>
         </html>
