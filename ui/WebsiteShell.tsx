@@ -5,6 +5,7 @@ import { AppShell, Burger, Group, ScrollArea, Title } from "@mantine/core";
 import { useDisclosure, useElementSize, useHeadroom } from "@mantine/hooks";
 
 import { ModeToggleButton } from "@/ui/ModeToggleButton";
+import { NavCard } from "@/ui/NavCard";
 import { ShellNavLinks } from "@/ui/ShellNavLinks";
 
 export function WebsiteShell({
@@ -58,7 +59,9 @@ export function WebsiteShell({
             </AppShell.Header>
 
             <AppShell.Navbar>
-                <AppShell.Section>Avater</AppShell.Section>
+                <AppShell.Section>
+                    <NavCard />
+                </AppShell.Section>
 
                 <AppShell.Section grow component={ScrollArea}>
                     <ShellNavLinks />
