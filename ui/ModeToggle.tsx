@@ -24,7 +24,7 @@ export function ModeToggleButton() {
         <ActionIcon
             onClick={toggleColorScheme}
             variant="subtle"
-            size="xs"
+            size="sm"
             aria-label="Toggle color scheme"
         >
             {computedColorScheme === "light" ? (
