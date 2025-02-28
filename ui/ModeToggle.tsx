@@ -23,8 +23,8 @@ export function ModeToggleButton() {
     return (
         <ActionIcon
             onClick={toggleColorScheme}
-            variant="default"
-            size="xl"
+            variant="subtle"
+            size="sm"
             aria-label="Toggle color scheme"
         >
             {computedColorScheme === "light" ? (
