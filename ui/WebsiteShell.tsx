@@ -47,7 +47,9 @@ export function WebsiteShell({
                         visibleFrom="xs"
                         size="sm"
                     />
-                    <Title c={"gold"} textWrap="nowrap">CrusaderGoT</Title>
+                    <Title c={"gold"} textWrap="nowrap">
+                        CrusaderGoT
+                    </Title>
                     <ModeToggleButton />
                 </Group>
             </AppShell.Header>
