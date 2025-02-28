@@ -6,14 +6,13 @@ import {
     Affix,
     Avatar,
     Blockquote,
-    Center,
     Container,
     Flex,
     HoverCard,
     Image as MantineImage,
     Skeleton,
     Stack,
-    Text,
+    Text
 } from "@mantine/core";
 
 import Image from "next/image";
@@ -65,55 +64,53 @@ export function NavCard() {
     const Icon = <IconInfoCircle />;
 
     return (
-        <Center>
-            <Stack>
-                <HoverCard>
-                    <HoverCard.Target>
-                        <Avatar
-                            src="/images/nav_pimg.jpg"
-                            alt="Enemchukwu Chukwuemeka's avatar"
-                            name="Enemchukwu Chukwuemeka"
-                            color="gold"
-                            size="md"
-                            mx={"auto"}
-                            mt="xs"
-                        />
-                    </HoverCard.Target>
+        <Stack>
+            <HoverCard>
+                <HoverCard.Target>
+                    <Avatar
+                        src="/images/nav_pimg.jpg"
+                        alt="Enemchukwu Chukwuemeka's avatar"
+                        name="Enemchukwu Chukwuemeka"
+                        color="gold"
+                        size="xl"
+                        mx={"auto"}
+                        mt="xs"
+                    />
+                </HoverCard.Target>
 
-                    <HoverCard.Dropdown hidden>
-                        <Affix
-                            position={{
-                                top: 100,
-                                left: 100,
-                                right: 100,
-                                bottom: 100,
-                            }}
-                        >
-                            <Container size={"sm"}>
-                                <MantineImage
-                                    component={Image}
-                                    src={"/images/nav_pimg.jpg"}
-                                    alt="Enemchukwu Chukwuemeka's Picture"
-                                    radius={"md"}
-                                    width={365}
-                                    height={480}
-                                />
-                            </Container>
-                        </Affix>
-                    </HoverCard.Dropdown>
-                </HoverCard>
+                <HoverCard.Dropdown hidden>
+                    <Affix
+                        position={{
+                            top: 100,
+                            left: 100,
+                            right: 100,
+                            bottom: 100,
+                        }}
+                    >
+                        <Container size={"sm"}>
+                            <MantineImage
+                                component={Image}
+                                src={"/images/nav_pimg.jpg"}
+                                alt="Enemchukwu Chukwuemeka's Picture"
+                                radius={"md"}
+                                width={365}
+                                height={480}
+                            />
+                        </Container>
+                    </Affix>
+                </HoverCard.Dropdown>
+            </HoverCard>
 
-                <Blockquote
-                    color="gold"
-                    cite={randomQuote.authour}
-                    icon={Icon}
-                    mx={"xs"}
-                    iconSize={25}
-                    p={"xs"}
-                >
-                    <Text size="sm">{randomQuote.quote}</Text>
-                </Blockquote>
-            </Stack>
-        </Center>
+            <Blockquote
+                color="gold"
+                cite={randomQuote.authour}
+                icon={Icon}
+                mx={"xs"}
+                iconSize={25}
+                p={"xs"}
+            >
+                <Text size="sm">{randomQuote.quote}</Text>
+            </Blockquote>
+        </Stack>
     );
 }
