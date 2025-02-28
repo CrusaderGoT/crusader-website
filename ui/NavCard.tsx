@@ -12,7 +12,7 @@ import {
     Image as MantineImage,
     Skeleton,
     Stack,
-    Text
+    Text,
 } from "@mantine/core";
 
 import Image from "next/image";
@@ -81,13 +81,13 @@ export function NavCard() {
                 <HoverCard.Dropdown hidden>
                     <Affix
                         position={{
-                            top: 100,
-                            left: 100,
-                            right: 100,
-                            bottom: 100,
+                            top: 150,
+                            left: 20,
+                            right: 20,
+                            bottom: 150,
                         }}
                     >
-                        <Container size={"sm"}>
+                        <Container size={"xl"}>
                             <MantineImage
                                 component={Image}
                                 src={"/images/nav_pimg.jpg"}
