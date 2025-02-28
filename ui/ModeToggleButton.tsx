@@ -6,7 +6,9 @@ import {
     useMantineColorScheme,
     useComputedColorScheme,
 } from "@mantine/core";
+import cx from "clsx"
 import { IconSun, IconMoon } from "@tabler/icons-react";
+import classes from "@/styles/shell/ModeToggleButton.module.css"
 
 export function ModeToggleButton() {
     const { setColorScheme } = useMantineColorScheme();
@@ -27,11 +29,8 @@ export function ModeToggleButton() {
             size="sm"
             aria-label="Toggle color scheme"
         >
-            {computedColorScheme === "light" ? (
-                <IconSun stroke={1.5} />
-            ) : (
-                <IconMoon stroke={1.5} />
-            )}
+            <IconSun className={cx(classes.icon, classes.light)} stroke={1.5} />
+            <IconMoon className={cx(classes.icon, classes.dark)} stroke={1.5} />
         </ActionIcon>
     );
 }

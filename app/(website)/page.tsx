@@ -1,20 +1,20 @@
-// landing page.
-import { ModeToggleButton } from "@/ui/ModeToggle";
-import { Text, Title, Button, Box } from "@mantine/core";
+// Home Page. // Carousel
+import { Text } from "@mantine/core";
 
 export default function Home() {
+    const lorem =
+  'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos ullam, ex cum repellat alias ea nemo. Ducimus ex nesciunt hic ad saepe molestiae nobis necessitatibus laboriosam officia, reprehenderit, earum fugiat?';
+
+
     return (
         <>
-            <Button variant="outline">theme</Button>
-            <Box bg="gold" c="black" m="md" p={"sm"} fw={700}>
-                This box has virtual background color, it is pink in dark mode
-                and cyan in light mode
-            </Box>
-            <ModeToggleButton />{" "}
-            <Title order={1} fw={400}>
-                CrusaderGoT
-            </Title>{" "}
-            <Text>kkkk</Text>
+            {Array(40)
+          .fill(0)
+          .map((_, index) => (
+            <Text size="lg" key={index} my="md" maw={600} mx="auto">
+              {lorem}
+            </Text>
+          ))}
         </>
     );
 }

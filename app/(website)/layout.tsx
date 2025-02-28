@@ -1,4 +1,4 @@
-
+import { WebsiteShell } from "@/ui/WebsiteShell"
 
 export default async function WebsiteLayout({
     children,
@@ -6,6 +6,9 @@ export default async function WebsiteLayout({
     children: React.ReactNode
 }) {
     return (
-        {children}
+        <WebsiteShell>
+            {children}
+        </WebsiteShell>
+        
     )
 }
