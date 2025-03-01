@@ -48,7 +48,7 @@ type SlideProps = {
 
 const slides: SlideProps[] = [
     {
-        image: "/images/nav_pimg.jpg",
+        image: "/carouselImages/pythonCarouselImage.jpg",
         language: "Python",
         description:
             "Python is a high-level, interpreted programming language. It is known for its simplicity and readability.",
@@ -56,7 +56,7 @@ const slides: SlideProps[] = [
         languageCode: "py",
     },
     {
-        image: "https://images4.alphacoders.com/128/1286188.jpg",
+        image: "/carouselImages/typescriptCarouselImage.jpg",
         language: "TypeScript",
         description:
             "TypeScript is a superset of JavaScript that adds static typing to the language.",
@@ -64,12 +64,44 @@ const slides: SlideProps[] = [
         languageCode: "ts",
     },
     {
-        image: "https://images.unsplash.com/photo-1634170380004-4b3b3b3b3b3b",
+        image: "/carouselImages/htmlCarouselImage.jpg",
         language: "HTML",
         description:
             "HTML is the standard markup language for creating web pages.",
         helloWorld: "<h1>Hello, World!</h1>",
         languageCode: "html",
+    },
+    {
+        image: "/carouselImages/cssCarouselImage.jpg",
+        language: "CSS",
+        description:
+            "CSS describes how HTML elements should be displayed on the screen.",
+        helloWorld: "h1 { color: blue; }",
+        languageCode: "css",
+    },
+    {
+        image: "/carouselImages/javascriptCarouselImage.jpg",
+        language: "JavaScript",
+        description:
+            "JavaScript is the programming language of the web. It is used to make web pages interactive.",
+        helloWorld: "console.log('Hello, World!');",
+        languageCode: "js",
+    },
+    {
+        image: "/carouselImages/englishCarouselImage.jpg",
+        language: "English",
+        description:
+            "English is a West Germanic language that was first spoken in early medieval England.",
+        helloWorld: "Hello, World!",
+        languageCode: "plaintext",
+    },
+    {
+        image: "/carouselImages/igboCarouselImage.jpg",
+        language: "Igbo",
+        description:
+            "Igbo is the principal native language of the Igbo people, of southeastern Nigeria.",
+        helloWorld: "Uwa, Kedu!",
+        languageCode: "plaintext",
     },
 ];
 
@@ -112,7 +144,7 @@ function Slides() {
                                 }}
                                 fz={"2rem"}
                                 lh={1.2}
-                                c="grey"
+                                c="white"
                             >
                                 {slide.description}
                             </Highlight>
