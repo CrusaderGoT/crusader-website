@@ -11,7 +11,7 @@
   "dependencies": {
     "@eslint/object-schema": "^2.1.6",
     "@mantine/carousel": "^7.15.2",
-    "@mantine/code-highlight": "^7.15.2",
+    "@mantine/code-highlight": "^7.17.0",
     "@mantine/core": "^7.15.2",
     "@mantine/dates": "^7.15.2",
     "@mantine/dropzone": "^7.15.2",
