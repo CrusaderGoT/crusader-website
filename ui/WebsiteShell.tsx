@@ -17,7 +17,7 @@ export function WebsiteShell({
     const [desktopOpened, { toggle: toggleDesktop }] = useDisclosure(true);
 
     const { ref, height } = useElementSize();
-    const pinned = useHeadroom({ fixedAt: height });
+    const pinned = useHeadroom({ fixedAt: -(height + 10) });
 
     return (
         <AppShell

@@ -19,7 +19,7 @@ import {
 export function HomeCarousel() {
     const autoplay = useRef(Autoplay({ delay: 2000 }));
     return (
-        <Flex mx={"auto"} my={"auto"} h={1000} mah={"82vh"}>
+        <Flex mx={"auto"} my={"auto"} h={3000} mah={"90vh"}>
             <Carousel
                 height={"100%"}
                 withIndicators
