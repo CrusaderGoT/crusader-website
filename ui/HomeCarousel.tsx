@@ -17,7 +17,12 @@ import {
 } from "@mantine/core";
 
 export function HomeCarousel() {
-    const autoplay = useRef(Autoplay({ delay: 2000 }));
+    const autoplay = useRef(
+        Autoplay({
+            delay: 2000,
+            stopOnInteraction: false,
+        })
+    );
     return (
         <Flex mx={"auto"} my={"auto"} h={3000} mah={"90vh"}>
             <Carousel
