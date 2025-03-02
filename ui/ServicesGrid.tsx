@@ -15,6 +15,8 @@ import {
     type MantineSize,
 } from "@mantine/core";
 
+import { Carousel } from "@mantine/carousel";
+
 import {
     IconBrandBootstrap,
     IconBrandCss3,
@@ -30,6 +32,8 @@ import {
     IconTool,
     type Icon,
 } from "@tabler/icons-react";
+import Autoplay from "embla-carousel-autoplay";
+import { useRef } from "react";
 
 export function Services() {
     return (
@@ -122,46 +126,43 @@ const techs: TechProp[] = [
 ];
 
 function TechSlides() {
+    const autoplay = useRef(
+        Autoplay({
+            delay: 2000,
+            stopOnInteraction: false,
+        })
+    );
     return (
         <Stack h={"20vh"}>
             {Array.from({ length: 3 }).map((_, ind) => (
-                <Group
-                    key={ind}
-                    grow
-                    wrap="nowrap"
-                    gap={"xs"}
-                    style={{
-                        overflow: "hidden",
-                        height: "100%",
-                    }}
-                >
-                    {techs.map((tech, inx) => {
-                        const Icon = tech.icon;
-                        tech.size = tech.size || "md";
-                        tech.radius = tech.radius || "md";
-                        tech.autoContrast = tech.autoContrast || true;
-                        tech.variant = tech.variant || "light";
+                <Carousel plugins={[]}>
+                    <Carousel.Slide>
+                        {techs.map((tech, inx) => {
+                            const Icon = tech.icon;
+                            tech.size = tech.size || "md";
+                            tech.radius = tech.radius || "md";
+                            tech.autoContrast = tech.autoContrast || true;
+                            tech.variant = tech.variant || "light";
 
-                        return (
-                            <ThemeIcon
-                                key={`${inx}-${ind}`}
-                                variant={tech.variant}
-                                color={tech.color}
-                                gradient={tech.gradient}
-                                size={tech.size}
-                                radius={tech.radius}
-                                autoContrast={tech.autoContrast}
-                            >
-                                <Icon />
-                            </ThemeIcon>
-                        );
-                    })}
-                </Group>
+                            return (
+                                <ThemeIcon
+                                    key={`${inx}-${ind}`}
+                                    variant={tech.variant}
+                                    color={tech.color}
+                                    gradient={tech.gradient}
+                                    size={tech.size}
+                                    radius={tech.radius}
+                                    autoContrast={tech.autoContrast}
+                                >
+                                    <Icon />
+                                </ThemeIcon>
+                            );
+                        })}
+                    </Carousel.Slide>
+                </Carousel>
             ))}
         </Stack>
     );
 }
 
-function ServicesTimeline() {
-    
-}
+function ServicesTimeline() {}
