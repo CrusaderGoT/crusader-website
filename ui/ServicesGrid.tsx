@@ -7,7 +7,8 @@ import {
     Stack,
     Text,
     ThemeIcon,
-    Transition,
+    Timeline,
+    Title,
     type MantineColor,
     type MantineGradient,
     type MantineRadius,
@@ -32,7 +33,7 @@ import {
 
 export function Services() {
     return (
-        <Container>
+        <Container size={"xl"}>
             <Stack>
                 <TechSlides />
                 <Divider
@@ -53,13 +54,12 @@ export function Services() {
 
 type TechProp = {
     icon: Icon;
-    variant: string;
+    variant?: string;
     color?: MantineColor;
     gradient?: MantineGradient;
     size?: MantineSize | number;
     radius?: MantineRadius;
     autoContrast?: boolean;
-    c?: MantineColor;
 };
 
 const techs: TechProp[] = [
@@ -79,12 +79,10 @@ const techs: TechProp[] = [
     },
     {
         icon: IconBrandTypescript,
-        variant: "filled",
         color: "blue",
     },
     {
         icon: IconBrandReact,
-        variant: "filled",
         color: "blue",
     },
     {
@@ -94,9 +92,7 @@ const techs: TechProp[] = [
     },
     {
         icon: IconBrandNextjs,
-        variant: "outline",
-        color: "black",
-        c: "white",
+        color: "white",
     },
     {
         icon: IconBrandJavascript,
@@ -117,11 +113,10 @@ const techs: TechProp[] = [
         icon: IconBrandTailwind,
         variant: "subtle",
         color: "blue",
-        c: "blue",
     },
     {
         icon: IconBrandBootstrap,
-        variant: "light",
+        variant: "outline",
         color: "blue",
     },
 ];
@@ -130,52 +125,43 @@ function TechSlides() {
     return (
         <Stack h={"20vh"}>
             {Array.from({ length: 3 }).map((_, ind) => (
-                <Transition
-                    mounted={true}
-                    keepMounted
-                    transition={"slide-left"}
-                    duration={Infinity}
+                <Group
                     key={ind}
-                    timingFunction="ease"
+                    grow
+                    wrap="nowrap"
+                    gap={"xs"}
+                    style={{
+                        overflow: "hidden",
+                        height: "100%",
+                    }}
                 >
-                    {(styles) => (
-                        <Group
-                            grow
-                            wrap="nowrap"
-                            gap={"xs"}
-                            style={{
-                                ...styles,
-                                overflow: "hidden",
-                                height: "100%",
-                            }}
-                        >
-                            {techs.map((tech, inx) => {
-                                const Icon = tech.icon;
-                                tech.size = tech.size || "md";
-                                tech.radius = tech.radius || "md";
-                                tech.autoContrast = tech.autoContrast || true;
-                                tech.c = tech.c || "black";
+                    {techs.map((tech, inx) => {
+                        const Icon = tech.icon;
+                        tech.size = tech.size || "md";
+                        tech.radius = tech.radius || "md";
+                        tech.autoContrast = tech.autoContrast || true;
+                        tech.variant = tech.variant || "light";
 
-                                return (
-                                    <ThemeIcon
-                                        key={`${inx}-${ind}`}
-                                        style={{ ...styles }}
-                                        variant={tech.variant}
-                                        color={tech.color}
-                                        gradient={tech.gradient}
-                                        size={tech.size}
-                                        radius={tech.radius}
-                                        autoContrast={tech.autoContrast}
-                                        c={tech.c}
-                                    >
-                                        <Icon />
-                                    </ThemeIcon>
-                                );
-                            })}
-                        </Group>
-                    )}
-                </Transition>
+                        return (
+                            <ThemeIcon
+                                key={`${inx}-${ind}`}
+                                variant={tech.variant}
+                                color={tech.color}
+                                gradient={tech.gradient}
+                                size={tech.size}
+                                radius={tech.radius}
+                                autoContrast={tech.autoContrast}
+                            >
+                                <Icon />
+                            </ThemeIcon>
+                        );
+                    })}
+                </Group>
             ))}
         </Stack>
     );
+}
+
+function ServicesTimeline() {
+    
 }
