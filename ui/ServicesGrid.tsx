@@ -147,7 +147,7 @@ function TechSlides() {
                         onMouseLeave={autoscroll.current.reset}
                         loop
                         withControls={false}
-                        slideGap={`xs`}
+                        slideGap={0}
                         slidesToScroll={"auto"}
                         slideSize={`${(100 / (techs.length - 1)).toFixed(1)}%`}
                         style={{
