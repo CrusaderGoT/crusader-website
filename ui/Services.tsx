@@ -132,7 +132,7 @@ function TechSlides() {
     return (
         <Stack
             h="2000"
-            mah={"20vh"}
+            mah={"30vh"}
             justify="space-evenly"
             style={{
                 overflow: "hidden",
