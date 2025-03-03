@@ -18,7 +18,7 @@ import {
 
 import { Carousel } from "@mantine/carousel";
 
-import { randomId } from "@mantine/hooks";
+import { randomId, useElementSize } from "@mantine/hooks";
 import {
     IconBrandBootstrap,
     IconBrandCss3,
@@ -129,16 +129,15 @@ const techs: TechProp[] = [
 ];
 
 function TechSlides() {
+    const { ref, height } = useElementSize();
+    const noOfCarousel = 3;
     return (
         <Stack
-            h="2000"
+            h={height * noOfCarousel + 2 * noOfCarousel}
             mah={"30vh"}
             justify="space-evenly"
-            style={{
-                overflow: "hidden",
-            }}
         >
-            {Array.from({ length: 3 }).map((_, index) => {
+            {Array.from({ length: noOfCarousel }).map((_, index) => {
                 const autoscroll = useRef(
                     AutoScroll({
                         startDelay: 1,
@@ -151,6 +150,7 @@ function TechSlides() {
 
                 return (
                     <Carousel
+                        ref={ref}
                         align={"start"}
                         key={`${randomId()}`}
                         plugins={[autoscroll.current]}
@@ -165,9 +165,7 @@ function TechSlides() {
                                 #000 10% 90%,
                                 transparent
                             )`,
-flex: "1"
                         }}
-height="100%"
                     >
                         {techs.map((tech) => {
                             const Icon = tech.icon;
@@ -263,7 +261,7 @@ const mockServiceData: ServiceItemProps[] = [
 function ServicesTimeline() {
     return (
         <ScrollArea.Autosize
-            mah={"60vh"}
+            mah={"50vh"}
             offsetScrollbars
             overscrollBehavior="contain"
             scrollHideDelay={500}
