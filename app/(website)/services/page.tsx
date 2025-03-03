@@ -1,4 +1,4 @@
-import { Services } from "@/ui/ServicesGrid";
+import { Services } from "@/ui/Services";
 
 export default function ServicesPage() {
     return <Services />;
