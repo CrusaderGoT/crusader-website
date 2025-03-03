@@ -9,7 +9,7 @@ import {
     type MantineColor,
     type MantineGradient,
     type MantineRadius,
-    type MantineSize
+    type MantineSize,
 } from "@mantine/core";
 
 import { Carousel } from "@mantine/carousel";
@@ -125,7 +125,7 @@ const techs: TechProp[] = [
 
 function TechSlides() {
     return (
-        <Stack h={"20vh"}>
+        <Stack h="2000" mah={"20vh"} justify="space-evenly">
             {Array.from({ length: 3 }).map((_, index) => {
                 const autoscroll = useRef(
                     AutoScroll({
@@ -140,8 +140,11 @@ function TechSlides() {
                 return (
                     <Carousel
                         height="100%"
+                        align={"start"}
                         key={`${randomId()}`}
                         plugins={[autoscroll.current]}
+                        onMouseEnter={autoscroll.current.reset}
+                        onMouseLeave={autoscroll.current.reset}
                         loop
                         withControls={false}
                         slideGap={`xs`}
@@ -149,6 +152,12 @@ function TechSlides() {
                         slideSize={`${(100 / (techs.length - 1)).toFixed(1)}%`}
                         style={{
                             flex: 1,
+                            maskImage: `linear-gradient(
+                                to right,
+                                transparent,
+                                #000 10% 90%,
+                                transparent
+                            )`,
                         }}
                     >
                         {techs.map((tech) => {
