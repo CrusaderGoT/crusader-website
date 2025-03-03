@@ -32,7 +32,7 @@ import {
     IconBrandTailwind,
     IconBrandTypescript,
     IconTool,
-    type Icon
+    type Icon,
 } from "@tabler/icons-react";
 import AutoScroll from "embla-carousel-auto-scroll";
 import { useRef } from "react";
