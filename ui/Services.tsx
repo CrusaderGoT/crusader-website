@@ -165,7 +165,9 @@ function TechSlides() {
                                 #000 10% 90%,
                                 transparent
                             )`,
+flex: "1"
                         }}
+height="100%"
                     >
                         {techs.map((tech) => {
                             const Icon = tech.icon;
