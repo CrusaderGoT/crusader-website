@@ -16,8 +16,11 @@ export function WebsiteShell({
     const [mobileOpened, { toggle: toggleMobile }] = useDisclosure();
     const [desktopOpened, { toggle: toggleDesktop }] = useDisclosure(true);
 
-    const { ref, height } = useElementSize();
-    const pinned = useHeadroom({ fixedAt: -(height) });
+    const { ref: mainRef, height: mainHeight } = useElementSize();
+
+    const { ref: footerRef, height: footerHeight } = useElementSize();
+
+    const pinned = useHeadroom({ fixedAt: -(mainHeight + footerHeight) });
 
     return (
         <AppShell
@@ -68,9 +71,9 @@ export function WebsiteShell({
                 </AppShell.Section>
             </AppShell.Navbar>
 
-            <AppShell.Main ref={ref}>{children}</AppShell.Main>
+            <AppShell.Main ref={mainRef}>{children}</AppShell.Main>
 
-            <AppShell.Footer>
+            <AppShell.Footer ref={footerRef}>
                 <p>footer</p>
             </AppShell.Footer>
         </AppShell>

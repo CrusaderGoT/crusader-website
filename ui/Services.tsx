@@ -18,7 +18,7 @@ import {
 
 import { Carousel } from "@mantine/carousel";
 
-import { randomId, useElementSize } from "@mantine/hooks";
+import { randomId } from "@mantine/hooks";
 import {
     IconBrandBootstrap,
     IconBrandCss3,
@@ -59,6 +59,17 @@ export function Services() {
     );
 }
 
+/**
+ * Represents the properties for a tech component.
+ *
+ * @property icon - The icon to be displayed, expected to be of type Icon.
+ * @property variant - An optional string indicating the variant style of the component.
+ * @property color - An optional MantineColor specifying the component's color.
+ * @property gradient - Optional MantineGradient providing gradient settings for the component.
+ * @property size - An optional value determining the size of the component, which can be of type MantineSize or a number.
+ * @property radius - Optional MantineRadius defining the component's border radius.
+ * @property autoContrast - Optional boolean to enable automatic contrast adjustment.
+ */
 type TechProp = {
     icon: Icon;
     variant?: string;
@@ -129,13 +140,14 @@ const techs: TechProp[] = [
 ];
 
 function TechSlides() {
-    const { ref, height } = useElementSize();
     const noOfCarousel = 3;
     return (
         <Stack
-            h={height * noOfCarousel + 2 * noOfCarousel}
-            mah={"30vh"}
+            mah={"25vh"}
             justify="space-evenly"
+            style={{
+                overflow: "hidden",
+            }}
         >
             {Array.from({ length: noOfCarousel }).map((_, index) => {
                 const autoscroll = useRef(
@@ -150,7 +162,6 @@ function TechSlides() {
 
                 return (
                     <Carousel
-                        ref={ref}
                         align={"start"}
                         key={`${randomId()}`}
                         plugins={[autoscroll.current]}
