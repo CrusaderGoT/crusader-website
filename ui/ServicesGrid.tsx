@@ -3,20 +3,18 @@
 import {
     Container,
     Divider,
-    Group,
     Stack,
     Text,
     ThemeIcon,
-    Timeline,
-    Title,
     type MantineColor,
     type MantineGradient,
     type MantineRadius,
-    type MantineSize,
+    type MantineSize
 } from "@mantine/core";
 
 import { Carousel } from "@mantine/carousel";
 
+import { randomId } from "@mantine/hooks";
 import {
     IconBrandBootstrap,
     IconBrandCss3,
@@ -32,10 +30,8 @@ import {
     IconTool,
     type Icon,
 } from "@tabler/icons-react";
-import Autoplay from "embla-carousel-autoplay";
 import AutoScroll from "embla-carousel-auto-scroll";
 import { useRef } from "react";
-import { randomId, useId } from "@mantine/hooks";
 
 export function Services() {
     return (
@@ -128,67 +124,59 @@ const techs: TechProp[] = [
 ];
 
 function TechSlides() {
-    const autoscroll = useRef(
-        AutoScroll({
-            startDelay: 1,
-            speed: 3,
-            stopOnInteraction: false,
-            stopOnFocusIn: false,
-        })
-    );
-    const autoplay = useRef(
-        Autoplay({
-            stopOnInteraction: false,
-            stopOnFocusIn: false,
-        })
-    );
-
     return (
         <Stack h={"20vh"}>
-            {Array.from({ length: 3 }).map(() => (
-                <Carousel
-                    height="100%"
-                    key={`${randomId()}`}
-                    plugins={[autoplay.current, autoscroll.current]}
-                    loop
-                    withControls={false}
-                    slideGap={`xs`}
-                    slidesToScroll={"auto"}
-                    style={{
-                        flex: 1,
-                        border: "1px solid",
-                    }}
-                >
-                    {techs.map((tech) => {
-                        const Icon = tech.icon;
-                        tech.size = tech.size || "md";
-                        tech.radius = tech.radius || "md";
-                        tech.autoContrast = tech.autoContrast || true;
-                        tech.variant = tech.variant || "light";
+            {Array.from({ length: 3 }).map((_, index) => {
+                const autoscroll = useRef(
+                    AutoScroll({
+                        startDelay: 1,
+                        speed: 1,
+                        stopOnInteraction: false,
+                        stopOnFocusIn: false,
+                        direction: index % 2 === 0 ? "forward" : "backward",
+                    })
+                );
 
-                        return (
-                            <Carousel.Slide
-                                key={`-${randomId()}`}
-                                style={{
-                                    border: "1px solid",
-                                }}
-                            >
-                                <ThemeIcon
-                                    key={`${randomId()}`}
-                                    variant={tech.variant}
-                                    color={tech.color}
-                                    gradient={tech.gradient}
-                                    size={tech.size}
-                                    radius={tech.radius}
-                                    autoContrast={tech.autoContrast}
-                                >
-                                    <Icon />
-                                </ThemeIcon>
-                            </Carousel.Slide>
-                        );
-                    })}
-                </Carousel>
-            ))}
+                return (
+                    <Carousel
+                        height="100%"
+                        key={`${randomId()}`}
+                        plugins={[autoscroll.current]}
+                        loop
+                        withControls={false}
+                        slideGap={`xs`}
+                        slidesToScroll={"auto"}
+                        slideSize={`${(100 / (techs.length - 1)).toFixed(1)}%`}
+                        style={{
+                            flex: 1,
+                        }}
+                    >
+                        {techs.map((tech) => {
+                            const Icon = tech.icon;
+                            tech.size = tech.size || "md";
+                            tech.radius = tech.radius || "md";
+                            tech.autoContrast = tech.autoContrast || true;
+                            tech.variant = tech.variant || "light";
+
+                            return (
+                                <Carousel.Slide key={`-${randomId()}`}>
+                                    <ThemeIcon
+                                        key={`${randomId()}`}
+                                        variant={tech.variant}
+                                        color={tech.color}
+                                        gradient={tech.gradient}
+                                        size={tech.size}
+                                        radius={tech.radius}
+                                        autoContrast={tech.autoContrast}
+                                    >
+                                        <Icon />
+                                    </ThemeIcon>
+                                </Carousel.Slide>
+                            );
+                        })}
+                    </Carousel>
+                );
+            })}
         </Stack>
     );
 }
