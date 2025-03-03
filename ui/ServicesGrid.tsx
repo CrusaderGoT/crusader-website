@@ -143,7 +143,7 @@ function TechSlides() {
                         align={"start"}
                         key={`${randomId()}`}
                         plugins={[autoscroll.current]}
-                              loop
+                              loop={true}
                         withControls={false}
                         slideGap={0}
                         
