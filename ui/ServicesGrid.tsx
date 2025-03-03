@@ -143,9 +143,7 @@ function TechSlides() {
                         align={"start"}
                         key={`${randomId()}`}
                         plugins={[autoscroll.current]}
-                        onMouseEnter={autoscroll.current.reset}
-                        onMouseLeave={autoscroll.current.reset}
-                        loop
+                              loop
                         withControls={false}
                         slideGap={0}
                         
