@@ -145,7 +145,7 @@ function TechSlides() {
                         plugins={[autoscroll.current]}
                               loop={true}
                         withControls={false}
-                        slideGap={0}
+                        slideGap={1}
                         
                         slideSize={`${(100 / (techs.length - 1)).toFixed(1)}%`}
                         style={{
