@@ -37,13 +37,13 @@
     "@types/node": "^20",
     "@types/react": "19.0.10",
     "@types/react-dom": "19.0.4",
+    "drizzle-kit": "^0.30.5",
+    "eslint": "^9.21.0",
+    "eslint-config-next": "^15.2.0",
     "postcss": "^8.5.3",
     "postcss-preset-mantine": "^1.17.0",
     "postcss-simple-vars": "^7.0.1",
-    "typescript": "^5.7.3",
-    "eslint": "^9.21.0",
-    "eslint-config-next": "^15.2.0",
-    "drizzle-kit": "^0.30.5"
+    "typescript": "^5.7.3"
   },
   "overrides": {
     "@types/react": "19.0.10",
