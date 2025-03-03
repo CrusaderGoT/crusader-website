@@ -153,7 +153,7 @@ function TechSlides() {
                 const autoscroll = useRef(
                     AutoScroll({
                         startDelay: 1,
-                        speed: 3,
+                        speed: 10,
                         stopOnInteraction: false,
                         stopOnFocusIn: false,
                         direction: index % 2 === 0 ? "forward" : "backward",
