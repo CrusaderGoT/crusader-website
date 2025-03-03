@@ -33,7 +33,9 @@ import {
     type Icon,
 } from "@tabler/icons-react";
 import Autoplay from "embla-carousel-autoplay";
+import AutoScroll from "embla-carousel-auto-scroll";
 import { useRef } from "react";
+import { randomId, useId } from "@mantine/hooks";
 
 export function Services() {
     return (
@@ -126,27 +128,53 @@ const techs: TechProp[] = [
 ];
 
 function TechSlides() {
-    const autoplay = useRef(
-        Autoplay({
-            delay: 2000,
+    const autoscroll = useRef(
+        AutoScroll({
+            startDelay: 1,
+            speed: 3,
             stopOnInteraction: false,
+            stopOnFocusIn: false,
         })
     );
+    const autoplay = useRef(
+        Autoplay({
+            stopOnInteraction: false,
+            stopOnFocusIn: false,
+        })
+    );
+
     return (
         <Stack h={"20vh"}>
-            {Array.from({ length: 3 }).map((_, ind) => (
-                <Carousel plugins={[]}>
-                    <Carousel.Slide>
-                        {techs.map((tech, inx) => {
-                            const Icon = tech.icon;
-                            tech.size = tech.size || "md";
-                            tech.radius = tech.radius || "md";
-                            tech.autoContrast = tech.autoContrast || true;
-                            tech.variant = tech.variant || "light";
+            {Array.from({ length: 3 }).map(() => (
+                <Carousel
+                    height="100%"
+                    key={`${randomId()}`}
+                    plugins={[autoplay.current, autoscroll.current]}
+                    loop
+                    withControls={false}
+                    slideGap={`xs`}
+                    slidesToScroll={"auto"}
+                    style={{
+                        flex: 1,
+                        border: "1px solid",
+                    }}
+                >
+                    {techs.map((tech) => {
+                        const Icon = tech.icon;
+                        tech.size = tech.size || "md";
+                        tech.radius = tech.radius || "md";
+                        tech.autoContrast = tech.autoContrast || true;
+                        tech.variant = tech.variant || "light";
 
-                            return (
+                        return (
+                            <Carousel.Slide
+                                key={`-${randomId()}`}
+                                style={{
+                                    border: "1px solid",
+                                }}
+                            >
                                 <ThemeIcon
-                                    key={`${inx}-${ind}`}
+                                    key={`${randomId()}`}
                                     variant={tech.variant}
                                     color={tech.color}
                                     gradient={tech.gradient}
@@ -156,9 +184,9 @@ function TechSlides() {
                                 >
                                     <Icon />
                                 </ThemeIcon>
-                            );
-                        })}
-                    </Carousel.Slide>
+                            </Carousel.Slide>
+                        );
+                    })}
                 </Carousel>
             ))}
         </Stack>

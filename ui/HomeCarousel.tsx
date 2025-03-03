@@ -21,6 +21,7 @@ export function HomeCarousel() {
         Autoplay({
             delay: 2000,
             stopOnInteraction: false,
+            stopOnFocusIn: false,
         })
     );
     return (
