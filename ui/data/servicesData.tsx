@@ -25,7 +25,7 @@ import {
     IconCheck,
     IconCode,
     IconLayersUnion,
-    IconServer
+    IconServer,
 } from "@tabler/icons-react";
 
 // Types and data for services timeline
