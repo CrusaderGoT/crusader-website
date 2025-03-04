@@ -10,32 +10,18 @@ import {
     Text,
     ThemeIcon,
     Timeline,
-    type MantineColor,
-    type MantineGradient,
-    type MantineRadius,
-    type MantineSize,
 } from "@mantine/core";
 
 import { Carousel } from "@mantine/carousel";
 
 import { randomId } from "@mantine/hooks";
-import {
-    IconBrandBootstrap,
-    IconBrandCss3,
-    IconBrandDjango,
-    IconBrandHtml5,
-    IconBrandJavascript,
-    IconBrandMantine,
-    IconBrandNextjs,
-    IconBrandPython,
-    IconBrandReact,
-    IconBrandTailwind,
-    IconBrandTypescript,
-    IconTool,
-    type Icon,
-} from "@tabler/icons-react";
+
 import AutoScroll from "embla-carousel-auto-scroll";
+
 import { useRef } from "react";
+
+import { serviceItems, techs } from "@/ui/data/services";
+import { IconTool } from "@tabler/icons-react";
 
 export function Services() {
     return (
@@ -58,86 +44,6 @@ export function Services() {
         </Container>
     );
 }
-
-/**
- * Represents the properties for a tech component.
- *
- * @property icon - The icon to be displayed, expected to be of type Icon.
- * @property variant - An optional string indicating the variant style of the component.
- * @property color - An optional MantineColor specifying the component's color.
- * @property gradient - Optional MantineGradient providing gradient settings for the component.
- * @property size - An optional value determining the size of the component, which can be of type MantineSize or a number.
- * @property radius - Optional MantineRadius defining the component's border radius.
- * @property autoContrast - Optional boolean to enable automatic contrast adjustment.
- */
-type TechProp = {
-    icon: Icon;
-    variant?: string;
-    color?: MantineColor;
-    gradient?: MantineGradient;
-    size?: MantineSize | number;
-    radius?: MantineRadius;
-    autoContrast?: boolean;
-};
-
-const techs: TechProp[] = [
-    {
-        icon: IconBrandDjango,
-        variant: "filled",
-        color: "green",
-    },
-    {
-        icon: IconBrandPython,
-        variant: "gradient",
-        gradient: {
-            from: "blue",
-            to: "yellow",
-            deg: 45,
-        },
-    },
-    {
-        icon: IconBrandTypescript,
-        color: "blue",
-    },
-    {
-        icon: IconBrandReact,
-        color: "blue",
-    },
-    {
-        icon: IconBrandMantine,
-        variant: "filled",
-        color: "blue",
-    },
-    {
-        icon: IconBrandNextjs,
-        color: "white",
-    },
-    {
-        icon: IconBrandJavascript,
-        variant: "filled",
-        color: "yellow",
-    },
-    {
-        icon: IconBrandHtml5,
-        variant: "filled",
-        color: "orange",
-    },
-    {
-        icon: IconBrandCss3,
-        variant: "filled",
-        color: "blue",
-    },
-    {
-        icon: IconBrandTailwind,
-        variant: "subtle",
-        color: "blue",
-    },
-    {
-        icon: IconBrandBootstrap,
-        variant: "outline",
-        color: "blue",
-    },
-];
 
 function TechSlides() {
     const noOfCarousel = 3;
@@ -208,67 +114,6 @@ function TechSlides() {
     );
 }
 
-type ServiceItemProps = {
-    title: string;
-    bulletIcon?: React.ReactNode;
-    priceStart: number;
-    list: ServiceItemListProps;
-};
-
-type ServiceItemListProps = {
-    icon?: React.ReactNode;
-    items: ListItemProps[];
-};
-
-type ListItemProps = {
-    item: string;
-    icon?: React.ReactNode;
-};
-
-const mockServiceData: ServiceItemProps[] = [
-    {
-        title: "Web Development",
-        bulletIcon: <IconBrandReact size={12} />,
-        priceStart: 500,
-        list: {
-            icon: <IconTool />,
-            items: [
-                { item: "Responsive design", icon: <IconBrandHtml5 /> },
-                { item: "SEO optimization", icon: <IconBrandBootstrap /> },
-                { item: "Performance tuning", icon: <IconBrandPython /> },
-            ],
-        },
-    },
-    {
-        title: "Mobile Development",
-        bulletIcon: <IconBrandTypescript size={12} />,
-        priceStart: 700,
-        list: {
-            icon: <IconTool />,
-            items: [
-                {
-                    item: "Cross-platform development",
-                    icon: <IconBrandReact />,
-                },
-                { item: "Native performance", icon: <IconBrandNextjs /> },
-            ],
-        },
-    },
-    {
-        title: "UI/UX Design",
-        bulletIcon: <IconBrandMantine size={12} />,
-        priceStart: 400,
-        list: {
-            icon: <IconTool />,
-            items: [
-                { item: "User research", icon: <IconTool /> },
-                { item: "Wireframing", icon: <IconTool /> },
-                { item: "Prototyping", icon: <IconTool /> },
-            ],
-        },
-    },
-];
-
 function ServicesTimeline() {
     return (
         <ScrollArea.Autosize
@@ -278,12 +123,12 @@ function ServicesTimeline() {
             scrollHideDelay={500}
         >
             <Timeline
-                active={mockServiceData.length}
+                active={serviceItems.length}
                 bulletSize={24}
                 lineWidth={2}
                 color="gold"
             >
-                {mockServiceData.map((service) => {
+                {serviceItems.map((service) => {
                     return (
                         <Timeline.Item
                             key={service.title}
@@ -291,12 +136,12 @@ function ServicesTimeline() {
                             title={service.title}
                             lineVariant="dashed"
                         >
-                            <List icon={service.list.icon}>
+                            <List icon={service.list.genIcon}>
                                 {service.list.items.map((item) => {
                                     return (
                                         <List.Item
                                             key={item.item}
-                                            icon={item.icon}
+                                            icon={item.specIcon}
                                         >
                                             <Text>{item.item}</Text>
                                         </List.Item>
@@ -307,11 +152,10 @@ function ServicesTimeline() {
                                 <Text>
                                     This service is availabe start from price{" "}
                                     <NumberFormatter
-                                        prefix="$"
+                                        prefix="₦"
                                         value={service.priceStart}
-                                        suffix="USD"
+                                        suffix="NGN"
                                         thousandSeparator
-                                        decimalScale={2}
                                     />
                                 </Text>
                             )}
