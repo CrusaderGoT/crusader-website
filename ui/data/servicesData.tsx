@@ -14,6 +14,7 @@ import {
 } from "@tabler/icons-react";
 
 import {
+    ThemeIcon,
     type MantineColor,
     type MantineGradient,
     type MantineRadius,
@@ -22,27 +23,26 @@ import {
 
 import {
     IconCheck,
-    IconCircle,
     IconCode,
     IconLayersUnion,
-    IconServer,
+    IconServer
 } from "@tabler/icons-react";
 
 // Types and data for services timeline
 type ServiceItemProps = {
     title: string;
-    bulletIcon?: React.ReactNode;
+    timelineBulletIcon?: React.ReactNode;
     priceStart: number;
     list: ServiceItemListProps;
 };
 
 type ListItemProps = {
     item: string;
-    specIcon?: React.ReactNode;
+    listContextIcon?: React.ReactNode;
 };
 
 type ServiceItemListProps = {
-    genIcon?: React.ReactNode;
+    listDefaultIcon?: React.ReactNode;
     items: ListItemProps[];
 };
 
@@ -68,67 +68,70 @@ type ServiceItemListProps = {
  */
 export const serviceItems: ServiceItemProps[] = [
     {
-        title: "FULL-STACK DEVELOPMENT",
-        bulletIcon: <IconLayersUnion size={24} />,
+        title: "Full-Stack Development",
+        timelineBulletIcon: <IconLayersUnion size={24} />,
         priceStart: 150000, // Starting project price in NGN
         list: {
-            genIcon: <IconCheck size={16} />,
+            listDefaultIcon: (
+                <ThemeIcon color="green" size={16}>
+                    <IconCheck size={12} />
+                </ThemeIcon>
+            ),
             items: [
                 {
                     item: "I will design and develop complete web applications by integrating robust back-end APIs (using Django or FastAPI) with dynamic front-end frameworks (Next.js and React) for a seamless, responsive experience.",
-                    specIcon: <IconCircle size={12} />,
                 },
                 {
                     item: "I will implement server-side rendering and static site generation with TailwindCSS to optimize performance and SEO.",
-                    specIcon: <IconCircle size={12} />,
                 },
                 {
                     item: "I will integrate secure authentication systems (JWT/OAuth2) and essential third-party API services to enhance functionality.",
-                    specIcon: <IconCircle size={12} />,
                 },
             ],
         },
     },
     {
         title: "Backend Development",
-        bulletIcon: <IconServer size={24} />,
+        timelineBulletIcon: <IconServer size={24} />,
         priceStart: 100000, // Starting project price in NGN
         list: {
-            genIcon: <IconCheck size={16} />,
+            listDefaultIcon: (
+                <ThemeIcon color="green" size={16}>
+                    <IconCheck size={12} />
+                </ThemeIcon>
+            ),
             items: [
                 {
                     item: "I will develop scalable RESTful APIs using Django REST Framework or FastAPI tailored to your project needs.",
-                    specIcon: <IconCircle size={12} />,
                 },
                 {
                     item: "I will design and manage robust relational databases using SQLAlchemy, SQLModel, or Drizzle ORM to ensure data integrity.",
-                    specIcon: <IconCircle size={12} />,
                 },
                 {
                     item: "I will integrate third-party services including payment gateways and social authentication systems to expand functionality.",
-                    specIcon: <IconCircle size={12} />,
                 },
             ],
         },
     },
     {
         title: "Automation & Scripting",
-        bulletIcon: <IconCode size={24} />,
+        timelineBulletIcon: <IconCode size={24} />,
         priceStart: 75000, // Starting project price in NGN
         list: {
-            genIcon: <IconCheck size={16} />,
+            listDefaultIcon: (
+                <ThemeIcon color="green" size={16}>
+                    <IconCheck size={12} />
+                </ThemeIcon>
+            ),
             items: [
                 {
                     item: "I will automate repetitive tasks using Python, including data scraping, file processing, and API integrations to streamline operations.",
-                    specIcon: <IconCircle size={12} />,
                 },
                 {
                     item: "I will build custom data validation pipelines with TypeScript and Zod for reliable schema enforcement.",
-                    specIcon: <IconCircle size={12} />,
                 },
                 {
                     item: "I will develop tailored scripts to optimize workflows and enhance overall system efficiency.",
-                    specIcon: <IconCircle size={12} />,
                 },
             ],
         },

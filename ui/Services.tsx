@@ -20,7 +20,7 @@ import AutoScroll from "embla-carousel-auto-scroll";
 
 import { useRef } from "react";
 
-import { serviceItems, techs } from "@/ui/data/services";
+import { serviceItems, techs } from "@/ui/data/servicesData";
 import { IconTool } from "@tabler/icons-react";
 
 export function Services() {
@@ -132,16 +132,22 @@ function ServicesTimeline() {
                     return (
                         <Timeline.Item
                             key={service.title}
-                            bullet={service.bulletIcon}
+                            bullet={service.timelineBulletIcon}
                             title={service.title}
                             lineVariant="dashed"
+                            fz={"h3"}
                         >
-                            <List icon={service.list.genIcon}>
+                            <List
+                                icon={service.list.listDefaultIcon}
+                                spacing={"xs"}
+                                withPadding
+                                size="lg"
+                            >
                                 {service.list.items.map((item) => {
                                     return (
                                         <List.Item
                                             key={item.item}
-                                            icon={item.specIcon}
+                                            icon={item.listContextIcon}
                                         >
                                             <Text>{item.item}</Text>
                                         </List.Item>
@@ -149,8 +155,8 @@ function ServicesTimeline() {
                                 })}
                             </List>
                             {service.priceStart && (
-                                <Text>
-                                    This service is availabe start from price{" "}
+                                <Text fz={"xs"} c={"red"}>
+                                    Availabe from price{" "}
                                     <NumberFormatter
                                         prefix="₦"
                                         value={service.priceStart}
