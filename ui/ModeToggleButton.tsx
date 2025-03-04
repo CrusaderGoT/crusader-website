@@ -26,7 +26,7 @@ export function ModeToggleButton() {
         <ActionIcon
             onClick={toggleColorScheme}
             variant="subtle"
-            size="sm"
+            size="md"
             aria-label="Toggle color scheme"
         >
             <IconSun className={cx(classes.icon, classes.light)} stroke={1.5} />
