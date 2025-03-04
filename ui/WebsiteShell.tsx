@@ -46,13 +46,13 @@ export function WebsiteShell({
                         opened={mobileOpened}
                         onClick={toggleMobile}
                         hiddenFrom="xs"
-                        size="xs"
+                        size="sm"
                     />
                     <Burger
                         opened={desktopOpened}
                         onClick={toggleDesktop}
                         visibleFrom="xs"
-                        size="sm"
+                        size="md"
                     />
                     <Title c={"gold"} textWrap="nowrap">
                         CrusaderGoT
