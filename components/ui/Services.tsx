@@ -20,7 +20,7 @@ import AutoScroll from "embla-carousel-auto-scroll";
 
 import { useRef } from "react";
 
-import { serviceItems, techs } from "@/ui/data/servicesData";
+import { serviceItems, techs } from "@/components/data/servicesData";
 import { IconTool } from "@tabler/icons-react";
 
 export function Services() {

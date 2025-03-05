@@ -3,6 +3,7 @@
 import "@mantine/carousel/styles.css";
 import "@mantine/code-highlight/styles.css";
 import "@mantine/core/styles.css";
+import '@mantine/tiptap/styles.css';
 
 import {
     ColorSchemeScript,

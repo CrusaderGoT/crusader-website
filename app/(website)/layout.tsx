@@ -1,4 +1,4 @@
-import { WebsiteShell } from "@/ui/WebsiteShell"
+import { WebsiteShell } from "@/components/ui/shell/WebsiteShell"
 
 export default async function WebsiteLayout({
     children,

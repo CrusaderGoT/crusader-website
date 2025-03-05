@@ -4,9 +4,9 @@ import { AppShell, Burger, Group, ScrollArea, Title } from "@mantine/core";
 
 import { useDisclosure, useElementSize, useHeadroom } from "@mantine/hooks";
 
-import { ModeToggleButton } from "@/ui/ModeToggleButton";
-import { NavCard } from "@/ui/NavCard";
-import { ShellNavLinks } from "@/ui/ShellNavLinks";
+import { ModeToggleButton } from "@/components/ui/shell/ModeToggleButton";
+import { NavCard } from "@/components/ui/shell/NavCard";
+import { ShellNavLinks } from "@/components/ui/shell/ShellNavLinks";
 
 export function WebsiteShell({
     children,

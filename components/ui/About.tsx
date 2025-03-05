@@ -45,7 +45,14 @@ export function About() {
                 component={ScrollArea}
                 offsetScrollbars
             >
-                <Text c={"black"} size="md" fw={500} ta={"center"} lh={"xl"} lts={1}>
+                <Text
+                    c={"black"}
+                    size="md"
+                    fw={500}
+                    ta={"center"}
+                    lh={"xl"}
+                    lts={1}
+                >
                     {aboutText}
                 </Text>
             </BackgroundImage>
