@@ -37,7 +37,7 @@ const aboutText = `
 
 export function About() {
     return (
-        <Container size={"xl"} h={"90vh"}>
+        <Container size={"xl"}>
             <BackgroundImage
                 src="images/aboutBG.jpg"
                 h={"100%"}
