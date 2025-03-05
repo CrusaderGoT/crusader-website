@@ -14,9 +14,14 @@ import {
     TextInput,
 } from "@mantine/core";
 
+
 import { Link, RichTextEditor } from "@mantine/tiptap";
 import { useEditor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
+
+import { sendEmail } from "@/lib/sendEmail";
+
+
 
 import {
     contactFormSchema,
@@ -41,9 +46,10 @@ export function ContactForm() {
         validate: zodResolver(contactFormSchema),
     });
 
-    function handleSubmit(data: contactFormType) {
-        console.log(form.validate());
-        console.log(data);
+    async function handleSubmit(formData: contactFormType) {
+        const {data, error} = await sendEmail(formData)
+        
+        
     }
 
     return (

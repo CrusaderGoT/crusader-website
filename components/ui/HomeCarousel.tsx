@@ -19,7 +19,7 @@ import {
 export function HomeCarousel() {
     const autoplay = useRef(
         Autoplay({
-            delay: 2000,
+            delay: 4000,
             stopOnInteraction: false,
             stopOnFocusIn: false,
         })

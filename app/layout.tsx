@@ -3,7 +3,7 @@
 import "@mantine/carousel/styles.css";
 import "@mantine/code-highlight/styles.css";
 import "@mantine/core/styles.css";
-import '@mantine/tiptap/styles.css';
+import "@mantine/tiptap/styles.css";
 
 import {
     ColorSchemeScript,
@@ -13,6 +13,7 @@ import {
     mantineHtmlProps,
     virtualColor,
 } from "@mantine/core";
+
 
 import { Analytics } from "@vercel/analytics/next";
 
