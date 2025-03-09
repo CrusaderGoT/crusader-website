@@ -3,6 +3,7 @@
 import "@mantine/carousel/styles.css";
 import "@mantine/code-highlight/styles.css";
 import "@mantine/core/styles.css";
+import "@mantine/notifications/styles.css";
 import "@mantine/tiptap/styles.css";
 
 import {
@@ -14,6 +15,7 @@ import {
     virtualColor,
 } from "@mantine/core";
 
+import { Notifications } from '@mantine/notifications';
 
 import { Analytics } from "@vercel/analytics/next";
 
@@ -71,6 +73,7 @@ export default async function RootLayout({
             </head>
             <body className={`antialiased`}>
                 <MantineProvider defaultColorScheme="dark" theme={theme}>
+                    <Notifications />
                     {children}
                     <Analytics />
                 </MantineProvider>

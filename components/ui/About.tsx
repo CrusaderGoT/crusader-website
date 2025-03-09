@@ -1,4 +1,10 @@
-import { BackgroundImage, Container, ScrollArea, Text } from "@mantine/core";
+import {
+    BackgroundImage,
+    Container,
+    Highlight,
+    Paper,
+    ScrollArea
+} from "@mantine/core";
 
 const aboutText = `
     👋 Hi, I’m @CrusaderGoT\n
@@ -38,24 +44,40 @@ const aboutText = `
 export function About() {
     return (
         <Container size={"xl"}>
-            <BackgroundImage
-                src="images/aboutBG.jpg"
-                h={"100%"}
-                p={"md"}
+            <Paper
                 component={ScrollArea}
+                h={"90vh"}
                 offsetScrollbars
+                withBorder
             >
-                <Text
-                    c={"black"}
-                    size="md"
-                    fw={500}
-                    ta={"center"}
-                    lh={"xl"}
-                    lts={1}
-                >
-                    {aboutText}
-                </Text>
-            </BackgroundImage>
+                <BackgroundImage src="" h={"100%"}>
+                    <Highlight
+                        size="lg"
+                        ta={"center"}
+                        p={"md"}
+                        lh={"xl"}
+                        lts={1.5}
+                        highlight={[
+                            "Emeka",
+                            "Python",
+                            "FastAPI",
+                            "html",
+                            "css",
+                            "tailwind",
+                            "enememeka44@gmail.com",
+                        ]}
+                        highlightStyles={{
+                            backgroundImage:
+                                "linear-gradient(90deg, var(--mantine-color-red-6), var(--mantine-color-gold-8))",
+                            fontSize: "1.2rem",
+                            WebkitBackgroundClip: "text",
+                            WebkitTextFillColor: "transparent",
+                        }}
+                    >
+                        {aboutText}
+                    </Highlight>
+                </BackgroundImage>
+            </Paper>
         </Container>
     );
 }

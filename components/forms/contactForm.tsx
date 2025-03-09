@@ -10,18 +10,16 @@ import {
     Select,
     Stack,
     Textarea,
-    TextareaProps,
     TextInput,
 } from "@mantine/core";
 
+import { notifications } from "@mantine/notifications";
 
 import { Link, RichTextEditor } from "@mantine/tiptap";
 import { useEditor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 
 import { sendEmail } from "@/lib/sendEmail";
-
-
 
 import {
     contactFormSchema,
@@ -47,9 +45,18 @@ export function ContactForm() {
     });
 
     async function handleSubmit(formData: contactFormType) {
-        const {data, error} = await sendEmail(formData)
-        
-        
+        const { data, error } = await sendEmail(formData);
+        if (error) {
+            notifications.show({
+                title: error.name,
+                message: error.message,
+            });
+        } else if (data && !error) {
+            notifications.show({
+                title: "Success",
+                message: "Email sent successfully🌟",
+            });
+        }
     }
 
     return (
@@ -147,9 +154,13 @@ function ContactRichTextEditor({
                 editor={editor}
                 mah={500}
                 h={300}
-                style={props.error ? { borderColor: "red" } : {}}
+                style={
+                    props.error
+                        ? { borderColor: "red" }
+                        : { overflowY: "scroll" }
+                }
             >
-                <RichTextEditor.Toolbar sticky stickyOffset={60}>
+                <RichTextEditor.Toolbar sticky>
                     <RichTextEditor.ControlsGroup>
                         <RichTextEditor.BulletList />
                         <RichTextEditor.OrderedList />

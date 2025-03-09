@@ -54,7 +54,7 @@ export function WebsiteShell({
                         visibleFrom="xs"
                         size="md"
                     />
-                    <Title c={"gold"} textWrap="nowrap">
+                    <Title c={"gold"} fw={900} textWrap="nowrap">
                         CrusaderGoT
                     </Title>
                     <ModeToggleButton />
