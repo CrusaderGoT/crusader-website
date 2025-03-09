@@ -50,7 +50,7 @@ export function About() {
                 offsetScrollbars
                 withBorder
             >
-                <BackgroundImage src="" h={"100%"}>
+                <BackgroundImage src="/images/aboutBG.jpg" h={"100%"}>
                     <Highlight
                         size="lg"
                         ta={"center"}
