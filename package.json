@@ -7,9 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "email": "email dev",
-    "email export": "email export",
-    "email build": "email build"
+    "email": "email dev --dir app/components/emails/templates",
+    "email export": "email export --dir app/components/emails/templates",
+    "email build": "email build --dir app/components/emails/templates"
   },
   "dependencies": {
     "@mantine/carousel": "^7.17.1",
@@ -49,6 +49,7 @@
     "@types/node": "^20",
     "@types/react": "19.0.10",
     "@types/react-dom": "19.0.4",
+    "react-email": "3.0.7",
     "drizzle-kit": "^0.30.5",
     "eslint": "^9.21.0",
     "eslint-config-next": "^15.2.0",
@@ -59,7 +60,6 @@
   },
   "overrides": {
     "@types/react": "19.0.10",
-    "@types/react-dom": "19.0.4",
-    "react-email": "3.0.7"
+    "@types/react-dom": "19.0.4"
   }
 }
