@@ -61,13 +61,12 @@ export function ContactForm() {
                     title: "Success",
                     message: "Email sent successfully🌟",
                 });
-                
+                form.reset();
             }
         } catch (e) {
             console.error("Failed to send email:", e);
         } finally {
             setIsSending(false);
-
         }
     }
 
