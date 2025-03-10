@@ -49,8 +49,9 @@ export function About() {
                 h={"90vh"}
                 offsetScrollbars
                 withBorder
+                bg={"gold"}
             >
-                <BackgroundImage src="/images/aboutBG.jpg" h={"100%"}>
+                <BackgroundImage src="/image/aboutBG.jpg" h={"100%"}>
                     <Highlight
                         size="lg"
                         ta={"center"}

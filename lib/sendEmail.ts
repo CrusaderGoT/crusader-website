@@ -3,7 +3,7 @@ import { contactFormType } from "@/zod-schemas/contactSchema";
 
 import { Resend } from "resend";
 
-import { EmailTemplate } from "@/components/ui/email-template";
+import ContactEmailTemplate from "@/components/emails/templates/contact-email";
 
 export async function sendEmail(formData: contactFormType) {
     const resend = new Resend(process.env.RESEND_API_KEY);
@@ -13,7 +13,7 @@ export async function sendEmail(formData: contactFormType) {
         to: ["enememeka44@gmail.com"],
         replyTo: formData.email,
         subject: formData.subject,
-        html: formData.description,
+        react: await ContactEmailTemplate(formData),
     });
 
     return emailResponse;

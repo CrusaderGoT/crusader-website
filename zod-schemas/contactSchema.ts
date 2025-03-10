@@ -18,7 +18,9 @@ export function services() {
 }
 
 export const contactFormSchema = z.object({
-    subject: z.string().min(2, { message: "Subject should have at least 2 letters" }),
+    subject: z
+        .string()
+        .min(2, { message: "Subject should have at least 2 letters" }),
     name: z.string().min(2, { message: "Name should have at least 2 letters" }),
     address: z
         .string()
@@ -28,7 +30,9 @@ export const contactFormSchema = z.object({
         message:
             "Your detail should be atleast 50 characters. Describe what you want in detail",
     }),
-    service: z.enum(services() as [string, ...string[]]),
+    service: z.enum(services() as [string, ...string[]], {
+        message: "Select a valid service",
+    }),
 });
 
 export type contactFormType = z.infer<typeof contactFormSchema>;

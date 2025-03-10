@@ -26,6 +26,7 @@ import {
     contactFormType,
     services,
 } from "@/zod-schemas/contactSchema";
+import { useState } from "react";
 
 export function ContactForm() {
     const initialValues: contactFormType = {
@@ -44,18 +45,29 @@ export function ContactForm() {
         validate: zodResolver(contactFormSchema),
     });
 
+    const [isSending, setIsSending] = useState(false);
+
     async function handleSubmit(formData: contactFormType) {
-        const { data, error } = await sendEmail(formData);
-        if (error) {
-            notifications.show({
-                title: error.name,
-                message: error.message,
-            });
-        } else if (data && !error) {
-            notifications.show({
-                title: "Success",
-                message: "Email sent successfully🌟",
-            });
+        setIsSending(true);
+        try {
+            const { data, error } = await sendEmail(formData);
+            if (error) {
+                notifications.show({
+                    title: error.name,
+                    message: error.message,
+                });
+            } else if (data && !error) {
+                notifications.show({
+                    title: "Success",
+                    message: "Email sent successfully🌟",
+                });
+                
+            }
+        } catch (e) {
+            console.error("Failed to send email:", e);
+        } finally {
+            setIsSending(false);
+
         }
     }
 
@@ -118,11 +130,8 @@ export function ContactForm() {
                         {...form.getInputProps("description")}
                     />
 
-                    <Button
-                        type="submit"
-                        onClick={() => console.log(form.validate())}
-                    >
-                        Send
+                    <Button type="submit" disabled={isSending}>
+                        {isSending ? "Sending..." : "Send Email"}
                     </Button>
                 </Stack>
             </form>
