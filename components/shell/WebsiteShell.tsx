@@ -67,7 +67,7 @@ export function WebsiteShell({
                 </AppShell.Section>
 
                 <AppShell.Section grow component={ScrollArea}>
-                    <ShellNavLinks />
+                    <ShellNavLinks onNavLinkClick={toggleMobile}  />
                 </AppShell.Section>
             </AppShell.Navbar>
 

@@ -53,7 +53,11 @@ const links: NavLinkProps[] = [
     },
 ];
 
-export function ShellNavLinks() {
+type ShellNavLinksProps = {
+    onNavLinkClick?: () => void;
+};
+
+export function ShellNavLinks({ onNavLinkClick }: ShellNavLinksProps) {
     const pathname = usePathname();
 
     return (
@@ -71,6 +75,7 @@ export function ShellNavLinks() {
                         leftSection={<NavIcon size={20} stroke={1.5} />}
                         active={pathname === link.href}
                         autoContrast
+                        onClick={onNavLinkClick}
                     />
                 );
             })}
