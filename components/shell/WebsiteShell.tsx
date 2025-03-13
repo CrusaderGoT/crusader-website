@@ -73,9 +73,9 @@ export function WebsiteShell({
 
             <AppShell.Main ref={mainRef}>{children}</AppShell.Main>
 
-            <AppShell.Footer ref={footerRef}>
+            {/**<AppShell.Footer ref={footerRef}>
                 <p>footer</p>
-            </AppShell.Footer>
+            </AppShell.Footer>*/}
         </AppShell>
     );
 }
