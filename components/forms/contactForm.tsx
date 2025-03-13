@@ -99,7 +99,7 @@ export function ContactForm() {
 
                     <TextInput
                         withAsterisk
-                        label="Subject"
+                        label="Email"
                         placeholder="Your Email Address"
                         key={form.key("email")}
                         {...form.getInputProps("email")}
