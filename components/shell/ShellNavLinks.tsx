@@ -59,10 +59,11 @@ type ShellNavLinksProps = {
 
 export function ShellNavLinks({ onNavLinkClick }: ShellNavLinksProps) {
     const pathname = usePathname();
+const l = links.slice(end=4);
 
     return (
         <Stack justify="space-evenly">
-            {links.map((link, index) => {
+            {l.map((link, index) => {
                 const NavIcon = link.leftSection;
 
                 return (
