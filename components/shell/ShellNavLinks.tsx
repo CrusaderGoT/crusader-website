@@ -57,9 +57,11 @@ type ShellNavLinksProps = {
     onNavLinkClick?: () => void;
 };
 
-export function ShellNavLinks({ onNavLinkClick: closeNavbar }: ShellNavLinksProps) {
+export function ShellNavLinks({
+    onNavLinkClick: closeNavbar,
+}: ShellNavLinksProps) {
     const pathname = usePathname();
-const l = links.slice(0,4);
+    const l = links;
 
     return (
         <Stack justify="space-evenly">
