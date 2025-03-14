@@ -61,7 +61,7 @@ export function ShellNavLinks({
     onNavLinkClick: closeNavbar,
 }: ShellNavLinksProps) {
     const pathname = usePathname();
-    const l = links;
+    const l = links.slice(0,4);
 
     return (
         <Stack justify="space-evenly">
