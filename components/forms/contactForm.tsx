@@ -62,9 +62,20 @@ export function ContactForm() {
                     message: "Email sent successfully🌟",
                 });
                 form.reset();
+            } else {
+                notifications.show({
+                    title: "Not Sent",
+                    message: `Sorry, Your email was not sent.\n
+                    Text me instead at +234-704-076-4431.\n
+                    Or email me directly at enememeka44@gmail.com.`,
+                });
             }
         } catch (e) {
             console.error("Failed to send email:", e);
+            notifications.show({
+                title: "Fetch Error",
+                message: "Make Sure Your Internet is Connected.",
+            });
         } finally {
             setIsSending(false);
         }
