@@ -57,7 +57,7 @@ type ShellNavLinksProps = {
     onNavLinkClick?: () => void;
 };
 
-export function ShellNavLinks({ onNavLinkClick }: ShellNavLinksProps) {
+export function ShellNavLinks({ onNavLinkClick: closeNavbar }: ShellNavLinksProps) {
     const pathname = usePathname();
 const l = links.slice(0,4);
 
@@ -76,7 +76,7 @@ const l = links.slice(0,4);
                         leftSection={<NavIcon size={20} stroke={1.5} />}
                         active={pathname === link.href}
                         autoContrast
-                        onClick={onNavLinkClick}
+                        onClick={closeNavbar}
                     />
                 );
             })}

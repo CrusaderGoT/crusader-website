@@ -123,6 +123,7 @@ export function ContactForm() {
                     />
 
                     <ContactRichTextEditor
+                        label="Decsribe the work you want done"
                         key={form.key("description")}
                         value={form.values.description}
                         error={form.getInputProps("description").error}

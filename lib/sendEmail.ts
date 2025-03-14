@@ -3,7 +3,7 @@ import { contactFormType } from "@/zod-schemas/contactSchema";
 
 import { Resend } from "resend";
 
-import ContactEmailTemplate from "@/components/emails/templates/contact-email";
+import ContactEmailTemplate from "@/components/email/contact-email-template";
 
 export async function sendEmail(formData: contactFormType) {
     const resend = new Resend(process.env.RESEND_API_KEY);
