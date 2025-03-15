@@ -3,7 +3,8 @@ import {
     Container,
     Highlight,
     Paper,
-    ScrollArea
+    ScrollArea,
+    Title
 } from "@mantine/core";
 
 const aboutText = `
@@ -44,6 +45,7 @@ const aboutText = `
 export function About() {
     return (
         <Container size={"xl"}>
+            <Title order={2} fw={"normal"}>A little story about myself...</Title>
             <Paper
                 component={ScrollArea}
                 h={"90vh"}
