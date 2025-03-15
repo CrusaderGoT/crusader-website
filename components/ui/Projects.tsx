@@ -1,19 +1,36 @@
 "use client";
 
+import { githubRepositories as repositories } from "@/lib/githubSDK";
+
 import {
     Badge,
     Button,
     Card,
+    Container,
     Group,
     Image,
     ScrollArea,
+    SimpleGrid,
     Text,
 } from "@mantine/core";
 
-export function RepoCard(
-    //{ repo }: RepoCardProps
-    repo: any
-) {
+export function Projects() {
+    return (
+        <Container size={"xl"}>
+            <SimpleGrid cols={3} spacing="sm" verticalSpacing="sm">
+                {repositories.data.map((repository) => {
+                    return <RepoCard key={repository.id} repo={repository} />;
+                })}
+            </SimpleGrid>
+        </Container>
+    );
+}
+
+type RepoCardProps = {
+    repo: (typeof repositories.data)[0];
+};
+
+function RepoCard({ repo }: RepoCardProps) {
     // The repo object should contain properties like:
     // name, description, language, stars, forks, owner, and ownerAvatar
     return (
