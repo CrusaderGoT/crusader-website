@@ -1,6 +1,6 @@
 "use client";
 
-import { githubRepositories as repositories } from "../data/projectsData";
+import { githubRepositories as repositories } from "@/components/data/projectsData";
 
 import {
     Badge,
