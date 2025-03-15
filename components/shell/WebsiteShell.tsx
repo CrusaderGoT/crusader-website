@@ -79,7 +79,7 @@ export function WebsiteShell({
             </AppShell.Navbar>
 
             <AppShell.Main ref={mainRef}>
-                <Container size={"xl"} m={"xs"}>
+                <Container size={"xl"}>
                     {children}
                 </Container>
             </AppShell.Main>
