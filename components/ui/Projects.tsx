@@ -1,6 +1,6 @@
 "use client";
 
-import { githubRepositories as repositories } from "@/lib/githubSDK";
+import { githubRepositories as repositories } from "../data/projectsData";
 
 import {
     Badge,
@@ -10,7 +10,7 @@ import {
     Image,
     ScrollArea,
     SimpleGrid,
-    Text
+    Text,
 } from "@mantine/core";
 
 export function Projects() {

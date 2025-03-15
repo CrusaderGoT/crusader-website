@@ -6,10 +6,4 @@ const github = request.defaults({
     },
 });
 
-const githubRepositories = await github("GET /user/repos", {
-    type: "public",
-    sort: "updated",
-    direction: "asc",
-});
-
-export { github, githubRepositories };
+export { github };
