@@ -1,57 +1,27 @@
 import {
     BackgroundImage,
-    Container,
     Highlight,
     Paper,
     ScrollArea,
-    Title
+    Stack,
+    Title,
 } from "@mantine/core";
 
-const aboutText = `
-    👋 Hi, I’m @CrusaderGoT\n
-
-    👤 Real Name: Emeka ~ ay-may-kah
-    👀 I’m passionate about Python, especially with FastAPI and Django for web development. I follow best practices and enjoy working with a variety of libraries and technologies, including:
-
-    🔢 Numpy and Scipy for scientific computing,
-    📊 Matplotlib for data visualization,
-    🖼️ Pillow (PIL) for image processing,
-    🎶 Librosa for audio and music analysis,
-    🎥 Moviepy for video editing,
-    💻 HTML, CSS, and TailwindCSS for frontend development,
-    🅱️ Bootstrap5, ShadCN UI, and Mantine for responsive and modern UI design.
-    🌱 Currently, I'm focusing on:
-
-    Expanding my expertise in JavaScript, Next.js, and modern web development tools,
-    Building RESTful APIs with FastAPI and Django REST framework,
-    Improving database management skills with PostgreSQL, Neon, and Aiven,
-    Deploying applications using platforms like Render.
-    💡 Recent projects include:
-
-    An API for The Culling Games, leveraging FastAPI and Next.js,
-    Dynamic portfolio websites to showcase skills and services,
-    Systems utilizing Alembic for database migrations and SQLAlchemy/SQLModel for ORM.
-    🔭 Future goals:
-
-    Dive deeper into cloud technologies like AWS,
-    Explore containerization with Docker,
-    Enhance my knowledge in AI and machine learning,
-    Expand into automation and scripting to solve real-world problems.
-    📫 You can reach me at enememeka44@gmail.com or connect with me on LinkedIn and Twitter.
-
-    Let’s collaborate and build something amazing together!
-`;
+import { aboutMe, myAge } from "@/components/data/aboutData";
 
 export function About() {
+    const age = myAge().toLocaleString();
+
     return (
-        <Container size={"xl"}>
-            <Title order={2} fw={"normal"}>A little story about myself...</Title>
+        <Stack align="center">
+            <Title order={2} fw={"normal"}>
+                A little story about myself...
+            </Title>
             <Paper
                 component={ScrollArea}
-                h={"90vh"}
+                h={"80vh"}
                 offsetScrollbars
                 withBorder
-                bg={"gold.9"}
             >
                 <BackgroundImage src="/image/aboutBG.jpg" h={"100%"}>
                     <Highlight
@@ -60,27 +30,58 @@ export function About() {
                         p={"md"}
                         lh={"xl"}
                         lts={1.5}
+                        c={"gold"}
                         highlight={[
-                            "Emeka",
+                            "enememeka44@gmail.com",
+                            "Enemchukwu Chukwuemeka Alexander Afamefuna",
+                            "August 28th, 1999",
+                            age,
                             "Python",
                             "FastAPI",
-                            "html",
-                            "css",
-                            "tailwind",
-                            "enememeka44@gmail.com",
+                            "Django",
+                            "Django REST framework",
+                            "RESTful APIs",
+                            "Numpy",
+                            "Scipy",
+                            "Matplotlib",
+                            "Pillow",
+                            "Librosa",
+                            "Moviepy",
+                            "HTML",
+                            "CSS",
+                            "TailwindCSS",
+                            "Bootstrap5",
+                            "ShadCN UI",
+                            "Mantine",
+                            "JavaScript",
+                            "Next.js",
+                            "Alembic",
+                            "SQLAlchemy/SQLModel",
+                            "AWS",
+                            "Docker",
+                            "AI,",
+                            "machine learning",
+                            "programming journey",
+                            "tech vagabond",
+                            "legacy",
+                            "John Duke",
+                            "anime",
+                            "stories",
+                            "Information Management Technology (IMT)",
+                            "civil engineering",
                         ]}
                         highlightStyles={{
                             backgroundImage:
-                                "linear-gradient(90deg, var(--mantine-color-red-6), var(--mantine-color-gold-8))",
+                                "linear-gradient(90deg, var(--mantine-color-red-8), var(--mantine-color-red-6))",
                             fontSize: "1.2rem",
                             WebkitBackgroundClip: "text",
                             WebkitTextFillColor: "transparent",
                         }}
                     >
-                        {aboutText}
+                        {aboutMe}
                     </Highlight>
                 </BackgroundImage>
             </Paper>
-        </Container>
+        </Stack>
     );
 }

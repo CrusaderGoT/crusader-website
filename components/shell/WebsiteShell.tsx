@@ -1,6 +1,6 @@
 "use client";
 
-import { AppShell, Burger, Group, ScrollArea, Title } from "@mantine/core";
+import { AppShell, Burger, Container, Group, ScrollArea, Title } from "@mantine/core";
 
 import { useDisclosure, useElementSize, useHeadroom } from "@mantine/hooks";
 
@@ -71,7 +71,12 @@ export function WebsiteShell({
                 </AppShell.Section>
             </AppShell.Navbar>
 
-            <AppShell.Main ref={mainRef}>{children}</AppShell.Main>
+            <AppShell.Main ref={mainRef}>
+                <Container size={"xl"}>
+                    {children}
+                </Container>
+                
+            </AppShell.Main>
 
             {/**<AppShell.Footer ref={footerRef}>
                 <p>footer</p>
