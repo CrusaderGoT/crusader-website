@@ -4,13 +4,12 @@ import { useForm, zodResolver } from "@mantine/form";
 
 import {
     Button,
-    Container,
     Input,
     InputWrapperProps,
     Select,
     Stack,
     Textarea,
-    TextInput,
+    TextInput
 } from "@mantine/core";
 
 import { notifications } from "@mantine/notifications";
@@ -82,71 +81,69 @@ export function ContactForm() {
     }
 
     return (
-        <Container size={"xl"} m={"xs"}>
-            <form onSubmit={form.onSubmit(handleSubmit)}>
-                <Stack
-                    p={"md"}
-                    style={{
-                        border: "1px solid",
-                        borderRadius: "2%",
-                        height: "100%",
-                    }}
-                >
-                    <TextInput
-                        withAsterisk
-                        label="Subject"
-                        placeholder="Subject of the Email"
-                        key={form.key("subject")}
-                        {...form.getInputProps("subject")}
-                    />
+        <form onSubmit={form.onSubmit(handleSubmit)}>
+            <Stack
+                p={"md"}
+                style={{
+                    border: "1px solid",
+                    borderRadius: "2%",
+                    height: "100%",
+                }}
+            >
+                <TextInput
+                    withAsterisk
+                    label="Subject"
+                    placeholder="Subject of the Email"
+                    key={form.key("subject")}
+                    {...form.getInputProps("subject")}
+                />
 
-                    <TextInput
-                        withAsterisk
-                        label="Name"
-                        placeholder="Your Full Name"
-                        key={form.key("name")}
-                        {...form.getInputProps("name")}
-                    />
+                <TextInput
+                    withAsterisk
+                    label="Name"
+                    placeholder="Your Full Name"
+                    key={form.key("name")}
+                    {...form.getInputProps("name")}
+                />
 
-                    <TextInput
-                        withAsterisk
-                        label="Email"
-                        placeholder="Your Email Address"
-                        key={form.key("email")}
-                        {...form.getInputProps("email")}
-                        type="email"
-                    />
+                <TextInput
+                    withAsterisk
+                    label="Email"
+                    placeholder="Your Email Address"
+                    key={form.key("email")}
+                    {...form.getInputProps("email")}
+                    type="email"
+                />
 
-                    <Textarea
-                        label="Address"
-                        placeholder="Your Home Address"
-                        key={form.key("address")}
-                        {...form.getInputProps("address")}
-                    />
+                <Textarea
+                    label="Address"
+                    placeholder="Your Home Address"
+                    key={form.key("address")}
+                    {...form.getInputProps("address")}
+                />
 
-                    <Select
-                        label="Select the Service you need"
-                        placeholder="Select"
-                        data={services()}
-                        clearable
-                        key={form.key("service")}
-                        {...form.getInputProps("service")}
-                    />
+                <Select
+                    label="Select the Service you need"
+                    placeholder="Select"
+                    data={services()}
+                    clearable
+                    key={form.key("service")}
+                    {...form.getInputProps("service")}
+                />
 
-                    <ContactRichTextEditor
-                        label="Decsribe the work you want done"
-                        key={form.key("description")}
-                        value={form.values.description}
-                        error={form.getInputProps("description").error}
-                        {...form.getInputProps("description")}
-                    />
+                <ContactRichTextEditor
+                    label="Decsribe the work you want done"
+                    key={form.key("description")}
+                    value={form.values.description}
+                    error={form.getInputProps("description").error}
+                    {...form.getInputProps("description")}
+                />
 
-                    <Button type="submit" disabled={isSending}>
-                        {isSending ? "Sending..." : "Send Email"}
-                    </Button>
-                </Stack>
-            </form>
-        </Container>
+                <Button type="submit" disabled={isSending}>
+                    {isSending ? "Sending..." : "Send Email"}
+                </Button>
+            </Stack>
+        </form>
     );
 }
 

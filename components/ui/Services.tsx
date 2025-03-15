@@ -1,7 +1,6 @@
 "use client";
 
 import {
-    Container,
     Divider,
     List,
     NumberFormatter,
@@ -9,7 +8,7 @@ import {
     Stack,
     Text,
     ThemeIcon,
-    Timeline,
+    Timeline
 } from "@mantine/core";
 
 import { Carousel } from "@mantine/carousel";
@@ -25,23 +24,21 @@ import { IconTool } from "@tabler/icons-react";
 
 export function Services() {
     return (
-        <Container size={"xl"}>
-            <Stack>
-                <TechSlides />
-                <Divider
-                    label={
-                        <>
-                            <IconTool size={17} color="gold" />
-                            <Text ml={5} fz={17} c={"gold"}>
-                                Services
-                            </Text>
-                        </>
-                    }
-                    size={"md"}
-                />
-                <ServicesTimeline />
-            </Stack>
-        </Container>
+        <Stack>
+            <TechSlides />
+            <Divider
+                label={
+                    <>
+                        <IconTool size={17} color="gold" />
+                        <Text ml={5} fz={17} c={"gold"}>
+                            Services
+                        </Text>
+                    </>
+                }
+                size={"md"}
+            />
+            <ServicesTimeline />
+        </Stack>
     );
 }
 

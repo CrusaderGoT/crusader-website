@@ -6,23 +6,20 @@ import {
     Badge,
     Button,
     Card,
-    Container,
     Group,
     Image,
     ScrollArea,
     SimpleGrid,
-    Text,
+    Text
 } from "@mantine/core";
 
 export function Projects() {
     return (
-        <Container size={"xl"}>
-            <SimpleGrid cols={3} spacing="sm" verticalSpacing="sm">
-                {repositories.data.map((repository) => {
-                    return <RepoCard key={repository.id} repo={repository} />;
-                })}
-            </SimpleGrid>
-        </Container>
+        <SimpleGrid cols={3} spacing="sm" verticalSpacing="sm">
+            {repositories.data.map((repository) => {
+                return <RepoCard key={repository.id} repo={repository} />;
+            })}
+        </SimpleGrid>
     );
 }
 
