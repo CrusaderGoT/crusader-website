@@ -31,7 +31,7 @@ export function WebsiteShell({
 
     return (
         <AppShell
-            padding={"sm"}
+            padding={"xs"}
             transitionDuration={500}
             transitionTimingFunction="ease-in-out"
             header={{
