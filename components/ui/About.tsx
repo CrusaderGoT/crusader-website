@@ -1,11 +1,14 @@
 import {
     BackgroundImage,
     Highlight,
+    Image as MantineImage,
     Paper,
     ScrollArea,
     Stack,
     Title,
 } from "@mantine/core";
+
+import Image from "next/image";
 
 import { aboutMe, myAge } from "@/components/data/aboutData";
 
@@ -80,6 +83,17 @@ export function About() {
                     >
                         {aboutMe}
                     </Highlight>
+                    <MantineImage
+                        component={Image}
+                        src={"/images/nav_pimg.jpg"}
+                        alt="My Dope Picture"
+                        width={480}
+                        height={636}
+                        style={{
+                            width: "100%",
+                            height: "auto",
+                        }}
+                    />
                 </BackgroundImage>
             </Paper>
         </Stack>

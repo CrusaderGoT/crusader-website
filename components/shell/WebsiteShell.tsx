@@ -12,7 +12,7 @@ import {
 import { useDisclosure, useElementSize, useHeadroom } from "@mantine/hooks";
 
 import { ModeToggleButton } from "@/components/shell/ModeToggleButton";
-import { NavCard } from "@/components/shell/NavCard";
+import { NavCard } from "@/components/shell/ShellNavCard";
 import { ShellNavLinks } from "@/components/shell/ShellNavLinks";
 
 export function WebsiteShell({
