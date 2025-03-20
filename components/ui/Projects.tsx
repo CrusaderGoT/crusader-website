@@ -3,11 +3,13 @@
 import { type RepositoryType } from "@/lib/githubSDK";
 
 import {
+    Anchor,
     Avatar,
     Badge,
-    Button,
+    Box,
     Card,
     Divider,
+    Flex,
     Group,
     ScrollArea,
     SimpleGrid,
@@ -18,9 +20,13 @@ import {
 
 export function Projects({ repositories }: { repositories: RepositoryType[] }) {
     return (
-        <SimpleGrid cols={2} spacing="sm" verticalSpacing="sm">
+        <SimpleGrid
+            cols={{ base: 1, sm: 2, lg: 5 }}
+            spacing="sm"
+            verticalSpacing="sm"
+        >
             {repositories.map((repository) => {
-                return <GitHubRepoCard key={repository.id} repo={repository} />;
+                return <RepoCard key={repository.id} repo={repository} />;
             })}
         </SimpleGrid>
     );
@@ -29,97 +35,91 @@ export function Projects({ repositories }: { repositories: RepositoryType[] }) {
 function RepoCard({ repo }: { repo: RepositoryType }) {
     return (
         <Card
-            mah={{ base: 150, sm: 200, md: 300, lg: 400 }}
-            shadow="sm"
-            padding="xs"
-            radius="md"
+            h={300}
+            component={Flex}
+            shadow="md"
+            radius="lg"
             withBorder
+            p="lg"
+            c={"gold"}
         >
-            <Stack
-                style={{
-                    height: "100%",
-                }}
-            >
-                <Group wrap="nowrap" justify="space-around">
-                    <Avatar name={repo.name} />
-                    <Title order={3} fz={18} fw={"normal"}>
+            <Card.Section>
+                <Group justify="space-between">
+                    <Anchor href={repo.html_url} target="_blank" fz={"xs"}>
+                        Github
+                    </Anchor>
+
+                    {repo.homepage && (
+                        <Anchor href={repo.homepage} target="_blank" fz={"xs"}>
+                            Website
+                        </Anchor>
+                    )}
+                </Group>
+
+                <Divider mb={"xs"} />
+            </Card.Section>
+
+            <Card.Section mx={"auto"}>
+                <Group
+                    mih={20}
+                    mah={20}
+                    my={"auto"}
+                    wrap="nowrap"
+                    align="center"
+                >
+                    <Avatar size={"sm"} name={repo.name} />
+                    <Title textWrap="pretty" order={4} fw={"normal"}>
                         {repo.name}
                     </Title>
                 </Group>
+            </Card.Section>
 
-                <Text
-                    component={ScrollArea}
-                    mah={50}
-                    style={{
-                        flex: 1
-                    }}
-                >
-                    {repo.description || "No Available Description."}
-                </Text>
+            <Card.Section>
+                <Divider my={"xs"} />
+                <Stack>
+                    <Text size={"xs"}>Created: {repo.created_at}</Text>
+                    <Text fz={"xs"}>Last Updated: {repo.updated_at}</Text>
+                </Stack>
+                <Divider mt={"xs"} />
+            </Card.Section>
 
-                <Badge>{repo.language}</Badge>
-            </Stack>
+            <Card.Section
+                flex={1}
+                component={ScrollArea}
+                mih={50}
+                offsetScrollbars
+            >
+                <Box p={"xs"}>
+                    <Text ta={"justify"}>
+                        {repo.description ?? "No Availble Description"}
+                    </Text>
+                </Box>
+            </Card.Section>
+
+            <Card.Section>
+                <Divider mb={"xs"} />
+                <Group flex={1}>
+                    {repo.topics &&
+                        repo.topics.map((topic) => (
+                            <Badge
+                                key={topic}
+                                variant="light"
+                                color="yellow"
+                                size="sm"
+                            >
+                                {topic}
+                            </Badge>
+                        ))}
+                    <Badge
+                        key={repo.language}
+                        variant="light"
+                        color="yellow"
+                        size="sm"
+                    >
+                        {repo.language}
+                    </Badge>
+                </Group>
+            </Card.Section>
         </Card>
     );
 }
-
-// The GitHubRepoCard component accepts a repo object and renders its details.
-const GitHubRepoCard = ({ repo }: { repo: RepositoryType }) => {
-    return (
-        <Card mah={{ base: 150, sm: 200, md: 300, lg: 400 }} shadow="sm" padding="lg" radius="md" withBorder>
-            {/* Header with full name and primary language badge */}
-            <Group justify="space-between" style={{ marginBottom: 10 }}>
-                <Text fw={500} size="lg">
-                    {repo.full_name || "Repository Name"}
-                </Text>
-                {repo.language && (
-                    <Badge color="pink" variant="light">
-                        {repo.language}
-                    </Badge>
-                )}
-            </Group>
-
-            {/* Repository description */}
-            <Text size="sm" c="dimmed" style={{ marginBottom: 15 }}>
-                {repo.description || "No description provided."}
-            </Text>
-
-            {/* Topics badges */}
-            <Group gap={5} mb="md">
-                {repo.topics &&
-                    repo.topics.length > 0 &&
-                    repo.topics.map((topic) => (
-                        <Badge key={topic} color="blue" variant="light">
-                            {topic}
-                        </Badge>
-                    ))}
-            </Group>
-
-            {/* Action buttons for GitHub and deploy link */}
-            <Group>
-                <Button
-                    component="a"
-                    href={repo.html_url}
-                    target="_blank"
-                    variant="light"
-                    color="blue"
-                    fullWidth
-                >
-                    GitHub
-                </Button>
-                {repo.deployments_url && (
-                    <Button
-                        component="a"
-                        href={repo.deployments_url}
-                        target="_blank"
-                        variant="light"
-                        color="green"
-                        fullWidth
-                    >
-                        Live Demo
-                    </Button>
-                )}
-            </Group>
-        </Card>
-    );
-};

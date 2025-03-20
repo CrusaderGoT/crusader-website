@@ -29,6 +29,27 @@ async function getRepositories() {
     }
 }
 
+async function getRepositoryLanguagues() {
+    let languanges = null;
+    let error = null;
+    let owner= "ff"
+    let repo = "fkfk"
+
+    try {
+        const d = await github(`GET /repos/${owner}/${repo}/languages`);
+
+        if (!d.data) {
+            error = new Error(`Code ${d.status}: Error Fetching Repositories`);
+        } else {
+            languanges = d.data;
+        }
+    } catch (e) {
+        error = new Error("Error Fetching Repositories");
+    } finally {
+        return { languanges, error };
+    }
+}
+
 type RepositoryType = NonNullable<
     Awaited<ReturnType<typeof getRepositories>>["repos"]
 >[0];

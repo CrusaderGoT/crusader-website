@@ -16,7 +16,7 @@ export default async function ProjectPage() {
             >
                 <Image src="/404.svg" visibleFrom="xs" />
                 <div>
-                    <Title fw={900}>Something is not right...</Title>
+                    <Title c={"red"} fw={900}>Something is not right...</Title>
                     <Text c="dimmed" size="lg">
                         Make Sure Your Internet Connection Is Good.
                     </Text>

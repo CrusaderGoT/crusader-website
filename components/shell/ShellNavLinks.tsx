@@ -19,7 +19,7 @@ export function ShellNavLinks({
 
     return (
         <Stack justify="space-evenly">
-            {l.map((link, index) => {
+            {links.map((link, index) => {
                 const NavIcon = link.leftSection;
 
                 return (
