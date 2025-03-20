@@ -21,7 +21,7 @@ import {
 export function Projects({ repositories }: { repositories: RepositoryType[] }) {
     return (
         <SimpleGrid
-            cols={{ base: 1, sm: 2, lg: 5 }}
+            cols={{ base: 1, sm: 2, lg: 3, xl: 4 }}
             spacing="sm"
             verticalSpacing="sm"
         >
@@ -59,14 +59,8 @@ function RepoCard({ repo }: { repo: RepositoryType }) {
                 <Divider mb={"xs"} />
             </Card.Section>
 
-            <Card.Section mx={"auto"}>
-                <Group
-                    mih={20}
-                    mah={20}
-                    my={"auto"}
-                    wrap="nowrap"
-                    align="center"
-                >
+            <Card.Section mx={"auto"} my={"auto"} mih={20} mah={20}>
+                <Group wrap="nowrap" align="center">
                     <Avatar size={"sm"} name={repo.name} />
                     <Title textWrap="pretty" order={4} fw={"normal"}>
                         {repo.name}
@@ -83,22 +77,15 @@ function RepoCard({ repo }: { repo: RepositoryType }) {
                 <Divider mt={"xs"} />
             </Card.Section>
 
-            <Card.Section
-                flex={1}
-                component={ScrollArea}
-                mih={50}
-                offsetScrollbars
-            >
+            <Card.Section component={ScrollArea} offsetScrollbars flex={1}>
                 <Box p={"xs"}>
-                    <Text ta={"justify"}>
-                        {repo.description ?? "No Availble Description"}
-                    </Text>
+                    <Text>{repo.description ?? "No Availble Description"}</Text>
                 </Box>
             </Card.Section>
 
             <Card.Section>
                 <Divider mb={"xs"} />
-                <Group flex={1}>
+                <Group preventGrowOverflow={false}>
                     {repo.topics &&
                         repo.topics.map((topic) => (
                             <Badge
