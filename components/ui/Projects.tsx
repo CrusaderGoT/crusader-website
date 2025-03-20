@@ -51,7 +51,7 @@ function RepoCard({ repo }: { repo: RepositoryType }) {
                     component={ScrollArea}
                     mah={50}
                     style={{
-                        flex: 1,
+                        flex: 1
                     }}
                 >
                     {repo.description || "No Available Description."}
@@ -66,13 +66,7 @@ function RepoCard({ repo }: { repo: RepositoryType }) {
 // The GitHubRepoCard component accepts a repo object and renders its details.
 const GitHubRepoCard = ({ repo }: { repo: RepositoryType }) => {
     return (
-        <Card
-            mah={{ base: 150, sm: 200, md: 300, lg: 400 }}
-            shadow="sm"
-            padding="lg"
-            radius="md"
-            withBorder
-        >
+        <Card mah={{ base: 150, sm: 200, md: 300, lg: 400 }} shadow="sm" padding="lg" radius="md" withBorder>
             {/* Header with full name and primary language badge */}
             <Group justify="space-between" style={{ marginBottom: 10 }}>
                 <Text fw={500} size="lg">

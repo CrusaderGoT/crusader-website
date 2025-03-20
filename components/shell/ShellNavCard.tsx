@@ -8,16 +8,21 @@ import {
     Blockquote,
     Container,
     Flex,
+    Group,
     HoverCard,
     Image as MantineImage,
     Skeleton,
     Stack,
     Text,
+    Title,
+    Transition,
 } from "@mantine/core";
+
+import { useHover } from "@mantine/hooks";
 
 import Image from "next/image";
 
-import { IconInfoCircle } from "@tabler/icons-react";
+import { IconInfoCircle, IconMapPin } from "@tabler/icons-react";
 
 const quotes = [
     {
@@ -43,6 +48,8 @@ const quotes = [
 ];
 
 export function NavCard() {
+    const { hovered, ref } = useHover();
+
     const [randomQuote, setRandomQuote] = useState<(typeof quotes)[0] | null>(
         null
     );
@@ -66,7 +73,7 @@ export function NavCard() {
     return (
         <Stack>
             <HoverCard>
-                <HoverCard.Target>
+                <HoverCard.Target ref={ref}>
                     <Avatar
                         src="/images/nav_pimg.jpg"
                         alt="Enemchukwu Chukwuemeka's avatar"
@@ -77,36 +84,61 @@ export function NavCard() {
                         mt="xs"
                     />
                 </HoverCard.Target>
-
-                <HoverCard.Dropdown hidden>
-                    <Affix
-                        position={{
-                            top: 150,
-                            left: 20,
-                            right: 20,
-                            bottom: 150,
-                        }}
-                    >
-                        <Container size={"xl"}>
-                            <MantineImage
-                                component={Image}
-                                src={"/images/nav_pimg.jpg"}
-                                alt="Enemchukwu Chukwuemeka's Picture"
-                                radius={"md"}
-                                width={365}
-                                height={480}
-                            />
-                        </Container>
-                    </Affix>
-                </HoverCard.Dropdown>
+                <Transition
+                    mounted={hovered}
+                    transition="slide-up"
+                    timingFunction="linear"
+                >
+                    {(transitionStyles) => (
+                        <HoverCard.Dropdown hidden>
+                            <Affix
+                                style={transitionStyles}
+                                position={{
+                                    top: 150,
+                                    left: 20,
+                                    right: 20,
+                                    bottom: 150,
+                                }}
+                            >
+                                <Container size={"sm"}>
+                                    <MantineImage
+                                        component={Image}
+                                        src={"/images/nav_pimg.jpg"}
+                                        alt="Enemchukwu Chukwuemeka's Picture"
+                                        radius={"md"}
+                                        width={365}
+                                        height={480}
+                                    />
+                                </Container>
+                            </Affix>
+                        </HoverCard.Dropdown>
+                    )}
+                </Transition>
             </HoverCard>
+
+            <Group mx={"auto"} gap={5}>
+                <IconMapPin size={18} />
+                <Text fz={"md"} c={"green"}>
+                    Nigeria
+                </Text>
+            </Group>
+
+            <Title
+                order={4}
+                c={"gold"}
+                mx={"auto"}
+                fz={{ base: "sm", sm: "md", md: "lg" }}
+                fw={"normal"}
+            >
+                I am a Web Developer
+            </Title>
 
             <Blockquote
                 color="gold"
                 cite={randomQuote.authour}
                 icon={Icon}
-                mx={"xs"}
                 iconSize={25}
+                mx={"xs"}
                 p={"xs"}
             >
                 <Text size="sm">{randomQuote.quote}</Text>
