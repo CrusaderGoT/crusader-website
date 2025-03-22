@@ -1,5 +1,12 @@
 import { request } from "@octokit/request";
 
+class GithubError extends Error {
+    constructor(message: string) {
+        super(message);
+        this.name = "GithubError";
+    }
+}
+
 const github = request.defaults({
     headers: {
         authorization: `token ${process.env.GITHUB_TOKEN}`,
@@ -18,35 +25,47 @@ async function getRepositories() {
         });
 
         if (!d.data) {
-            error = new Error(`Code ${d.status}: Error Fetching Repositories`);
+            error = new GithubError(
+                `Code ${d.status}: Error Fetching Repositories`
+            );
         } else {
             repos = d.data;
         }
     } catch (e) {
-        error = new Error("Error Fetching Repositories");
+        error = new GithubError("Error Fetching Repositories");
     } finally {
         return { repos, error };
     }
 }
 
-async function getRepositoryLanguagues() {
-    let languanges = null;
+async function getRepoLanguages({
+    owner,
+    repo,
+}: {
+    owner: string;
+    repo: string;
+}) {
+    let langs = null;
     let error = null;
-    let owner= "ff"
-    let repo = "fkfk"
 
     try {
-        const d = await github(`GET /repos/${owner}/${repo}/languages`);
+        const l = await github("GET /repos/{owner}/{repo}/languages", {
+            owner,
+            repo,
+        });
 
-        if (!d.data) {
-            error = new Error(`Code ${d.status}: Error Fetching Repositories`);
+        if (!l.data) {
+            error = new GithubError(
+                `${l.status} status, while fetching languagues`
+            );
         } else {
-            languanges = d.data;
+            langs = l.data;
         }
     } catch (e) {
-        error = new Error("Error Fetching Repositories");
+        console.error(e);
+        error = new GithubError("Error fetching languagues");
     } finally {
-        return { languanges, error };
+        return { langs, error };
     }
 }
 
@@ -54,5 +73,12 @@ type RepositoryType = NonNullable<
     Awaited<ReturnType<typeof getRepositories>>["repos"]
 >[0];
 
-export { getRepositories, github, type RepositoryType };
+type RepoLanguagesType = NonNullable<
+    Awaited<ReturnType<typeof getRepoLanguages>>["langs"]
+>;
+
+export {
+    getRepoLanguages, getRepositories,
+    github, type RepoLanguagesType, type RepositoryType
+};
 

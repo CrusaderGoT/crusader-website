@@ -1,6 +1,12 @@
 "use client";
 
-import { type RepositoryType } from "@/lib/githubSDK";
+import { useEffect, useState } from "react";
+
+import {
+    type RepoLanguagesType,
+    type RepositoryType,
+    getRepoLanguages,
+} from "@/lib/githubSDK";
 
 import {
     Anchor,
@@ -33,6 +39,36 @@ export function Projects({ repositories }: { repositories: RepositoryType[] }) {
 }
 
 function RepoCard({ repo }: { repo: RepositoryType }) {
+    const {
+        owner: { login },
+        name,
+        homepage,
+        html_url,
+        topics,
+        created_at,
+        updated_at,
+        description,
+        language,
+    } = repo;
+
+    const [languages, setLanguages] = useState<RepoLanguagesType | null>(null);
+
+    useEffect(() => {
+        (async () => {
+            try {
+                const data = await getRepoLanguages({
+                    owner: login,
+                    repo: name,
+                });
+                if (data.langs) {
+                    setLanguages(data.langs);
+                }
+            } catch (error) {
+                console.error("Error loading languages:", error);
+            }
+        })();
+    }, [login, name]);
+
     return (
         <Card
             h={300}
@@ -41,53 +77,51 @@ function RepoCard({ repo }: { repo: RepositoryType }) {
             radius="lg"
             withBorder
             p="lg"
-            c={"gold"}
+            c="gold"
         >
             <Card.Section>
                 <Group justify="space-between">
-                    <Anchor href={repo.html_url} target="_blank" fz={"xs"}>
+                    <Anchor href={html_url} target="_blank" fz="xs">
                         Github
                     </Anchor>
-
-                    {repo.homepage && (
-                        <Anchor href={repo.homepage} target="_blank" fz={"xs"}>
+                    {homepage && (
+                        <Anchor href={homepage} target="_blank" fz="xs">
                             Website
                         </Anchor>
                     )}
                 </Group>
-
-                <Divider mb={"xs"} />
+                <Divider mb="xs" />
             </Card.Section>
 
-            <Card.Section mx={"auto"} my={"auto"} mih={20} mah={20}>
+            <Card.Section mx="auto" my="auto" mih={20} mah={20}>
                 <Group wrap="nowrap" align="center">
-                    <Avatar size={"sm"} name={repo.name} />
-                    <Title textWrap="pretty" order={4} fw={"normal"}>
-                        {repo.name}
+                    <Avatar size="sm" name={name} />
+                    <Title textWrap="pretty" order={4} fw="normal">
+                        {name}
                     </Title>
                 </Group>
             </Card.Section>
 
             <Card.Section>
-                <Divider my={"xs"} />
+                <Divider my="xs" />
                 <Stack>
-                    <Text size={"xs"}>Created: {repo.created_at}</Text>
-                    <Text fz={"xs"}>Last Updated: {repo.updated_at}</Text>
+                    <Text size="xs">Created: {created_at}</Text>
+                    <Text fz="xs">Last Updated: {updated_at}</Text>
                 </Stack>
-                <Divider mt={"xs"} />
+                <Divider mt="xs" />
             </Card.Section>
 
             <Card.Section component={ScrollArea} offsetScrollbars flex={1}>
-                <Box p={"xs"}>
-                    <Text>{repo.description ?? "No Availble Description"}</Text>
+                <Box p="xs">
+                    <Text>{description ?? "No Available Description"}</Text>
                 </Box>
             </Card.Section>
 
             <Card.Section>
-                <Divider mb={"xs"} />
+                <Divider mb="xs" />
                 <Group preventGrowOverflow={false}>
-                    {repo.topics &&
-                        repo.topics.map((topic) => (
+                    {topics &&
+                        topics.map((topic) => (
                             <Badge
                                 key={topic}
                                 variant="light"
@@ -97,14 +131,27 @@ function RepoCard({ repo }: { repo: RepositoryType }) {
                                 {topic}
                             </Badge>
                         ))}
-                    <Badge
-                        key={repo.language}
-                        variant="light"
-                        color="yellow"
-                        size="sm"
-                    >
-                        {repo.language}
-                    </Badge>
+                    {languages
+                        ? Object.keys(languages).map((language) => (
+                              <Badge
+                                  key={language}
+                                  variant="light"
+                                  color="yellow"
+                                  size="sm"
+                              >
+                                  {language}
+                              </Badge>
+                          ))
+                        : language && (
+                              <Badge
+                                  key={language}
+                                  variant="light"
+                                  color="yellow"
+                                  size="sm"
+                              >
+                                  {language}
+                              </Badge>
+                          )}
                 </Group>
             </Card.Section>
         </Card>
