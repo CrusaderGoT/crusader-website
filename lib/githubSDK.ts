@@ -32,6 +32,7 @@ async function getRepositories() {
             repos = d.data;
         }
     } catch (e) {
+        console.error(e);
         error = new GithubError("Error Fetching Repositories");
     } finally {
         return { repos, error };
@@ -78,7 +79,9 @@ type RepoLanguagesType = NonNullable<
 >;
 
 export {
-    getRepoLanguages, getRepositories,
-    github, type RepoLanguagesType, type RepositoryType
+    getRepoLanguages,
+    getRepositories,
+    github,
+    type RepoLanguagesType,
+    type RepositoryType,
 };
-
