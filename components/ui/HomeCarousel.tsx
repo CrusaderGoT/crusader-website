@@ -25,7 +25,7 @@ export function HomeCarousel() {
         })
     );
     return (
-        <Flex justify="center" h={3000} mah={"80vh"}>
+        <Flex justify="center" my="auto" h={3000} mah={"80vh"}>
             <Carousel
                 height={"100%"}
                 withIndicators
