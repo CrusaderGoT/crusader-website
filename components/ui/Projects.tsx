@@ -87,7 +87,7 @@ function RepoCard({ repo, langs }: RepoCardProp) {
             </Card.Section>
 
             <Card.Section component={ScrollArea} offsetScrollbars flex={1}>
-                <Box p="xs">
+                <Box p="xs" mih={50}>
                     <Text>
                         {repo.description ?? "No Available Description"}
                     </Text>

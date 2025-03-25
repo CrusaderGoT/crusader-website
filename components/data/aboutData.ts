@@ -1,3 +1,4 @@
+import dayjs from "dayjs";
 
 /**
  * Calculates the current age based on a fixed birthday.
@@ -10,7 +11,7 @@
  */
 export const myAge = () => {
     const birthday = new Date(1999, 8, 28);
-    const today = new Date();
+    const today = dayjs().toDate();
     let age = today.getFullYear() - birthday.getFullYear();
     if (today.getMonth() < birthday.getMonth()) age--;
     return age;

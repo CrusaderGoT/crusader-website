@@ -118,8 +118,8 @@ export function NavCard() {
 
             <Group mx={"auto"} gap={5}>
                 <IconMapPin size={18} />
-                <Text fz={"md"} c={"green"}>
-                    Nigeria
+                <Text fz={{ base: "md", sm: "lg", md: "xl" }} c={"green"}>
+                    Nigeria🏁
                 </Text>
             </Group>
 
@@ -127,7 +127,7 @@ export function NavCard() {
                 order={4}
                 c={"gold"}
                 mx={"auto"}
-                fz={{ base: "sm", sm: "md", md: "lg" }}
+                fz={{ base: "md", sm: "lg", md: "xl" }}
                 fw={"normal"}
             >
                 I am a Web Developer

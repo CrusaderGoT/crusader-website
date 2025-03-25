@@ -1,14 +1,17 @@
 // components/ModeToggleButton.tsx
 "use client";
 
+import classes from "@/styles/shell/ModeToggleButton.module.css";
+
 import {
     ActionIcon,
-    useMantineColorScheme,
     useComputedColorScheme,
+    useMantineColorScheme,
 } from "@mantine/core";
-import cx from "clsx"
-import { IconSun, IconMoon } from "@tabler/icons-react";
-import classes from "@/styles/shell/ModeToggleButton.module.css"
+
+import { IconMoon, IconSun } from "@tabler/icons-react";
+
+import cx from "clsx";
 
 export function ModeToggleButton() {
     const { setColorScheme } = useMantineColorScheme();

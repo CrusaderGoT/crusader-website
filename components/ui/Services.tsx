@@ -8,7 +8,7 @@ import {
     Stack,
     Text,
     ThemeIcon,
-    Timeline
+    Timeline,
 } from "@mantine/core";
 
 import { Carousel } from "@mantine/carousel";
@@ -114,7 +114,7 @@ function TechSlides() {
 function ServicesTimeline() {
     return (
         <ScrollArea.Autosize
-            mah={"50vh"}
+            mah={"60vh"}
             offsetScrollbars
             overscrollBehavior="contain"
             scrollHideDelay={500}

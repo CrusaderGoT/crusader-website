@@ -11,9 +11,10 @@ import {
 
 import { useDisclosure, useElementSize, useHeadroom } from "@mantine/hooks";
 
-import { ModeToggleButton } from "@/components/shell/ModeToggleButton";
+import { ModeToggleButton } from "@/components/buttons/ModeToggleButton";
 import { NavCard } from "@/components/shell/ShellNavCard";
 import { ShellNavLinks } from "@/components/shell/ShellNavLinks";
+import { Footer } from "./ShellFooter";
 
 export function WebsiteShell({
     children,
@@ -43,7 +44,7 @@ export function WebsiteShell({
                 breakpoint: "xs",
             }}
             footer={{
-                height: 40,
+                height: { base: 70, md: 40 },
                 collapsed: pinned,
             }}
         >
@@ -79,14 +80,12 @@ export function WebsiteShell({
             </AppShell.Navbar>
 
             <AppShell.Main ref={mainRef}>
-                <Container size={"xl"}>
-                    {children}
-                </Container>
+                <Container size={"xl"}>{children}</Container>
             </AppShell.Main>
 
-            {/**<AppShell.Footer ref={footerRef}>
-                <p>footer</p>
-            </AppShell.Footer>*/}
+            <AppShell.Footer ref={footerRef}>
+                <Footer />
+            </AppShell.Footer>
         </AppShell>
     );
 }
