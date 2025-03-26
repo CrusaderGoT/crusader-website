@@ -5,9 +5,11 @@ import {
     Flex,
     Group,
     Highlight,
+    Stack,
     Text,
     type MantineColor,
 } from "@mantine/core";
+import { useColorScheme } from "@mantine/hooks";
 
 import {
     IconBrandGithubFilled,
@@ -54,29 +56,29 @@ const footerSocialData: FooterSocialProp[] = [
     },
 ];
 
-export function Footer() {
+export function ShellFooter() {
     const year = dayjs().year();
+
+    const colorScheme = useColorScheme("dark", {
+        getInitialValueInEffect: true,
+    });
+
     return (
-        <Flex
-            direction={{ base: "column", sm: "row" }}
-            gap={{ base: 2, sm: "lg" }}
-            mx={"auto"}
-            justify={"space-between"}
-            align={"center"}
-            px={"xl"}
-        >
+        <Stack gap={1} p={2}>
             <Highlight
+                ta={"center"}
+                size="xs"
                 highlight={["CrusaderGoT"]}
                 highlightStyles={{
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
                     fontWeight: "bold",
                 }}
-                c={"white"}
+                c={colorScheme === "dark" ? "white" : "gold"}
             >
                 Made with 💛 by CrusaderGoT
             </Highlight>
-            <Group justify="space-between" gap={"xl"}>
+            <Group justify="space-between" gap={"xs"} grow wrap="nowrap">
                 {footerSocialData.map((social) => {
                     const Icon = social.icon;
                     return (
@@ -106,10 +108,10 @@ export function Footer() {
                     );
                 })}
             </Group>
-            <Text size="sm" ta={"center"}>
+            <Text size="xs" ta={"center"}>
                 <IconCopyright size={12} /> {year} All rigth reserve and all
                 that...
             </Text>
-        </Flex>
+        </Stack>
     );
 }

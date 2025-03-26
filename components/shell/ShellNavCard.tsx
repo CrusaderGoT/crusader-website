@@ -119,7 +119,7 @@ export function NavCard() {
             <Group mx={"auto"} gap={5}>
                 <IconMapPin size={18} />
                 <Text fz={{ base: "md", sm: "lg", md: "xl" }} c={"green"}>
-                    Nigeria🏁
+                    Nigeria 🇳🇬
                 </Text>
             </Group>
 

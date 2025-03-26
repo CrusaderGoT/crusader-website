@@ -14,7 +14,7 @@ import { useDisclosure, useElementSize, useHeadroom } from "@mantine/hooks";
 import { ModeToggleButton } from "@/components/buttons/ModeToggleButton";
 import { NavCard } from "@/components/shell/ShellNavCard";
 import { ShellNavLinks } from "@/components/shell/ShellNavLinks";
-import { Footer } from "./ShellFooter";
+import { ShellFooter } from "./ShellFooter";
 
 export function WebsiteShell({
     children,
@@ -23,12 +23,6 @@ export function WebsiteShell({
 }>) {
     const [mobileOpened, { toggle: toggleMobile }] = useDisclosure();
     const [desktopOpened, { toggle: toggleDesktop }] = useDisclosure(true);
-
-    const { ref: mainRef, height: mainHeight } = useElementSize();
-
-    const { ref: footerRef, height: footerHeight } = useElementSize();
-
-    const pinned = useHeadroom({ fixedAt: -(mainHeight + footerHeight) });
 
     return (
         <AppShell
@@ -42,10 +36,6 @@ export function WebsiteShell({
                 collapsed: { mobile: !mobileOpened, desktop: !desktopOpened },
                 width: { base: 150, sm: 200, lg: 300 },
                 breakpoint: "xs",
-            }}
-            footer={{
-                height: { base: 70, md: 40 },
-                collapsed: pinned,
             }}
         >
             <AppShell.Header zIndex={210}>
@@ -77,15 +67,17 @@ export function WebsiteShell({
                 <AppShell.Section grow component={ScrollArea}>
                     <ShellNavLinks onNavLinkClick={toggleMobile} />
                 </AppShell.Section>
+
+                <AppShell.Section>
+                    <footer>
+                        <ShellFooter />
+                    </footer>
+                </AppShell.Section>
             </AppShell.Navbar>
 
-            <AppShell.Main ref={mainRef}>
+            <AppShell.Main>
                 <Container size={"xl"}>{children}</Container>
             </AppShell.Main>
-
-            <AppShell.Footer ref={footerRef}>
-                <Footer />
-            </AppShell.Footer>
         </AppShell>
     );
 }
