@@ -9,7 +9,7 @@ import {
     Title,
 } from "@mantine/core";
 
-import { useDisclosure, useElementSize, useHeadroom } from "@mantine/hooks";
+import { useDisclosure } from "@mantine/hooks";
 
 import { ModeToggleButton } from "@/components/buttons/ModeToggleButton";
 import { NavCard } from "@/components/shell/ShellNavCard";

@@ -2,7 +2,6 @@
 
 import {
     ActionIcon,
-    Flex,
     Group,
     Highlight,
     Stack,
@@ -59,10 +58,6 @@ const footerSocialData: FooterSocialProp[] = [
 export function ShellFooter() {
     const year = dayjs().year();
 
-    const colorScheme = useColorScheme("dark", {
-        getInitialValueInEffect: true,
-    });
-
     return (
         <Stack gap={1} p={2}>
             <Highlight
@@ -74,11 +69,14 @@ export function ShellFooter() {
                     WebkitTextFillColor: "transparent",
                     fontWeight: "bold",
                 }}
-                c={colorScheme === "dark" ? "white" : "gold"}
             >
                 Made with 💛 by CrusaderGoT
             </Highlight>
-            <Group justify="space-between" gap={"xs"} grow wrap="nowrap">
+            <Group
+                justify="space-between"
+                gap={"xs"}
+                wrap="nowrap"
+            >
                 {footerSocialData.map((social) => {
                     const Icon = social.icon;
                     return (
@@ -101,9 +99,6 @@ export function ShellFooter() {
                             >
                                 <Icon size={14} />
                             </ActionIcon>
-                            <Text key={social.name} visibleFrom="sm">
-                                {social.name}
-                            </Text>
                         </Group>
                     );
                 })}
