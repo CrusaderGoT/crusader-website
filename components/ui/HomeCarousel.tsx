@@ -12,6 +12,7 @@ import {
     Code,
     Flex,
     Highlight,
+    MantineColor,
     Paper,
     Stack,
 } from "@mantine/core";
@@ -25,7 +26,7 @@ export function HomeCarousel() {
         })
     );
     return (
-        <Flex justify="center" h={3000} mah={"90vh"}>
+        <Flex h={3000} mah={"90vh"}>
             <Carousel
                 height={"100%"}
                 withIndicators
@@ -50,6 +51,8 @@ type SlideProps = {
     languageCode: string;
     description: string;
     helloWorld: string;
+    c: MantineColor;
+    gradient: string;
 };
 
 const slides: SlideProps[] = [
@@ -60,6 +63,9 @@ const slides: SlideProps[] = [
             "Python is a high-level, interpreted programming language. It is known for its simplicity and readability.",
         helloWorld: "print('Hello, World!')",
         languageCode: "py",
+        c: "white",
+        gradient:
+            "linear-gradient(90deg, var(--mantine-color-blue-6), var(--mantine-color-yellow-5))",
     },
     {
         image: "/carouselImages/typescriptCarouselImage.jpg",
@@ -68,6 +74,9 @@ const slides: SlideProps[] = [
             "TypeScript is a superset of JavaScript that adds static typing to the language.",
         helloWorld: "console.log('Hello, World!');",
         languageCode: "ts",
+        c: "white",
+        gradient:
+            "linear-gradient(85deg, var(--mantine-color-dark-3), var(--mantine-color-blue-8))",
     },
     {
         image: "/carouselImages/htmlCarouselImage.jpg",
@@ -76,6 +85,9 @@ const slides: SlideProps[] = [
             "HTML is the standard markup language for creating web pages.",
         helloWorld: "<h1>Hello, World!</h1>",
         languageCode: "html",
+        c: "white",
+        gradient:
+            "linear-gradient(45deg, var(--mantine-color-orange-9), var(--mantine-color-orange-7))",
     },
     {
         image: "/carouselImages/cssCarouselImage.jpg",
@@ -84,6 +96,9 @@ const slides: SlideProps[] = [
             "CSS describes how HTML elements should be displayed on the screen.",
         helloWorld: "h1 { color: blue; }",
         languageCode: "css",
+        c: "black",
+        gradient:
+            "linear-gradient(120deg, var(--mantine-color-red-7), var(--mantine-color-violet-8), var(--mantine-color-cyan-6))",
     },
     {
         image: "/carouselImages/javascriptCarouselImage.jpg",
@@ -92,6 +107,9 @@ const slides: SlideProps[] = [
             "JavaScript is the programming language of the web. It is used to make web pages interactive.",
         helloWorld: "console.log('Hello, World!');",
         languageCode: "js",
+        c: "teal.4",
+        gradient:
+            "linear-gradient(90deg, var(--mantine-color-yellow-6), var(--mantine-color-dark-8))",
     },
     {
         image: "/carouselImages/englishCarouselImage.jpg",
@@ -100,6 +118,9 @@ const slides: SlideProps[] = [
             "English is a West Germanic language that was first spoken in early medieval England.",
         helloWorld: "Hello, World!",
         languageCode: "plaintext",
+        c: "white",
+        gradient:
+            "linear-gradient(45deg, var(--mantine-color-gold-6), var(--mantine-color-gold-8))",
     },
     {
         image: "/carouselImages/igboCarouselImage.jpg",
@@ -108,6 +129,9 @@ const slides: SlideProps[] = [
             "Igbo is the principal native language of the Igbo people, of southeastern Nigeria.",
         helloWorld: "Uwa, Kedu!",
         languageCode: "plaintext",
+        c: "black",
+        gradient:
+            "linear-gradient(80deg, var(--mantine-color-red-9), var(--mantine-color-yellow-6), var(--mantine-color-dark-8))",
     },
 ];
 
@@ -140,8 +164,7 @@ function Slides() {
                                 ta="center"
                                 highlight={slide.language}
                                 highlightStyles={{
-                                    backgroundImage:
-                                        "linear-gradient(90deg, var(--mantine-color-gold-6), var(--mantine-color-gold-8))",
+                                    backgroundImage: slide.gradient,
                                     fontSize: "4rem",
                                     padding: "2px",
                                     fontWeight: 700,
@@ -150,7 +173,7 @@ function Slides() {
                                 }}
                                 fz={"2rem"}
                                 lh={1.2}
-                                c="white"
+                                c={slide.c}
                             >
                                 {slide.description}
                             </Highlight>

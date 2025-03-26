@@ -8,7 +8,6 @@ import {
     Text,
     type MantineColor,
 } from "@mantine/core";
-import { useColorScheme } from "@mantine/hooks";
 
 import {
     IconBrandGithubFilled,
@@ -59,7 +58,7 @@ export function ShellFooter() {
     const year = dayjs().year();
 
     return (
-        <Stack gap={1} p={2}>
+        <Stack gap={5} px={"xs"} pt={5}>
             <Highlight
                 ta={"center"}
                 size="xs"
@@ -72,11 +71,7 @@ export function ShellFooter() {
             >
                 Made with 💛 by CrusaderGoT
             </Highlight>
-            <Group
-                justify="space-between"
-                gap={"xs"}
-                wrap="nowrap"
-            >
+            <Group justify="space-between" gap={"xs"} wrap="nowrap">
                 {footerSocialData.map((social) => {
                     const Icon = social.icon;
                     return (

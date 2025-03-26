@@ -34,7 +34,7 @@ export function WebsiteShell({
             }}
             navbar={{
                 collapsed: { mobile: !mobileOpened, desktop: !desktopOpened },
-                width: { base: 150, sm: 200, lg: 300 },
+                width: { base: 150, sm: 200, md: 250, lg: 300, xl: 350 },
                 breakpoint: "xs",
             }}
         >
@@ -68,7 +68,11 @@ export function WebsiteShell({
                     <ShellNavLinks onNavLinkClick={toggleMobile} />
                 </AppShell.Section>
 
-                <AppShell.Section>
+                <AppShell.Section
+                    style={{
+                        borderTop: "0.5px solid grey",
+                    }}
+                >
                     <footer>
                         <ShellFooter />
                     </footer>
