@@ -85,6 +85,15 @@ function Slides() {
                                 fz={"2rem"}
                                 lh={1.2}
                                 c={slide.c}
+                                style={{
+                                    backdropFilter: `
+                                    invert(100%)
+                                    blur(3px)
+                                    brightness(70%)
+                                    `,
+                                    borderRadius: 12,
+                                    padding: "15px",
+                                }}
                             >
                                 {slide.description}
                             </Highlight>

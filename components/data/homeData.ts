@@ -18,9 +18,9 @@ export const slides: SlideProps[] = [
             "Python is a high-level, interpreted programming language. It is known for its simplicity and readability.",
         helloWorld: "print('Hello, World!')",
         languageCode: "py",
-        c: "white",
+        c: "black",
         gradient:
-            "linear-gradient(90deg, var(--mantine-color-blue-6), var(--mantine-color-yellow-5))",
+            "linear-gradient(45deg, var(--mantine-color-blue-6), var(--mantine-color-blue-6), var(--mantine-color-yellow-6), var(--mantine-color-yellow-6))",
     },
     {
         image: "/carouselImages/typescriptCarouselImage.jpg",
@@ -31,7 +31,7 @@ export const slides: SlideProps[] = [
         languageCode: "ts",
         c: "white",
         gradient:
-            "linear-gradient(85deg, var(--mantine-color-dark-3), var(--mantine-color-blue-8))",
+            "linear-gradient(85deg, var(--mantine-color-blue-3), var(--mantine-color-blue-5))",
     },
     {
         image: "/carouselImages/htmlCarouselImage.jpg",
@@ -40,7 +40,7 @@ export const slides: SlideProps[] = [
             "HTML is the standard markup language for creating web pages.",
         helloWorld: "<h1>Hello, World!</h1>",
         languageCode: "html",
-        c: "white",
+        c: "black",
         gradient:
             "linear-gradient(45deg, var(--mantine-color-orange-9), var(--mantine-color-orange-7))",
     },
@@ -51,9 +51,9 @@ export const slides: SlideProps[] = [
             "CSS describes how HTML elements should be displayed on the screen.",
         helloWorld: "h1 { color: blue; }",
         languageCode: "css",
-        c: "black",
+        c: "blue.3",
         gradient:
-            "linear-gradient(120deg, var(--mantine-color-red-7), var(--mantine-color-violet-8), var(--mantine-color-cyan-6))",
+            "linear-gradient(120deg, var(--mantine-color-violet-9), var(--mantine-color-red-9), var(--mantine-color-green-5))",
     },
     {
         image: "/carouselImages/javascriptCarouselImage.jpg",
@@ -62,9 +62,9 @@ export const slides: SlideProps[] = [
             "JavaScript is the programming language of the web. It is used to make web pages interactive.",
         helloWorld: "console.log('Hello, World!');",
         languageCode: "js",
-        c: "teal.4",
+        c: "white",
         gradient:
-            "linear-gradient(90deg, var(--mantine-color-yellow-6), var(--mantine-color-dark-8))",
+            "linear-gradient(90deg, var(--mantine-color-gold-6), var(--mantine-color-gold-8))",
     },
     {
         image: "/carouselImages/englishCarouselImage.jpg",
@@ -84,8 +84,8 @@ export const slides: SlideProps[] = [
             "Igbo is the principal native language of the Igbo people, of southeastern Nigeria.",
         helloWorld: "Uwa, Kedu!",
         languageCode: "plaintext",
-        c: "black",
+        c: "white",
         gradient:
-            "linear-gradient(80deg, var(--mantine-color-red-9), var(--mantine-color-yellow-6), var(--mantine-color-dark-8))",
+            "linear-gradient(80deg, var(--mantine-color-green-9), white, var(--mantine-color-green-8))",
     },
 ];
