@@ -1,20 +1,13 @@
 "use client";
 
-import {
-    AppShell,
-    Burger,
-    Container,
-    Group,
-    ScrollArea,
-    Title,
-} from "@mantine/core";
+import { AppShell, Container, ScrollArea } from "@mantine/core";
 
 import { useDisclosure } from "@mantine/hooks";
 
-import { ModeToggleButton } from "@/components/buttons/ModeToggleButton";
+import { ShellFooter } from "@/components/shell/ShellFooter";
 import { NavCard } from "@/components/shell/ShellNavCard";
 import { ShellNavLinks } from "@/components/shell/ShellNavLinks";
-import { ShellFooter } from "./ShellFooter";
+import { ShellHeader } from "./ShellHeader";
 
 export function WebsiteShell({
     children,
@@ -30,7 +23,7 @@ export function WebsiteShell({
             transitionDuration={500}
             transitionTimingFunction="ease-in-out"
             header={{
-                height: { base: 50, sm: 60, lg: 72 },
+                height: 80,
             }}
             navbar={{
                 collapsed: { mobile: !mobileOpened, desktop: !desktopOpened },
@@ -39,24 +32,12 @@ export function WebsiteShell({
             }}
         >
             <AppShell.Header zIndex={210}>
-                <Group justify="space-between" p={5} gap={"lg"}>
-                    <Burger
-                        opened={mobileOpened}
-                        onClick={toggleMobile}
-                        hiddenFrom="xs"
-                        size="sm"
-                    />
-                    <Burger
-                        opened={desktopOpened}
-                        onClick={toggleDesktop}
-                        visibleFrom="xs"
-                        size="md"
-                    />
-                    <Title c={"gold"} fw={900} textWrap="nowrap">
-                        CrusaderGoT
-                    </Title>
-                    <ModeToggleButton />
-                </Group>
+                <ShellHeader
+                    toggleDesktop={toggleDesktop}
+                    desktopOpened={desktopOpened}
+                    toggleMobile={toggleMobile}
+                    mobileOpened={mobileOpened}
+                />
             </AppShell.Header>
 
             <AppShell.Navbar>

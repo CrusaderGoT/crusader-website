@@ -27,7 +27,7 @@ export function HomeCarousel() {
         })
     );
     return (
-        <Flex h={3000} mah={"90vh"}>
+        <Flex h={3000} mah={"85vh"}>
             <Carousel
                 height={"100%"}
                 withIndicators
@@ -73,6 +73,7 @@ function Slides() {
                         <Center>
                             <Highlight
                                 ta="center"
+                                p={{ base: 0, sm: "md", md: "lg", lg: "xl" }}
                                 highlight={slide.language}
                                 highlightStyles={{
                                     backgroundImage: slide.gradient,
@@ -92,7 +93,6 @@ function Slides() {
                                     brightness(70%)
                                     `,
                                     borderRadius: 12,
-                                    padding: "15px",
                                 }}
                             >
                                 {slide.description}
