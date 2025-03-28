@@ -40,7 +40,7 @@ export const slides: SlideProps[] = [
             "HTML is the standard markup language for creating web pages.",
         helloWorld: "<h1>Hello, World!</h1>",
         languageCode: "html",
-        c: "black",
+        c: "white",
         gradient:
             "linear-gradient(45deg, var(--mantine-color-orange-9), var(--mantine-color-orange-7))",
     },
@@ -51,7 +51,7 @@ export const slides: SlideProps[] = [
             "CSS describes how HTML elements should be displayed on the screen.",
         helloWorld: "h1 { color: blue; }",
         languageCode: "css",
-        c: "blue.3",
+        c: "white",
         gradient:
             "linear-gradient(120deg, var(--mantine-color-violet-9), var(--mantine-color-red-9), var(--mantine-color-green-5))",
     },
@@ -84,7 +84,7 @@ export const slides: SlideProps[] = [
             "Igbo is the principal native language of the Igbo people, of southeastern Nigeria.",
         helloWorld: "Uwa, Kedu!",
         languageCode: "plaintext",
-        c: "white",
+        c: "black",
         gradient:
             "linear-gradient(80deg, var(--mantine-color-green-9), white, var(--mantine-color-green-8))",
     },

@@ -62,8 +62,16 @@ export function NavCard() {
     // Optionally render a fallback during SSR/hydration
     if (!randomQuote) {
         return (
-            <Flex direction="column" align="center" justify="center" p="xs">
+            <Flex
+                direction="column"
+                align="center"
+                justify="center"
+                p="xs"
+                gap={"xs"}
+            >
                 <Skeleton height={40} circle mb="xs" />
+                <Skeleton height={15} width={"300"} maw={"80%"} />
+                <Skeleton height={15} width={"300"} maw={"80%"} />
                 <Skeleton height={100} width={"300"} maw={"80%"} />
             </Flex>
         );
@@ -71,7 +79,7 @@ export function NavCard() {
     const Icon = <IconInfoCircle />;
 
     return (
-        <Stack>
+        <Stack gap={"xs"}>
             <HoverCard>
                 <HoverCard.Target ref={ref}>
                     <Avatar
