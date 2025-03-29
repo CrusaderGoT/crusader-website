@@ -22,6 +22,7 @@ import { useHover } from "@mantine/hooks";
 
 import Image from "next/image";
 
+import Naluka from "@/fonts/NalukaFont";
 import { IconInfoCircle, IconMapPin } from "@tabler/icons-react";
 
 const quotes = [
@@ -126,7 +127,11 @@ export function NavCard() {
 
             <Group mx={"auto"} gap={5}>
                 <IconMapPin size={18} />
-                <Text fz={{ base: "md", sm: "lg", md: "xl" }} c={"green"}>
+                <Text
+                    fz={{ base: "md", sm: "lg", md: "xl" }}
+                    c={"green"}
+                    ff={`${Naluka.style.fontFamily}`}
+                >
                     Nigeria 🇳🇬
                 </Text>
             </Group>

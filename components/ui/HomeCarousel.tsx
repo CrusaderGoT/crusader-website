@@ -17,6 +17,7 @@ import {
 } from "@mantine/core";
 
 import { slides } from "@/components/data/homeData";
+import Naluka from "@/fonts/NalukaFont";
 
 export function HomeCarousel() {
     const autoplay = useRef(
@@ -74,6 +75,7 @@ function Slides() {
                             <Highlight
                                 ta="center"
                                 p={{ base: 0, sm: "md", md: "lg", lg: "xl" }}
+                                ff={`${Naluka.style.fontFamily}`}
                                 highlight={slide.language}
                                 highlightStyles={{
                                     backgroundImage: slide.gradient,

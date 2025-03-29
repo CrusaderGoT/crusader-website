@@ -30,7 +30,7 @@ export function ShellHeader({
                 size="md"
             />
             <Stack justify="flex-start" gap={0}>
-                <Title c={"gold.9"} fw={900} textWrap="nowrap">
+                <Title c={"gold"} fw={900} textWrap="nowrap">
                     CrusaderGoT
                 </Title>
                 <Group justify="space-between" gap={"xs"} wrap="nowrap">

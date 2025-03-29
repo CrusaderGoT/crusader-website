@@ -11,13 +11,14 @@ import {
 import Image from "next/image";
 
 import { aboutMe, myAge } from "@/components/data/aboutData";
+import Naluka from "@/fonts/NalukaFont";
 
 export function About() {
     const age = myAge().toLocaleString();
 
     return (
         <Stack align="center">
-            <Title order={2} fw={"normal"}>
+            <Title order={2} fw={"bold"} ff={`${Naluka.style.fontFamily}`}>
                 A little story about myself...
             </Title>
             <Paper

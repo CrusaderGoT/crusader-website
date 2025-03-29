@@ -8,6 +8,7 @@ import "@mantine/tiptap/styles.css";
 
 import {
     ColorSchemeScript,
+    DEFAULT_THEME,
     MantineColorsTuple,
     MantineProvider,
     createTheme,
@@ -15,7 +16,7 @@ import {
     virtualColor,
 } from "@mantine/core";
 
-import { Notifications } from '@mantine/notifications';
+import { Notifications } from "@mantine/notifications";
 
 import { Analytics } from "@vercel/analytics/next";
 
@@ -23,6 +24,7 @@ import { Metadata } from "next";
 
 import GreatVictorian from "@/fonts/GreatVictorianFont";
 import MorrisRoman from "@/fonts/MorrisRomanFont";
+import Naluka from "@/fonts/NalukaFont";
 
 const goldThemeColor: MantineColorsTuple = [
     "#fffce1",
@@ -52,8 +54,10 @@ const theme = createTheme({
     },
     primaryColor: "gold",
     defaultGradient: { from: "gold.5", to: "gold.8", deg: 90 },
-    fontFamily: `${MorrisRoman.style.fontFamily}`,
-    headings: { fontFamily: `${GreatVictorian.style.fontFamily}` },
+    fontFamily: `${MorrisRoman.style.fontFamily}, ${Naluka.style.fontFamily}, ${DEFAULT_THEME.fontFamily}`,
+    headings: {
+        fontFamily: `${GreatVictorian.style.fontFamily}, ${Naluka.style.fontFamily}, ${DEFAULT_THEME.fontFamily}`,
+    },
 });
 
 export const metadata: Metadata = {
