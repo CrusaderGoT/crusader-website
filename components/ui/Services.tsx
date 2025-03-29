@@ -118,6 +118,7 @@ function ServicesTimeline() {
             offsetScrollbars
             overscrollBehavior="contain"
             scrollHideDelay={500}
+            autoFocus
         >
             <Timeline
                 active={serviceItems.length}

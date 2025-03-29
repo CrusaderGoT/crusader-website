@@ -1,5 +1,6 @@
 "use client";
 
+import Naluka from "@/fonts/NalukaFont";
 import { RepoLanguagesType, type RepositoryType } from "@/lib/githubSDK";
 
 import {
@@ -58,6 +59,10 @@ type RepoCardProp = {
 function RepoCard({ repo, langs }: RepoCardProp) {
     const created_at = dayjs(repo.created_at).format("ddd-MMM-YYYY");
     const updated_at = dayjs(repo.updated_at).format("ddd-MMM-YYYY");
+
+    const repoName = repo.name.split("-").join(" ");
+    console.log(repoName);
+
     return (
         <Card
             h={300}
@@ -86,9 +91,14 @@ function RepoCard({ repo, langs }: RepoCardProp) {
 
             <Card.Section mx="auto" my="auto" mih={20} mah={20}>
                 <Group wrap="nowrap" align="center">
-                    <Avatar size="sm" name={repo.name} />
-                    <Title textWrap="pretty" order={4} fw="normal">
-                        {repo.name}
+                    <Avatar size="sm" name={repoName} />
+                    <Title
+                        textWrap="pretty"
+                        order={4}
+                        fw="normal"
+                        ff={`${Naluka.style.fontFamily}`}
+                    >
+                        {repoName}
                     </Title>
                 </Group>
             </Card.Section>
@@ -167,6 +177,7 @@ function RepoCard({ repo, langs }: RepoCardProp) {
                                               }
                                               variant="filled"
                                               size="sm"
+                                              fw={"bold"}
                                               autoContrast
                                           >
                                               {language}
