@@ -10,7 +10,7 @@ export function PageTransition({ children }: { children: React.ReactNode }) {
         <Transition
             mounted={pathname}
             keepMounted
-            transition="slide-left"
+            transition="slide-right"
             timingFunction="ease"
             duration={1000}
         >
