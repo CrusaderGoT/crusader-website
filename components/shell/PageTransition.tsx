@@ -1,27 +1,22 @@
 "use client";
 
 import { Box, Transition } from "@mantine/core";
-
-import { usePathname } from "next/navigation";
+import { useMounted } from "@mantine/hooks";
 
 export function PageTransition({ children }: { children: React.ReactNode }) {
-    const pathname = usePathname();
+    const pathname = useMounted();
 
     return (
-        <Box
-            style={{
-                '@keyframes appear': {
-                    from: { opacity: 0 },
-                    to: { opacity: 1 }
-                },
-                '@keyframes slide': {
-                    from: { transform: 'translateX(-100%)' },
-                    to: { transform: 'translateX(0)' }
-                },
-                animation: 'appear 300ms ease, slide 300ms ease'
-            }}
+        <Transition
+            mounted={pathname}
+            keepMounted
+            transition="slide-left"
+            timingFunction="ease"
+            duration={1000}
         >
-            {children}
-        </Box>
+            {(transitionStyles) => (
+                <Box style={{ ...transitionStyles }}>{children}</Box>
+            )}
+        </Transition>
     );
 }

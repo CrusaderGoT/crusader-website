@@ -101,7 +101,7 @@ export function NavCard() {
                     {(transitionStyles) => (
                         <HoverCard.Dropdown hidden>
                             <Affix
-                                style={transitionStyles}
+                                style={{ ...transitionStyles }}
                                 position={{
                                     top: 150,
                                     left: 20,
