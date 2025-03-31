@@ -8,8 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "email": "email dev --dir components/email",
-    "email export": "email export --dir app/components/emails/templates",
-    "email build": "email build --dir app/components/emails/templates"
+    "email export": "email export --dir components/email",
+    "email build": "email build --dir components/email"
   },
   "dependencies": {
     "@mantine/carousel": "^7.17.1",
