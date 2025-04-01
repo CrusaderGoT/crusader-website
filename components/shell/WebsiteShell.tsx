@@ -4,11 +4,10 @@ import { AppShell, Container, ScrollArea } from "@mantine/core";
 
 import { useDisclosure } from "@mantine/hooks";
 
-import { PageTransition } from "@/components/shell/PageTransition";
 import { ShellFooter } from "@/components/shell/ShellFooter";
-import { ShellHeader } from "@/components/shell/ShellHeader";
 import { NavCard } from "@/components/shell/ShellNavCard";
 import { ShellNavLinks } from "@/components/shell/ShellNavLinks";
+import { ShellHeader } from "./ShellHeader";
 
 export function WebsiteShell({
     children,
@@ -62,9 +61,7 @@ export function WebsiteShell({
             </AppShell.Navbar>
 
             <AppShell.Main>
-                <Container size={"xl"}>
-                    <PageTransition>{children}</PageTransition>
-                </Container>
+                <Container size={"xl"}>{children}</Container>
             </AppShell.Main>
         </AppShell>
     );
