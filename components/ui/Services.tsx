@@ -113,12 +113,12 @@ function TechSlides() {
 
 function ServicesTimeline() {
     return (
-        <ScrollArea.Autosize
+        <ScrollArea
+            h={"55vh"}
             mah={"60vh"}
             offsetScrollbars
             overscrollBehavior="contain"
             scrollHideDelay={500}
-            autoFocus
         >
             <Timeline
                 active={serviceItems.length}
@@ -167,6 +167,6 @@ function ServicesTimeline() {
                     );
                 })}
             </Timeline>
-        </ScrollArea.Autosize>
+        </ScrollArea>
     );
 }

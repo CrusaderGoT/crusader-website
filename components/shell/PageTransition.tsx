@@ -4,11 +4,11 @@ import { Box, Transition } from "@mantine/core";
 import { useMounted } from "@mantine/hooks";
 
 export function PageTransition({ children }: { children: React.ReactNode }) {
-    const pathname = useMounted();
+    const mounted = useMounted();
 
     return (
         <Transition
-            mounted={pathname}
+            mounted={mounted}
             keepMounted
             transition="slide-right"
             timingFunction="ease"
