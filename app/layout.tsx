@@ -61,8 +61,50 @@ const theme = createTheme({
 });
 
 export const metadata: Metadata = {
-    title: "CrusaderGoT",
-    description: "My portfolio website",
+    title: {
+        template: "CrusaderGoT | %s",
+        default: "CrusaderGoT",
+    },
+    creator: "Enemchukwu Chukwuemeka",
+    keywords: ["Enemchukwu Chukwuemeka", "Next.js", "React", "JavaScript"],
+    robots: {
+        index: true,
+        follow: true,
+        nocache: false,
+        googleBot: {
+            index: true,
+            follow: true,
+            noimageindex: false,
+            "max-video-preview": -1,
+            "max-image-preview": "large",
+            "max-snippet": -1,
+        },
+    },
+    icons: {
+        icon: "/icon.png",
+    },
+    openGraph: {
+        title: "CrusaderGoT",
+        description:
+            "Enemchukwu Chukwuemeka is a Web Developer. Who Specializes in Python and Typescript Frameworks",
+        url: "https://crusadergot.vercel.app",
+        siteName: "CrusaderGoT",
+        images: [
+            {
+                url: "https://crusadergot.vercel.app/images/nav_pimg.jpg", // Must be an absolute URL
+                width: 800,
+                height: 600,
+            },
+            {
+                url: "https://crusadergot.vercel.app/images/nav_pimg.jpg", // Must be an absolute URL
+                width: 1800,
+                height: 1600,
+                alt: "My custom alt",
+            },
+        ],
+        locale: "en_US",
+        type: "website",
+    },
 };
 
 export default async function RootLayout({

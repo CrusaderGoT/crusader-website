@@ -4,6 +4,13 @@ import { RefreshButton } from "@/components/buttons/RefreshButton";
 import { getRepoLanguages, getRepositories } from "@/lib/githubSDK";
 
 import { Center, Image, SimpleGrid, Text, Title } from "@mantine/core";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "GitHub Projects",
+    description: "A list of my public repositories on GitHub",
+};
+
 
 export default async function ProjectPage() {
     const { repos } = await getRepositories();
