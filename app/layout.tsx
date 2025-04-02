@@ -23,7 +23,6 @@ import { Analytics } from "@vercel/analytics/next";
 import { Metadata } from "next";
 
 import GreatVictorian from "@/fonts/GreatVictorianFont";
-import MorrisRoman from "@/fonts/MorrisRomanFont";
 import Naluka from "@/fonts/NalukaFont";
 
 const goldThemeColor: MantineColorsTuple = [
@@ -54,7 +53,7 @@ const theme = createTheme({
     },
     primaryColor: "gold",
     defaultGradient: { from: "gold.5", to: "gold.8", deg: 90 },
-    fontFamily: `${MorrisRoman.style.fontFamily}, ${Naluka.style.fontFamily}, ${DEFAULT_THEME.fontFamily}`,
+    fontFamily: `${DEFAULT_THEME.fontFamily}`,
     headings: {
         fontFamily: `${GreatVictorian.style.fontFamily}, ${Naluka.style.fontFamily}, ${DEFAULT_THEME.fontFamily}`,
     },

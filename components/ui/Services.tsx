@@ -117,8 +117,6 @@ function ServicesTimeline() {
             h={"55vh"}
             mah={"60vh"}
             offsetScrollbars
-            overscrollBehavior="contain"
-            scrollHideDelay={500}
         >
             <Timeline
                 active={serviceItems.length}

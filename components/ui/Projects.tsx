@@ -82,7 +82,7 @@ function RepoCard({ repo, langs }: RepoCardProp) {
                         <Anchor href={repo.homepage} target="_blank" fz="xs">
                             {repo.homepage.includes("crusadergot")
                                 ? "You are Here"
-                                : "Webite"}
+                                : "Website"}
                         </Anchor>
                     )}
                 </Group>

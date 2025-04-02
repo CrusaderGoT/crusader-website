@@ -118,6 +118,7 @@ export function ContactForm() {
                     />
 
                     <Select
+                        withAsterisk
                         label="Select the Service you need"
                         placeholder="Select"
                         data={services()}
@@ -169,7 +170,7 @@ function ContactRichTextEditor({
                 h={300}
                 style={
                     props.error
-                        ? { borderColor: "red" }
+                        ? { borderColor: "red", textDecorationColor: "red" }
                         : { overflowY: "scroll" }
                 }
             >

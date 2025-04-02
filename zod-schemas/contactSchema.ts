@@ -24,7 +24,8 @@ export const contactFormSchema = z.object({
     name: z.string().min(2, { message: "Name should have at least 2 letters" }),
     address: z
         .string()
-        .min(2, { message: "Address should have atleast 2 letters" }),
+        .min(2, { message: "Address should have atleast 2 letters" })
+        .optional(),
     email: z.string().email({ message: "Invalid Email Address" }),
     description: z.string().min(50, {
         message:
