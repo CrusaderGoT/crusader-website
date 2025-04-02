@@ -24,6 +24,7 @@ import { Metadata } from "next";
 
 import GreatVictorian from "@/fonts/GreatVictorianFont";
 import Naluka from "@/fonts/NalukaFont";
+import WastedVindey from "@/fonts/WastedVindey";
 
 const goldThemeColor: MantineColorsTuple = [
     "#fffce1",
@@ -53,7 +54,7 @@ const theme = createTheme({
     },
     primaryColor: "gold",
     defaultGradient: { from: "gold.5", to: "gold.8", deg: 90 },
-    fontFamily: `${DEFAULT_THEME.fontFamily}`,
+    fontFamily: `${WastedVindey.style.fontFamily}, ${DEFAULT_THEME.fontFamily}`,
     headings: {
         fontFamily: `${GreatVictorian.style.fontFamily}, ${Naluka.style.fontFamily}, ${DEFAULT_THEME.fontFamily}`,
     },
