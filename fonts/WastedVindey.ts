@@ -3,7 +3,7 @@ import localFont from "next/font/local";
 const WastedVindey = localFont({
     src: [
         {
-            path: "./wastedvindey/WastedVindey.ttf",
+            path: "./wastedvindey/Wasted-Vindey.ttf",
         },
     ],
     variable: "--font-WastedVindey",
