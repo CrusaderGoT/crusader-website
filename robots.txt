@@ -1,0 +1,16 @@
+# robots.txt for my application
+
+User-agent: *
+# Disallow crawling of the contact page
+Disallow: /contact
+
+# Sitemap
+Sitemap: https://crusadergot.vercel.app/sitemap.xml
+
+# Main pages
+# Home: /
+# Services: /services
+# About: /about
+# Projects: /projects
+
+
