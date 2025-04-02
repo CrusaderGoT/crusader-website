@@ -117,7 +117,7 @@ export default async function RootLayout({
             <head>
                 <ColorSchemeScript defaultColorScheme="dark" />
             </head>
-            <body className={`antialiased`}>
+            <body>
                 <MantineProvider defaultColorScheme="dark" theme={theme}>
                     <Notifications />
                     {children}
