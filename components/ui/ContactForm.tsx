@@ -128,6 +128,7 @@ export function ContactForm() {
                     />
 
                     <ContactRichTextEditor
+                        withAsterisk
                         label="Decsribe the work you want done"
                         key={form.key("description")}
                         value={form.values.description}
@@ -168,11 +169,7 @@ function ContactRichTextEditor({
                 editor={editor}
                 mah={500}
                 h={300}
-                style={
-                    props.error
-                        ? { borderColor: "red", textDecorationColor: "red" }
-                        : { overflowY: "scroll" }
-                }
+                style={props.error ? { borderColor: "red", color: "red" } : {}}
             >
                 <RichTextEditor.Toolbar sticky>
                     <RichTextEditor.ControlsGroup>
