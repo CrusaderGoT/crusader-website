@@ -33,6 +33,8 @@ import {
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 
+dayjs.extend(relativeTime);
+
 type ProjectsProp = {
     repositoriesWithLanguages: {
         repo: RepositoryType;
@@ -61,7 +63,7 @@ type RepoCardProp = {
 };
 
 function RepoCard({ repo, langs }: RepoCardProp) {
-    dayjs.extend(relativeTime);
+    
     const created_at = dayjs(repo.created_at).fromNow();
     const updated_at = dayjs(repo.updated_at).fromNow();
 
