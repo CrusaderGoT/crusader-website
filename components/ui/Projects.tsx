@@ -33,8 +33,6 @@ import {
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 
-dayjs.extend(relativeTime);
-
 type ProjectsProp = {
     repositoriesWithLanguages: {
         repo: RepositoryType;
@@ -43,6 +41,7 @@ type ProjectsProp = {
 };
 
 export function Projects({ repositoriesWithLanguages }: ProjectsProp) {
+dayjs.extend(relativeTime);
     return (
         <SimpleGrid
             cols={{ base: 1, sm: 2, lg: 3, xl: 4 }}
