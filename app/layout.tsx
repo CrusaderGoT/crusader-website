@@ -65,6 +65,7 @@ export const metadata: Metadata = {
         template: "CrusaderGoT | %s",
         default: "CrusaderGoT",
     },
+description: "Enemchukwu Chukwuemeka is a Web Developer, who Specializes in Python and Typescript Frameworks",
     creator: "Enemchukwu Chukwuemeka",
     keywords: ["Enemchukwu Chukwuemeka", "Next.js", "React", "JavaScript"],
     robots: {
