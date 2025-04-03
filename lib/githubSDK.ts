@@ -21,7 +21,6 @@ async function getRepositories() {
         const d = await github("GET /user/repos", {
             type: "public",
             sort: "updated",
-            direction: "asc",
         });
 
         if (!d.data) {
@@ -57,14 +56,14 @@ async function getRepoLanguages({
 
         if (!l.data) {
             error = new GithubError(
-                `${l.status} status, while fetching languagues`
+                `${l.status} status, while fetching languages`
             );
         } else {
             langs = l.data;
         }
     } catch (e) {
         console.error(e);
-        error = new GithubError("Error fetching languagues");
+        error = new GithubError("Error fetching languages");
     } finally {
         return { langs, error };
     }
@@ -83,5 +82,6 @@ export {
     getRepositories,
     github,
     type RepoLanguagesType,
-    type RepositoryType,
+    type RepositoryType
 };
+

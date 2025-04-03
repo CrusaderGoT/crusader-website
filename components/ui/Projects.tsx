@@ -29,7 +29,11 @@ import {
     IconBrandTypescript,
     IconCode,
 } from "@tabler/icons-react";
+
 import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
+
+dayjs.extend(relativeTime);
 
 type ProjectsProp = {
     repositoriesWithLanguages: {
@@ -56,12 +60,12 @@ type RepoCardProp = {
     repo: RepositoryType;
     langs: RepoLanguagesType | null;
 };
+
 function RepoCard({ repo, langs }: RepoCardProp) {
-    const created_at = dayjs(repo.created_at).format("ddd-MMM-YYYY");
-    const updated_at = dayjs(repo.updated_at).format("ddd-MMM-YYYY");
+    const created_at = dayjs(repo.created_at).fromNow();
+    const updated_at = dayjs(repo.updated_at).fromNow();
 
     const repoName = repo.name.split("-").join(" ");
-    console.log(repoName);
 
     return (
         <Card

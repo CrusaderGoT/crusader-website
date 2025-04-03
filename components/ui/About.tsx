@@ -1,5 +1,4 @@
 import {
-    BackgroundImage,
     Highlight,
     Image as MantineImage,
     Paper,
@@ -14,7 +13,7 @@ import { aboutMe, myAge } from "@/components/data/aboutData";
 import Naluka from "@/fonts/NalukaFont";
 
 export function About() {
-    const age = myAge().toLocaleString();
+    const { years, months, days } = myAge();
 
     return (
         <Stack align="center">
@@ -29,11 +28,14 @@ export function About() {
                     lh={"xl"}
                     lts={1.5}
                     c={"gold"}
+                    fw={"bold"}
                     highlight={[
                         "enememeka44@gmail.com",
                         "Enemchukwu Chukwuemeka Alexander Afamefuna",
                         "August 28th, 1999",
-                        age,
+                        years.toLocaleString(),
+                        months.toLocaleString(),
+                        days.toLocaleString(),
                         "Python",
                         "FastAPI",
                         "Django",
