@@ -41,7 +41,7 @@ type ProjectsProp = {
 };
 
 export function Projects({ repositoriesWithLanguages }: ProjectsProp) {
-dayjs.extend(relativeTime);
+
     return (
         <SimpleGrid
             cols={{ base: 1, sm: 2, lg: 3, xl: 4 }}
@@ -61,6 +61,7 @@ type RepoCardProp = {
 };
 
 function RepoCard({ repo, langs }: RepoCardProp) {
+    dayjs.extend(relativeTime);
     const created_at = dayjs(repo.created_at).fromNow();
     const updated_at = dayjs(repo.updated_at).fromNow();
 
