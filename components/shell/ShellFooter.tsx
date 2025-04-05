@@ -25,7 +25,7 @@ export function ShellFooter() {
             </Highlight>
 
             <Text size="xs" ta={"center"}>
-                <IconCopyright size={12} /> {year} All rigth reserve and all
+                <IconCopyright size={12} /> {year} All rights reserved and all
                 that...
             </Text>
         </Stack>
