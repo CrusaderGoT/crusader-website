@@ -23,7 +23,7 @@ export function About() {
             <Paper component={ScrollArea} h={"80vh"} withBorder>
                 <Highlight
                     size="lg"
-                    ta={"center"}
+                    ta={"left"}
                     p={"md"}
                     lh={"xl"}
                     lts={1.5}
