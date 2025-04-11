@@ -1,7 +1,7 @@
 // components/ModeToggleButton.tsx
 "use client";
 
-import classes from "@/styles/shell/ModeToggleButton.module.css";
+import classes from "@/styles/ModeToggleButton.module.css";
 
 import {
     ActionIcon,
