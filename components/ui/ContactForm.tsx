@@ -169,7 +169,11 @@ function ContactRichTextEditor({
                 editor={editor}
                 mah={500}
                 h={300}
-                style={props.error ? { borderColor: "red", color: "red" } : {}}
+                style={
+                    props.error
+                        ? { borderColor: "red", color: "red" }
+                        : { overflowY: "scroll" }
+                }
             >
                 <RichTextEditor.Toolbar sticky>
                     <RichTextEditor.ControlsGroup>
