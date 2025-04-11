@@ -85,7 +85,7 @@ function RepoCard({ repo, langs }: RepoCardProp) {
                         Github
                     </Anchor>
                     {repo.homepage && (
-                        <Anchor href={repo.homepage} target="_blank" fz="xs">
+                        <Anchor href={repo.homepage} target="_blank" fz="xs" disabled={repo.homepage.includes("crusadergot")}>
                             {repo.homepage.includes("crusadergot")
                                 ? "You are Here"
                                 : "Website"}

@@ -32,7 +32,7 @@ export function About() {
                     highlight={[
                         "enememeka44@gmail.com",
                         "Enemchukwu Chukwuemeka Alexander Afamefuna",
-                        "August 28th, 1999",
+                        "August 29th, 1999",
                         years.toLocaleString(),
                         months.toLocaleString(),
                         days.toLocaleString(),

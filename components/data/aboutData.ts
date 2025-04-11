@@ -26,7 +26,7 @@ const age = myAge();
 
 export const aboutMe = `
 My name is Enemchukwu Chukwuemeka Alexander Afamefuna.\n\
-Born on August 28th, 1999, I am currently ${age.years} years, ${age.months} months, and ${age.days} days Old.\n\
+Born on August 29th, 1999, I am currently ${age.years} years, ${age.months} months, and ${age.days} days Old.\n\
 Now my life has been eventful, mostly filled with unfortunate circumstances 😅, but hey, whose life hasn't been? So I won't tell you the pitiful aspects of my life, because that would be morbid. 🙈\n\
 Rather, I will gist you about the more technical aspects, because like everybody else, you are here to see if I am a good fit for whatever programming project you are on. 💼\n\
 \n\
