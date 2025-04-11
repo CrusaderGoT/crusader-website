@@ -20,6 +20,7 @@ import {
     Text,
     Title,
 } from "@mantine/core";
+
 import {
     Icon,
     IconBrandCss3,
@@ -29,6 +30,9 @@ import {
     IconBrandTypescript,
     IconCode,
 } from "@tabler/icons-react";
+
+import globalClasses from "@/styles/global.module.css";
+import cx from "clsx";
 
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
@@ -43,7 +47,6 @@ type ProjectsProp = {
 };
 
 export function Projects({ repositoriesWithLanguages }: ProjectsProp) {
-
     return (
         <SimpleGrid
             cols={{ base: 1, sm: 2, lg: 3, xl: 4 }}
@@ -63,7 +66,6 @@ type RepoCardProp = {
 };
 
 function RepoCard({ repo, langs }: RepoCardProp) {
-    
     const created_at = dayjs(repo.created_at).fromNow();
     const updated_at = dayjs(repo.updated_at).fromNow();
 
@@ -81,14 +83,29 @@ function RepoCard({ repo, langs }: RepoCardProp) {
         >
             <Card.Section>
                 <Group justify="space-between">
-                    <Anchor href={repo.html_url} target="_blank" fz="xs">
-                        Github
+                    <Anchor
+                        href={repo.html_url}
+                        target="_blank"
+                        fz="sm"
+                        c={"blue.3"}
+                    >
+                        GitHub
                     </Anchor>
+
                     {repo.homepage && (
-                        <Anchor href={repo.homepage} target="_blank" fz="xs" disabled={repo.homepage.includes("crusadergot")}>
+                        <Anchor
+                            href={repo.homepage}
+                            target="_blank"
+                            fz="sm"
+                            c={"blue.3"}
+                            className={cx(
+                                repo.homepage.includes("crusadergot") &&
+                                    globalClasses.disabledAnchor
+                            )}
+                        >
                             {repo.homepage.includes("crusadergot")
                                 ? "You are Here"
-                                : "Website"}
+                                : "Live"}
                         </Anchor>
                     )}
                 </Group>
