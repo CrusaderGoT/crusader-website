@@ -78,6 +78,7 @@ export function About() {
                         WebkitTextFillColor: "transparent",
                     }}
                 >
+                    {/** Highlight accepts only strings. Components causes an error */}
                     {aboutMe}
                 </Highlight>
                 <MantineImage
