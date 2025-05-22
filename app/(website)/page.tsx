@@ -1,6 +1,13 @@
-// Home Page. // Carousel
-import { HomeCarousel } from "@/components/ui/HomeCarousel";
+// Home Page
+import { ProfileCard } from "@/components/ui/ProfileCard";
 
-export default function Home() {
-    return <HomeCarousel />;
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Home Page",
+    description: "This is my Portfolio HomePage",
+};
+
+export default function HomePage() {
+    return <ProfileCard />;
 }

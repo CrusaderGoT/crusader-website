@@ -16,10 +16,10 @@ import {
     Stack,
 } from "@mantine/core";
 
-import { slides } from "@/components/data/homeData";
+import { slides } from "@/components/data/languageData";
 import Naluka from "@/fonts/NalukaFont";
 
-export function HomeCarousel() {
+export function LanguageCarousel() {
     const autoplay = useRef(
         Autoplay({
             delay: 4000,

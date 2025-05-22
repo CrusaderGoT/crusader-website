@@ -3,7 +3,7 @@ import relativeTime from "dayjs/plugin/relativeTime";
 
 dayjs.extend(relativeTime);
 
-export const myAge = () => {
+const myAge = () => {
     const birthDate = dayjs("1999-8-29");
     const now = dayjs();
 
@@ -22,7 +22,7 @@ export const myAge = () => {
     return age;
 };
 
-const age = myAge();
+export const age = myAge();
 
 export const aboutMe = `
 My name is Enemchukwu Chukwuemeka Alexander Afamefuna.\n\

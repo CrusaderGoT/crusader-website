@@ -9,11 +9,11 @@ import {
 
 import Image from "next/image";
 
-import { aboutMe, myAge } from "@/components/data/aboutData";
+import { aboutMe, age } from "@/components/data/aboutData";
 import Naluka from "@/fonts/NalukaFont";
 
 export function About() {
-    const { years, months, days } = myAge();
+    const { years, months, days } = age;
 
     return (
         <Stack align="center">
