@@ -32,7 +32,7 @@ export function ProfileCard() {
                 mx="auto"
                 mt={-100}
             />
-            <Stack>
+            <Stack mt={"sm"}>
                 <Text ta={"center"} fz="lg">
                     {profileData.name}
                 </Text>

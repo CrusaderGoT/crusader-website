@@ -4,6 +4,7 @@ import {
     IconBriefcase,
     IconContract,
     IconHome,
+    IconLanguage,
     IconUserCode,
 } from "@tabler/icons-react";
 
@@ -19,6 +20,12 @@ const links: NavLinkProps[] = [
         href: "/",
         label: "Home",
         leftSection: IconHome,
+    },
+    {
+        href: "/languages",
+        label: "Languages",
+        leftSection: IconLanguage,
+        description: "Languagues I Know",
     },
     {
         href: "/services",
