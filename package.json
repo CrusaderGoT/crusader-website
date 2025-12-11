@@ -33,7 +33,7 @@
     "embla-carousel-auto-scroll": "^8.5.2",
     "embla-carousel-autoplay": "^8.5.2",
     "embla-carousel-react": "^8.5.2",
-    "glob": "^11.0.1",
+    "glob": "^11.1.0",
     "next": "15.2.7",
     "react": "19.0.0",
     "react-dom": "19.0.0",
@@ -50,7 +50,7 @@
     "postcss": "^8.5.3",
     "postcss-preset-mantine": "^1.17.0",
     "postcss-simple-vars": "^7.0.1",
-    "react-email": "3.0.7",
+    "react-email": "5.0.7",
     "typescript": "^5.7.3"
   },
   "overrides": {
