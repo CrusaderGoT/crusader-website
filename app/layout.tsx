@@ -110,18 +110,6 @@ export const metadata: Metadata = {
     },
 };
 
-// ─── Widget Injector ─────────────────────────────────────────────────────────
-
-const trymeWidgetScript = `
-(function () {
-    const script = document.createElement("script");
-    script.async = true;
-    script.src =
-        "https://www.tryme.co/widgets?token=8ba1533f-44a0-45d4-9a57-79ba8f2ded15.js?v=" +
-        new Date().getTime();
-    document.body.appendChild(script);
-})();
-`;
 
 // ─── Layout ──────────────────────────────────────────────────────────────────
 
