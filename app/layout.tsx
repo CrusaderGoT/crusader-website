@@ -141,10 +141,6 @@ export default async function RootLayout({
                     {children}
                     <Analytics />
                 </MantineProvider>
-                <script
-                    type="text/javascript"
-                    dangerouslySetInnerHTML={{ __html: trymeWidgetScript }}
-                />
             </body>
         </html>
     );
