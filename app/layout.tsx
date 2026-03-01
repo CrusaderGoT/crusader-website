@@ -15,16 +15,15 @@ import {
     mantineHtmlProps,
     virtualColor,
 } from "@mantine/core";
-
 import { Notifications } from "@mantine/notifications";
-
 import { Analytics } from "@vercel/analytics/next";
-
 import { Metadata } from "next";
 
 import GreatVictorian from "@/fonts/GreatVictorianFont";
 import Naluka from "@/fonts/NalukaFont";
 import WastedVindey from "@/fonts/WastedVindey";
+
+// ─── Theme ───────────────────────────────────────────────────────────────────
 
 const goldThemeColor: MantineColorsTuple = [
     "#fffce1",
@@ -59,6 +58,8 @@ const theme = createTheme({
         fontFamily: `${GreatVictorian.style.fontFamily}, ${Naluka.style.fontFamily}, ${DEFAULT_THEME.fontFamily}`,
     },
 });
+
+// ─── Metadata ────────────────────────────────────────────────────────────────
 
 export const metadata: Metadata = {
     title: {
@@ -109,6 +110,21 @@ export const metadata: Metadata = {
     },
 };
 
+// ─── Widget Injector ─────────────────────────────────────────────────────────
+
+const trymeWidgetScript = `
+(function () {
+    const script = document.createElement("script");
+    script.async = true;
+    script.src =
+        "https://www.tryme.co/widgets?token=8ba1533f-44a0-45d4-9a57-79ba8f2ded15.js?v=" +
+        new Date().getTime();
+    document.body.appendChild(script);
+})();
+`;
+
+// ─── Layout ──────────────────────────────────────────────────────────────────
+
 export default async function RootLayout({
     children,
 }: Readonly<{
@@ -125,14 +141,10 @@ export default async function RootLayout({
                     {children}
                     <Analytics />
                 </MantineProvider>
-<script type="text/javascript">
-  (function() {
-    let script = document.createElement("script");
-    script.async = true;
-    script.src = "https://www.tryme.co/widgets?token=8ba1533f-44a0-45d4-9a57-79ba8f2ded15.js?v=" + new Date().getTime();
-    document.body.appendChild(script);
-  })();
-</script>
+                <script
+                    type="text/javascript"
+                    dangerouslySetInnerHTML={{ __html: trymeWidgetScript }}
+                />
             </body>
         </html>
     );
