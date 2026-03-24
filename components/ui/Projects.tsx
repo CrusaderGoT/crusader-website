@@ -99,11 +99,11 @@ function RepoCard({ repo, langs }: RepoCardProp) {
                             fz="sm"
                             c={"blue.3"}
                             className={cx(
-                                repo.homepage.includes("crusadergot") &&
+                                repo.homepage.includes("crusadergot.vercel.app") &&
                                     globalClasses.disabledAnchor
                             )}
                         >
-                            {repo.homepage.includes("crusadergot")
+                            {repo.homepage.includes("crusadergot.vercel.app")
                                 ? "You are Here"
                                 : "Live"}
                         </Anchor>
