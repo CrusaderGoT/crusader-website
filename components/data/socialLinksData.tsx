@@ -40,4 +40,10 @@ export const footerSocialData: FooterSocialProp[] = [
         color: "blue",
         href: "https://www.linkedin.com/in/chukwuemeka-enemchukwu/",
     },
+{
+        name: "CV",
+        icon: IconFileCv,
+        color: "black",
+        href: "https://docs.google.com/document/d/1_K2AVqcSk2yhvGqaYW96ySw-MRj1Lh0b/edit?usp=drivesdk&ouid=114543511838669966141&rtpof=true&sd=true",
+    },
 ];
