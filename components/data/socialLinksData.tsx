@@ -6,6 +6,7 @@ import {
     IconBrandLinkedinFilled,
     IconMail,
     IconPhoneCall,
+    IconFileCv,
 } from "@tabler/icons-react";
 
 type FooterSocialProp = {
